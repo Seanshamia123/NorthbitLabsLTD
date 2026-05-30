@@ -20,7 +20,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://northbitlabs.com"),
+  metadataBase: new URL("https://northbitlabs.tech"),
   title: "NorthBit Labs — Custom Software · AI Operations · Consulting",
   description:
     "A technology firm that builds custom software designed around your business, applies AI to streamline your operations, and delivers measurable results. Based in Kenya.",
@@ -60,9 +60,19 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="en"
+      lang="en-KE"
       className={`${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
+      <head>
+        {/* Kill React DevTools in production — prevents component-tree inspection */}
+        {process.env.NODE_ENV === "production" && (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `(function(){var h=window.__REACT_DEVTOOLS_GLOBAL_HOOK__;if(h){h.isDisabled=true;h.inject=function(){};h.supportsFiber=false;}else{window.__REACT_DEVTOOLS_GLOBAL_HOOK__={isDisabled:true,inject:function(){},supportsFiber:false,renderers:new Map()};}})();`,
+            }}
+          />
+        )}
+      </head>
       <body style={{ fontFamily: "var(--font-space-grotesk), system-ui, sans-serif" }}>
         <SmoothScroll />
         <Header />

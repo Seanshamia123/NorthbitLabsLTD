@@ -1,28 +1,53 @@
 "use client";
 
+import { useState } from "react";
 import Reveal from "@/components/ui/Reveal";
 import FadeUp from "@/components/ui/FadeUp";
 import HeroReveal from "@/components/ui/HeroReveal";
 import MagneticBtn from "@/components/ui/MagneticBtn";
 import { CONTACT } from "@/lib/data";
 
-function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-  e.preventDefault();
-  const fd = new FormData(e.currentTarget);
-  const name    = (fd.get("name")    as string) || "";
-  const company = (fd.get("company") as string) || "";
-  const email   = (fd.get("email")   as string) || "";
-  const message = (fd.get("message") as string) || "";
-
-  const subject = `Enquiry from ${name}${company ? ` — ${company}` : ""}`;
-  const body    = `Name: ${name}\nCompany: ${company || "—"}\nReply-to: ${email}\n\n${message}`;
-
-  window.open(
-    `mailto:${CONTACT.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-  );
-}
+type Status = "idle" | "loading" | "success" | "error";
 
 export default function ContactPage() {
+  const [status, setStatus] = useState<Status>("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+
+  async function handleSubmit(e: { preventDefault(): void; currentTarget: HTMLFormElement }) {
+    e.preventDefault();
+    setStatus("loading");
+    setErrorMsg("");
+
+    const fd = new FormData(e.currentTarget);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name:    fd.get("name")    as string,
+          company: fd.get("company") as string,
+          email:   fd.get("email")   as string,
+          message: fd.get("message") as string,
+          website: fd.get("website") as string, // honeypot
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error ?? "Something went wrong.");
+      }
+
+      setStatus("success");
+    } catch (err) {
+      setStatus("error");
+      setErrorMsg(
+        err instanceof Error ? err.message : "Something went wrong."
+      );
+    }
+  }
+
   return (
     <>
       {/* HERO */}
@@ -105,77 +130,124 @@ export default function ContactPage() {
                 <h2 style={{ fontSize: "clamp(22px,2.5vw,34px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.1, marginBottom: 32 }}>
                   Send a message.
                 </h2>
-                <form
-                  onSubmit={handleSubmit}
-                  style={{ display: "flex", flexDirection: "column", gap: 24 }}
-                >
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }} className="form-row">
-                    <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                      <label htmlFor="name" style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "#5C6470" }}>
-                        Name
-                      </label>
-                      <input
-                        id="name"
-                        type="text"
-                        name="name"
-                        placeholder="Your name"
-                        autoComplete="name"
-                        className="field-input"
-                        style={{ font: "inherit", fontSize: 16, padding: "14px 16px", border: "1px solid #D9E1E8", borderRadius: 4, color: "#0B0F14", background: "#F5F2EC", outline: "none", width: "100%" }}
-                      />
+
+                {status === "success" ? (
+                  <div style={{ background: "#F5F2EC", border: "1px solid #D9E1E8", borderRadius: 8, padding: "40px 36px" }}>
+                    <div style={{ width: 44, height: 44, background: "rgba(58,92,26,0.12)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 20 }}>
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M4 10l4 4 8-8" stroke="#3A5C1A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
                     </div>
-                    <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                      <label htmlFor="company" style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "#5C6470" }}>
-                        Company
-                      </label>
-                      <input
-                        id="company"
-                        type="text"
-                        name="company"
-                        placeholder="Company name"
-                        autoComplete="organization"
-                        className="field-input"
-                        style={{ font: "inherit", fontSize: 16, padding: "14px 16px", border: "1px solid #D9E1E8", borderRadius: 4, color: "#0B0F14", background: "#F5F2EC", outline: "none", width: "100%" }}
-                      />
-                    </div>
-                  </div>
-
-                  <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                    <label htmlFor="email" style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "#5C6470" }}>
-                      Email
-                    </label>
-                    <input
-                      id="email"
-                      type="email"
-                      name="email"
-                      placeholder="your@email.com"
-                      autoComplete="email"
-                      required
-                      className="field-input"
-                      style={{ font: "inherit", fontSize: 16, padding: "14px 16px", border: "1px solid #D9E1E8", borderRadius: 4, color: "#0B0F14", background: "#F5F2EC", outline: "none", width: "100%" }}
-                    />
-                  </div>
-
-                  <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                    <label htmlFor="message" style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "#5C6470" }}>
-                      What are you trying to build?
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={5}
-                      placeholder="Describe the problem or the system you have in mind. The more specific, the better."
-                      className="field-input"
-                      style={{ font: "inherit", fontSize: 16, padding: "14px 16px", border: "1px solid #D9E1E8", borderRadius: 4, color: "#0B0F14", background: "#F5F2EC", outline: "none", resize: "vertical", width: "100%" }}
-                    />
-                  </div>
-
-                  <MagneticBtn>
-                    <button type="submit" className="btn btn-primary contact-submit" style={{ alignSelf: "flex-start", fontSize: 15 }}>
-                      Send message →
+                    <h3 style={{ fontSize: 22, fontWeight: 600, letterSpacing: "-0.015em", marginBottom: 12 }}>Message sent.</h3>
+                    <p style={{ fontSize: 16, color: "#5C6470", lineHeight: 1.65, marginBottom: 24 }}>
+                      We will get back to you within 24 hours. If your matter is urgent, call us directly at{" "}
+                      <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} style={{ color: "#3A5C1A", fontWeight: 500 }}>{CONTACT.phone}</a>.
+                    </p>
+                    <button
+                      onClick={() => setStatus("idle")}
+                      className="btn btn-ghost"
+                      style={{ fontSize: 14 }}
+                    >
+                      Send another message
                     </button>
-                  </MagneticBtn>
-                </form>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+                    {/* Honeypot — visually hidden, bots fill it */}
+                    <input
+                      type="text"
+                      name="website"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      style={{ position: "absolute", left: "-9999px", height: 0, width: 0, overflow: "hidden", opacity: 0 }}
+                    />
+
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }} className="form-row">
+                      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                        <label htmlFor="name" style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "#5C6470" }}>
+                          Name
+                        </label>
+                        <input
+                          id="name"
+                          type="text"
+                          name="name"
+                          placeholder="Your name"
+                          autoComplete="name"
+                          required
+                          disabled={status === "loading"}
+                          className="field-input"
+                          style={{ font: "inherit", fontSize: 16, padding: "14px 16px", border: "1px solid #D9E1E8", borderRadius: 4, color: "#0B0F14", background: "#F5F2EC", outline: "none", width: "100%" }}
+                        />
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                        <label htmlFor="company" style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "#5C6470" }}>
+                          Company
+                        </label>
+                        <input
+                          id="company"
+                          type="text"
+                          name="company"
+                          placeholder="Company name"
+                          autoComplete="organization"
+                          disabled={status === "loading"}
+                          className="field-input"
+                          style={{ font: "inherit", fontSize: 16, padding: "14px 16px", border: "1px solid #D9E1E8", borderRadius: 4, color: "#0B0F14", background: "#F5F2EC", outline: "none", width: "100%" }}
+                        />
+                      </div>
+                    </div>
+
+                    <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                      <label htmlFor="email" style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "#5C6470" }}>
+                        Email
+                      </label>
+                      <input
+                        id="email"
+                        type="email"
+                        name="email"
+                        placeholder="your@email.com"
+                        autoComplete="email"
+                        required
+                        disabled={status === "loading"}
+                        className="field-input"
+                        style={{ font: "inherit", fontSize: 16, padding: "14px 16px", border: "1px solid #D9E1E8", borderRadius: 4, color: "#0B0F14", background: "#F5F2EC", outline: "none", width: "100%" }}
+                      />
+                    </div>
+
+                    <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                      <label htmlFor="message" style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "#5C6470" }}>
+                        What are you trying to build?
+                      </label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        rows={5}
+                        placeholder="Describe the problem or the system you have in mind. The more specific, the better."
+                        disabled={status === "loading"}
+                        className="field-input"
+                        style={{ font: "inherit", fontSize: 16, padding: "14px 16px", border: "1px solid #D9E1E8", borderRadius: 4, color: "#0B0F14", background: "#F5F2EC", outline: "none", resize: "vertical", width: "100%" }}
+                      />
+                    </div>
+
+                    {status === "error" && (
+                      <div style={{ background: "rgba(200,40,40,0.07)", border: "1px solid rgba(200,40,40,0.2)", borderRadius: 4, padding: "12px 16px", fontSize: 14, color: "#b33" }}>
+                        {errorMsg || "Something went wrong. Please try again."}
+                      </div>
+                    )}
+
+                    <MagneticBtn>
+                      <button
+                        type="submit"
+                        disabled={status === "loading"}
+                        className="btn btn-primary contact-submit"
+                        style={{ alignSelf: "flex-start", fontSize: 15, opacity: status === "loading" ? 0.6 : 1 }}
+                      >
+                        {status === "loading" ? "Sending…" : "Send message →"}
+                      </button>
+                    </MagneticBtn>
+                  </form>
+                )}
+
                 <style>{`@media (max-width: 480px) { .form-row { grid-template-columns: 1fr !important; } }`}</style>
               </div>
             </Reveal>
