@@ -1,10 +1,14 @@
 import { Resend } from "resend";
 import { headers } from "next/headers";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const FROM = process.env.RESEND_FROM_EMAIL ?? "hello@northbitlabs.tech";
 const TO   = process.env.CONTACT_TO_EMAIL   ?? "northbitlabs@gmail.com";
+
+function getResend(): Resend {
+  const key = process.env.RESEND_API_KEY;
+  if (!key) throw new Error("RESEND_API_KEY is not configured.");
+  return new Resend(key);
+}
 
 const ALLOWED_ORIGINS = [
   "https://northbitlabs.tech",
@@ -115,6 +119,7 @@ export async function POST(request: Request) {
   }
 
   try {
+    const resend = getResend();
     await resend.emails.send({
       from: FROM,
       to: TO,
