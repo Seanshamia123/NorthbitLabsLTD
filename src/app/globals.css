@@ -348,11 +348,6 @@ body::after {
   border-radius: 2px;
 }
 
-/* ---- Clients grid responsive ---- */
-@media (max-width: 680px) {
-  .clients-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
-}
-
 /* ---- Reduced motion — disable CSS hover transitions + atmospheric motion ---- */
 @media (prefers-reduced-motion: reduce) {
   .link-arrow,

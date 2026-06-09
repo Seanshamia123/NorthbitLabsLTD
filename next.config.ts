@@ -1,5 +1,13 @@
 import type { NextConfig } from "next";
 
+const isDev = process.env.NODE_ENV !== "production";
+
+// React + Turbopack need eval() in dev for hot reload / stack reconstruction.
+// Production never uses eval, so this is scoped to development only.
+const scriptSrc = isDev
+  ? "script-src 'self' 'unsafe-inline' 'unsafe-eval'"
+  : "script-src 'self' 'unsafe-inline'";
+
 const securityHeaders = [
   { key: "X-Frame-Options", value: "DENY" },
   { key: "X-Content-Type-Options", value: "nosniff" },
@@ -17,11 +25,11 @@ const securityHeaders = [
     key: "Content-Security-Policy",
     value: [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' https://assets.apollo.io",
+      scriptSrc,
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self' data: blob:",
-      "connect-src 'self' https://*.apollo.io",
+      "connect-src 'self'",
       "frame-src 'none'",
       "object-src 'none'",
       "base-uri 'self'",
@@ -30,6 +38,11 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // Pin the workspace root — a stray lockfile at /home/pc made Turbopack
+  // infer the wrong root. __dirname is this project directory.
+  turbopack: {
+    root: __dirname,
+  },
   poweredByHeader: false,
   compress: true,
   productionBrowserSourceMaps: false,

@@ -4,13 +4,16 @@ import FadeUp from "@/components/ui/FadeUp";
 import HeroReveal from "@/components/ui/HeroReveal";
 import MagneticBtn from "@/components/ui/MagneticBtn";
 import { CONTACT, DIFFERENTIATORS } from "@/lib/data";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
   title: "About — NorthBit Labs",
   description: "NorthBit Labs is a technology firm founded to solve a recurring problem: ambitious businesses held back by manual processes and software built for someone else.",
+  alternates: { canonical: "/about" },
   openGraph: {
     title: "About — NorthBit Labs",
     description: "NorthBit Labs is a technology firm founded to solve a recurring problem: ambitious businesses held back by manual processes and software built for someone else.",
+    url: "/about",
     type: "website",
     locale: "en_KE",
   },
@@ -20,6 +23,7 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <>
+      <BreadcrumbJsonLd name="About" path="/about" />
       {/* HERO */}
       <section className="hero-ink" style={{ background: "#0B0F14", color: "#F5F2EC", padding: "clamp(80px,11vw,160px) 0 clamp(64px,7vw,104px)" }}>
         <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(58,92,26,0.10) 1px, transparent 1px)", backgroundSize: "28px 28px", pointerEvents: "none" }} />

@@ -5,13 +5,16 @@ import HeroReveal from "@/components/ui/HeroReveal";
 import MagneticBtn from "@/components/ui/MagneticBtn";
 import CaseImagePane from "@/components/ui/CaseImagePane";
 import { CLIENTS } from "@/lib/data";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
   title: "Work — NorthBit Labs",
-  description: "Three active client partnerships, each one personally earned. Magena Pilates, Premier Beauty Clinic, S.Socials.",
+  description: "Five active client partnerships, each one personally earned. Magena Pilates, Premier Beauty Clinic, S.Socials, Remitcore and Kasapay.",
+  alternates: { canonical: "/work" },
   openGraph: {
     title: "Work — NorthBit Labs",
-    description: "Three active client partnerships, each one personally earned. Magena Pilates, Premier Beauty Clinic, S.Socials.",
+    description: "Five active client partnerships, each one personally earned. Magena Pilates, Premier Beauty Clinic, S.Socials, Remitcore and Kasapay.",
+    url: "/work",
     type: "website",
     locale: "en_KE",
   },
@@ -21,6 +24,7 @@ export const metadata = {
 export default function WorkPage() {
   return (
     <>
+      <BreadcrumbJsonLd name="Work" path="/work" />
       {/* HERO */}
       <section className="hero-ink" style={{ background: "#0B0F14", color: "#F5F2EC", padding: "clamp(80px,11vw,160px) 0 clamp(64px,7vw,104px)" }}>
         <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(58,92,26,0.10) 1px, transparent 1px)", backgroundSize: "28px 28px", pointerEvents: "none" }} />

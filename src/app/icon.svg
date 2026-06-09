@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Rounded square background -->
+  <rect width="100" height="100" fill="#1C1C1C" rx="20"/>
+
+  <!-- N letterform — shifted left to make room for the green square -->
+  <g fill="#FFFFFF">
+    <!-- Left vertical bar -->
+    <rect x="14" y="20" width="13" height="58"/>
+    <!-- Right vertical bar -->
+    <rect x="58" y="20" width="13" height="58"/>
+    <!-- Diagonal stroke top-left to bottom-right -->
+    <polygon points="14,20 27,20 71,78 58,78"/>
+  </g>
+
+  <!-- Green bit square — to the RIGHT of right bar top, no overlap, like a superscript -->
+  <rect x="73" y="19" width="13" height="13" fill="#3A5C1A"/>
+</svg>

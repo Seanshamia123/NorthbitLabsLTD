@@ -4,13 +4,16 @@ import FadeUp from "@/components/ui/FadeUp";
 import HeroReveal from "@/components/ui/HeroReveal";
 import MagneticBtn from "@/components/ui/MagneticBtn";
 import { SERVICES, ENGAGEMENT_MODELS } from "@/lib/data";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
   title: "Services — NorthBit Labs",
   description: "Custom software, AI-powered automation and technology consulting. Three pillars, 13 capabilities, one senior-practitioner team.",
+  alternates: { canonical: "/services" },
   openGraph: {
     title: "Services — NorthBit Labs",
     description: "Custom software, AI-powered automation and technology consulting. Three pillars, 13 capabilities, one senior-practitioner team.",
+    url: "/services",
     type: "website",
     locale: "en_KE",
   },
@@ -22,6 +25,7 @@ export default function ServicesPage() {
 
   return (
     <>
+      <BreadcrumbJsonLd name="Services" path="/services" />
       {/* HERO */}
       <section className="hero-ink" style={{ background: "#0B0F14", color: "#F5F2EC", padding: "clamp(80px,11vw,160px) 0 clamp(64px,7vw,104px)" }}>
         <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(58,92,26,0.10) 1px, transparent 1px)", backgroundSize: "28px 28px", pointerEvents: "none" }} />

@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SmoothScroll from "@/components/ui/SmoothScroll";
+import JsonLd from "@/components/seo/JsonLd";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -33,17 +34,35 @@ export const metadata: Metadata = {
     "Mpesa integration",
     "NorthBit Labs",
   ],
-  icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+  authors: [{ name: "NorthBit Labs" }],
+  creator: "NorthBit Labs",
+  publisher: "NorthBit Labs",
+  alternates: {
+    canonical: "/",
   },
+  // Icons are resolved from the app-directory file conventions:
+  // app/favicon.ico, app/icon.svg, app/apple-icon.png — no manual links needed.
+  // Google Search Console verification. Set GOOGLE_SITE_VERIFICATION in the
+  // deployment env; the meta tag is omitted entirely when it's not set.
+  verification: process.env.GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+    : undefined,
   openGraph: {
     title: "NorthBit Labs — Software Engineered North",
     description:
       "Custom software, AI operations and technology consulting for businesses in Kenya and East Africa.",
+    url: "/",
     type: "website",
     locale: "en_KE",
     siteName: "NorthBit Labs",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "NorthBit Labs — Software built around the way your business works.",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -72,12 +91,7 @@ export default function RootLayout({
             }}
           />
         )}
-        {/* Apollo.io website tracker */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,o.onload=function(){window.trackingFunctions.onLoad({appId:"6a06d2f8a53cf7000df498a1"})},document.head.appendChild(o)}initApollo();`,
-          }}
-        />
+        <JsonLd />
       </head>
       <body style={{ fontFamily: "var(--font-space-grotesk), system-ui, sans-serif" }}>
         <SmoothScroll />

@@ -264,11 +264,49 @@ export const CLIENTS = [
     ],
     status: "Live",
   },
+  {
+    id: "remitcore",
+    name: "Remitcore",
+    category: "Fintech & Remittance",
+    tags: ["FINTECH", "REMITTANCE", "MAINTENANCE"],
+    url: "https://remitcore.co/",
+    logo: "/logos/Remitcore.svg",
+    brandColor: "#1E3A8A",
+    headline: "Maintaining and evolving a cross-border remittance platform.",
+    description:
+      "Trusted for over a year with Remitcore's live cross-border payments platform — a single-contract, single-API, single-settlement aggregator for money-transfer businesses. We handle ongoing maintenance, feature updates and bug fixes on the production system.",
+    outcomes: [
+      "Over a year maintaining the live production platform",
+      "Continuous feature updates and improvements",
+      "Bug fixes and reliability work on the live system",
+      "Single-API cross-border settlement infrastructure",
+    ],
+    status: "Live · Maintained",
+  },
+  {
+    id: "kasapay",
+    name: "Kasapay",
+    category: "Fintech & Payments",
+    tags: ["FINTECH", "PAYMENTS", "CUSTOM SOFTWARE"],
+    url: "https://www.kasapay.com/",
+    logo: "/logos/kasapay.jpeg",
+    brandColor: "#1D5599",
+    headline: "Building the core platform for a CBK dual-licensed PSP.",
+    description:
+      "Engineering the core payment platform for Kasapay — Kenya's first non-telco operator dual-licensed by the Central Bank of Kenya as both a payment service provider and a money-remittance operator. Payment acceptance, payouts, transaction management and settlement, built to CBK compliance standards.",
+    outcomes: [
+      "Core PSP platform engineered from the ground up",
+      "Payment acceptance, payouts and settlement flows",
+      "Built to CBK PSP and money-remittance standards",
+      "Active build in progress",
+    ],
+    status: "In Development",
+  },
 ];
 
 export const STATS = [
   { num: "100%", label: "Senior practitioners on every engagement. No junior handoffs, ever." },
-  { num: "3", label: "Active client partnerships, each one personally earned and referenced." },
+  { num: "5", label: "Active client partnerships, each one personally earned and referenced." },
   { num: "5", label: "Working days to receive a written proposal after your first call." },
   { num: "30", label: "Minute discovery call — no pitch deck, no fluff — to start every engagement." },
 ];

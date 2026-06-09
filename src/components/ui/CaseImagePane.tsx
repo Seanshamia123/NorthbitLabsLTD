@@ -127,7 +127,11 @@ export default function CaseImagePane({ name, category, tags, logo, brandColor, 
         >
           <img
             src={logo}
-            alt={name}
+            alt={`${name} logo`}
+            width={96}
+            height={96}
+            loading="lazy"
+            decoding="async"
             style={{
               width: "80%",
               height: "80%",

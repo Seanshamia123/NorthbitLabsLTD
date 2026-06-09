@@ -4,13 +4,16 @@ import FadeUp from "@/components/ui/FadeUp";
 import HeroReveal from "@/components/ui/HeroReveal";
 import MagneticBtn from "@/components/ui/MagneticBtn";
 import { INDUSTRIES } from "@/lib/data";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
   title: "Industries — NorthBit Labs",
   description: "Fintech, wellness, beauty, retail, brand building and more. Domains we know well enough to push back in.",
+  alternates: { canonical: "/industries" },
   openGraph: {
     title: "Industries — NorthBit Labs",
     description: "Fintech, wellness, beauty, retail, brand building and more. Domains we know well enough to push back in.",
+    url: "/industries",
     type: "website",
     locale: "en_KE",
   },
@@ -20,6 +23,7 @@ export const metadata = {
 export default function IndustriesPage() {
   return (
     <>
+      <BreadcrumbJsonLd name="Industries" path="/industries" />
       {/* HERO */}
       <section className="hero-ink" style={{ background: "#0B0F14", color: "#F5F2EC", padding: "clamp(80px,11vw,160px) 0 clamp(64px,7vw,104px)" }}>
         <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(58,92,26,0.10) 1px, transparent 1px)", backgroundSize: "28px 28px", pointerEvents: "none" }} />
