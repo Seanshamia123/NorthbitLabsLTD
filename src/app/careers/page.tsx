@@ -2,6 +2,7 @@ import Reveal from "@/components/ui/Reveal";
 import FadeUp from "@/components/ui/FadeUp";
 import HeroReveal from "@/components/ui/HeroReveal";
 import MagneticBtn from "@/components/ui/MagneticBtn";
+import CtaPhotoSection from "@/components/ui/CtaPhotoSection";
 import { CONTACT } from "@/lib/data";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
@@ -207,7 +208,7 @@ export default function CareersPage() {
       </section>
 
       {/* OPEN APPLICATION */}
-      <section className="section section--ink">
+      <CtaPhotoSection>
         <div className="wrap">
           <Reveal>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }} className="open-app-grid">
@@ -236,7 +237,7 @@ export default function CareersPage() {
           </Reveal>
         </div>
         <style>{`@media (max-width: 760px) { .open-app-grid { grid-template-columns: 1fr !important; gap: 40px !important; } }`}</style>
-      </section>
+      </CtaPhotoSection>
     </>
   );
 }

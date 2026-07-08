@@ -3,6 +3,7 @@ import Reveal from "@/components/ui/Reveal";
 import FadeUp from "@/components/ui/FadeUp";
 import HeroReveal from "@/components/ui/HeroReveal";
 import MagneticBtn from "@/components/ui/MagneticBtn";
+import CtaPhotoSection from "@/components/ui/CtaPhotoSection";
 import { CONTACT, DIFFERENTIATORS } from "@/lib/data";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
@@ -217,21 +218,21 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="section">
+      <CtaPhotoSection>
         <div className="wrap" style={{ textAlign: "center", maxWidth: 600, margin: "0 auto" }}>
           <Reveal>
-            <h2 style={{ fontSize: "clamp(28px,4vw,56px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.05, marginBottom: 20 }}>
+            <h2 style={{ fontSize: "clamp(28px,4vw,56px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.05, marginBottom: 20, color: "#F5F2EC", textShadow: "0 2px 18px rgba(11,15,20,0.6)" }}>
               Ready to talk?
             </h2>
-            <p style={{ fontSize: 18, color: "#5C6470", lineHeight: 1.65, marginBottom: 36 }}>
+            <p style={{ fontSize: 18, color: "#AAB2BC", lineHeight: 1.65, marginBottom: 36, textShadow: "0 1px 10px rgba(11,15,20,0.7)" }}>
               A 30-minute call or a physical meeting at our Nairobi location. No pitch deck. Just a direct conversation about what you are trying to build.
             </p>
             <MagneticBtn>
-              <Link href="/contact" className="btn btn-primary" style={{ fontSize: 16 }}>Book a discovery call →</Link>
+              <Link href="/contact" className="btn btn-signal" style={{ fontSize: 16 }}>Book a discovery call →</Link>
             </MagneticBtn>
           </Reveal>
         </div>
-      </section>
+      </CtaPhotoSection>
     </>
   );
 }

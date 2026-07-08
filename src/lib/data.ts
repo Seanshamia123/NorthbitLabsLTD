@@ -216,6 +216,7 @@ export const CLIENTS = [
     tags: ["CUSTOM SOFTWARE", "WEB"],
     url: "https://www.magenapilates.com/",
     logo: "/logos/magena-pilates.jpg",
+    image: "/work/magena-pilates.webp",
     brandColor: "#3D3530",
     headline: "Pre-order platform with waiting-list logic for a pilates studio.",
     description:
@@ -234,6 +235,7 @@ export const CLIENTS = [
     tags: ["E-COMMERCE", "PAYMENTS", "AI"],
     url: "https://premierbeautyclinic.vercel.app/",
     logo: "/logos/premier-beauty.png",
+    image: "/work/premier-beauty.webp",
     brandColor: "#6D4C91",
     headline: "E-commerce system with Mpesa integration and AI roadmap.",
     description:
@@ -253,6 +255,7 @@ export const CLIENTS = [
     tags: ["WEB", "BRAND"],
     url: "https://ssocials.co/",
     logo: "/logos/ssocials.svg",
+    image: "/work/ssocials.webp",
     brandColor: "#03234d",
     headline: "Portfolio platform built to convert brand deals.",
     description:
@@ -271,6 +274,7 @@ export const CLIENTS = [
     tags: ["FINTECH", "REMITTANCE", "MAINTENANCE"],
     url: "https://remitcore.co/",
     logo: "/logos/Remitcore.svg",
+    image: "/work/remitcore.webp",
     brandColor: "#1E3A8A",
     headline: "Maintaining and evolving a cross-border remittance platform.",
     description:
@@ -290,6 +294,7 @@ export const CLIENTS = [
     tags: ["FINTECH", "PAYMENTS", "CUSTOM SOFTWARE"],
     url: "https://www.kasapay.com/",
     logo: "/logos/kasapay.jpeg",
+    image: "/work/kasapay.webp",
     brandColor: "#1D5599",
     headline: "Building the core platform for a CBK dual-licensed PSP.",
     description:
@@ -304,9 +309,63 @@ export const CLIENTS = [
   },
 ];
 
+export const ACTIVE_BUILD = {
+  id: "count-technologies",
+  client: "Count Technologies Ltd.",
+  category: "Fintech & Enterprise Systems",
+  logo: "/logos/count-technologies-mono.png",
+  logoColor: "/logos/count-technologies.png",
+  headline: "Five systems for one client.",
+  intro:
+    "Count Technologies Ltd. engaged NorthBit to design and build five systems in parallel — accounting, forex booking, HR, a field Android app and an AML screening agent. One is already in production in the field; we are rebuilding it while the other four take shape.",
+  systems: [
+    {
+      num: "01",
+      title: "Accounting System",
+      line: "Core ledger, invoicing and financial reporting.",
+      domain: "FINANCE",
+      status: "IN DEVELOPMENT",
+      live: false,
+    },
+    {
+      num: "02",
+      title: "Forex Booking System",
+      line: "Currency booking, rates and settlement for forex desks.",
+      domain: "FOREX",
+      status: "IN DEVELOPMENT",
+      live: false,
+    },
+    {
+      num: "03",
+      title: "HR System",
+      line: "Staff records, leave and payroll in one system.",
+      domain: "HR",
+      status: "IN DEVELOPMENT",
+      live: false,
+    },
+    {
+      num: "04",
+      title: "Field Android App",
+      line: "Already in production across organisations and NGOs in South Sudan — we are rebuilding and upgrading it.",
+      domain: "MOBILE",
+      status: "IN PRODUCTION · UPGRADING",
+      live: true,
+    },
+    {
+      num: "05",
+      title: "AML Screening Agent",
+      line: "Automated AML screening and transaction monitoring that flags suspicious activity for fintechs.",
+      domain: "COMPLIANCE",
+      status: "IN DEVELOPMENT",
+      live: false,
+    },
+  ],
+};
+
 export const STATS = [
   { num: "100%", label: "Senior practitioners on every engagement. No junior handoffs, ever." },
   { num: "5", label: "Active client partnerships, each one personally earned and referenced." },
+  { num: "5", label: "Systems in active development for a single client engagement." },
   { num: "5", label: "Working days to receive a written proposal after your first call." },
   { num: "30", label: "Minute discovery call — no pitch deck, no fluff — to start every engagement." },
 ];

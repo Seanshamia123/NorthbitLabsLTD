@@ -3,6 +3,7 @@ import Reveal from "@/components/ui/Reveal";
 import FadeUp from "@/components/ui/FadeUp";
 import HeroReveal from "@/components/ui/HeroReveal";
 import MagneticBtn from "@/components/ui/MagneticBtn";
+import CtaPhotoSection from "@/components/ui/CtaPhotoSection";
 import { INDUSTRIES } from "@/lib/data";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
@@ -123,22 +124,22 @@ export default function IndustriesPage() {
       </section>
 
       {/* CTA */}
-      <section className="section section--frost">
+      <CtaPhotoSection>
         <div className="wrap" style={{ textAlign: "center", maxWidth: 640, margin: "0 auto" }}>
           <Reveal>
-            <h2 style={{ fontSize: "clamp(28px,4vw,56px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.05, marginBottom: 20 }}>
+            <h2 style={{ fontSize: "clamp(28px,4vw,56px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.05, marginBottom: 20, color: "#F5F2EC", textShadow: "0 2px 18px rgba(11,15,20,0.6)" }}>
               Not seeing your industry?
             </h2>
-            <p style={{ fontSize: 18, color: "#5C6470", lineHeight: 1.65, marginBottom: 36 }}>
+            <p style={{ fontSize: 18, color: "#AAB2BC", lineHeight: 1.65, marginBottom: 36, textShadow: "0 1px 10px rgba(11,15,20,0.7)" }}>
               We have worked across many verticals. If your industry is not listed, tell us what you are building. We will
               tell you honestly whether we have the domain depth to help.
             </p>
             <MagneticBtn>
-              <Link href="/contact" className="btn btn-primary">Start a conversation →</Link>
+              <Link href="/contact" className="btn btn-signal">Start a conversation →</Link>
             </MagneticBtn>
           </Reveal>
         </div>
-      </section>
+      </CtaPhotoSection>
     </>
   );
 }

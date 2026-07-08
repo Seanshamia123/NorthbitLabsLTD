@@ -5,11 +5,24 @@ import FadeUp from "@/components/ui/FadeUp";
 import ClientsGrid from "@/components/ui/ClientsGrid";
 import HeroReveal from "@/components/ui/HeroReveal";
 import MagneticBtn from "@/components/ui/MagneticBtn";
-import { STATS, SERVICES, INDUSTRIES, CLIENTS, HOW_WE_WORK, DIFFERENTIATORS, CONTACT } from "@/lib/data";
+import { STATS, SERVICES, INDUSTRIES, CLIENTS, ACTIVE_BUILD, HOW_WE_WORK, DIFFERENTIATORS, CONTACT } from "@/lib/data";
 
 export default function HomePage() {
   const pillars = SERVICES.filter((s) => s.pillar);
   const [pillar1, pillar2, pillar3] = pillars;
+
+  const logoBand = [
+    ...CLIENTS,
+    {
+      id: ACTIVE_BUILD.id,
+      name: ACTIVE_BUILD.client,
+      category: ACTIVE_BUILD.category,
+      url: `/work#${ACTIVE_BUILD.id}`,
+      logo: ACTIVE_BUILD.logoColor,
+      brandColor: "#2E6FBF",
+      wide: true,
+    },
+  ];
 
   return (
     <>
@@ -62,36 +75,55 @@ export default function HomePage() {
       {/* CLIENTS */}
       <section style={{ borderBottom: "1px solid #D9E1E8", background: "#F5F2EC" }}>
         <div className="wrap">
-          <ClientsGrid clients={CLIENTS} />
+          <ClientsGrid clients={logoBand} />
         </div>
       </section>
 
       {/* STATS BAND */}
-      <section style={{ background: "#0B0F14", padding: 0 }}>
-        <div className="wrap">
+      <section style={{ position: "relative", background: "#0B0F14", padding: "clamp(72px,9vw,120px) 0", overflow: "hidden" }}>
+        {/* background photo */}
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage: "url('/textures/studio-engineers-dark.webp')",
+            backgroundSize: "cover",
+            backgroundPosition: "center 50%",
+          }}
+        />
+        {/* dark overlay keeps the numerals + labels readable while the photo stays visible */}
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(180deg, rgba(11,15,20,0.66) 0%, rgba(11,15,20,0.46) 50%, rgba(11,15,20,0.72) 100%)",
+          }}
+        />
+        <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
           <Reveal>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", borderTop: "1px solid #232931", borderBottom: "1px solid #232931" }} className="stats-grid">
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", borderTop: "1px solid #2A333D", borderBottom: "1px solid #2A333D" }} className="stats-grid">
               {STATS.map((s, i) => (
-                <div key={i} style={{ padding: "48px 28px", borderRight: i < STATS.length - 1 ? "1px solid #232931" : "none" }} className="stat-cell">
-                  <div style={{ fontSize: "clamp(40px,5vw,76px)", fontWeight: 700, letterSpacing: "-0.04em", lineHeight: 1, color: "#F5F2EC", marginBottom: 14 }}>
+                <div key={i} style={{ padding: "48px 28px", borderRight: i < STATS.length - 1 ? "1px solid #2A333D" : "none" }} className="stat-cell">
+                  <div style={{ fontSize: "clamp(40px,5vw,76px)", fontWeight: 700, letterSpacing: "-0.04em", lineHeight: 1, color: "#F5F2EC", marginBottom: 14, textShadow: "0 2px 16px rgba(11,15,20,0.7)" }}>
                     {s.num}
                   </div>
-                  <p style={{ fontSize: 13, color: "#9098A4", maxWidth: "22ch", lineHeight: 1.55 }}>{s.label}</p>
+                  <p style={{ fontSize: 13, color: "#AAB2BC", maxWidth: "22ch", lineHeight: 1.55, textShadow: "0 1px 10px rgba(11,15,20,0.85)" }}>{s.label}</p>
                 </div>
               ))}
             </div>
           </Reveal>
         </div>
         <style>{`
-          @media (max-width: 760px) {
+          @media (max-width: 900px) {
             .stats-grid { grid-template-columns: 1fr 1fr !important; }
-            .stat-cell { border-right: none !important; border-bottom: 1px solid #232931 !important; }
-            .stat-cell:nth-last-child(-n+2) { border-bottom: none !important; }
+            .stat-cell { border-right: none !important; border-bottom: 1px solid #2A333D !important; }
+            .stat-cell:last-child { border-bottom: none !important; grid-column: 1 / -1 !important; }
           }
           @media (max-width: 420px) {
             .stats-grid { grid-template-columns: 1fr !important; }
-            .stat-cell { border-bottom: 1px solid #232931 !important; }
-            .stat-cell:last-child { border-bottom: none !important; }
           }
         `}</style>
       </section>
@@ -216,11 +248,17 @@ export default function HomePage() {
               <Reveal key={client.id} delay={i * 80}>
                 <a href={client.url} target="_blank" rel="noopener noreferrer" className="work-card"
                   style={{ background: "#14181F", borderRadius: 8, overflow: "hidden", display: "flex", flexDirection: "column", border: "1px solid #232931", textDecoration: "none", color: "inherit", height: "100%" }}>
-                  <div style={{ aspectRatio: "16/9", background: "#1C2129", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", position: "relative", overflow: "hidden", gap: 16, padding: 32 }}>
-                    <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(58,92,26,0.12) 1px, transparent 1px)", backgroundSize: "20px 20px" }} />
-                    <div style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 9, letterSpacing: "0.28em", color: "#3A5C1A", background: "rgba(58,92,26,0.12)", padding: "3px 10px", borderRadius: 999, position: "relative", zIndex: 1 }}>{client.tags[0]}</div>
-                    <div style={{ fontFamily: "var(--font-space-grotesk), sans-serif", fontSize: "clamp(20px,2.5vw,32px)", fontWeight: 700, letterSpacing: "-0.035em", color: "#F5F2EC", lineHeight: 1, position: "relative", zIndex: 1, textAlign: "center" }}>{client.name}</div>
-                    <div style={{ width: 24, height: 1, background: "rgba(58,92,26,0.5)", position: "relative", zIndex: 1 }} />
+                  <div style={{ aspectRatio: "16/9", background: "#1C2129", position: "relative", overflow: "hidden" }}>
+                    <img
+                      src={client.image}
+                      alt={`${client.name} — live site`}
+                      loading="lazy"
+                      style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top center", display: "block" }}
+                    />
+                    {/* tonal overlay keeps the label readable over any screenshot */}
+                    <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(11,15,20,0.88) 0%, rgba(11,15,20,0.12) 46%, transparent 70%)" }} />
+                    <div style={{ position: "absolute", left: 16, top: 14, fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 9, letterSpacing: "0.28em", color: "#A9C77E", background: "rgba(11,15,20,0.55)", backdropFilter: "blur(4px)", padding: "3px 10px", borderRadius: 999, zIndex: 1 }}>{client.tags[0]}</div>
+                    <div style={{ position: "absolute", left: 16, bottom: 14, fontFamily: "var(--font-space-grotesk), sans-serif", fontSize: "clamp(16px,1.8vw,22px)", fontWeight: 700, letterSpacing: "-0.03em", color: "#F5F2EC", lineHeight: 1, zIndex: 1 }}>{client.name}</div>
                   </div>
                   <div style={{ padding: "24px 26px", flex: 1, display: "flex", flexDirection: "column", gap: 10 }}>
                     <div style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 10, color: "#9098A4", letterSpacing: "0.12em", textTransform: "uppercase" }}>{client.category}</div>
@@ -231,6 +269,18 @@ export default function HomePage() {
               </Reveal>
             ))}
           </div>
+          <Reveal delay={CLIENTS.length * 80}>
+            <Link
+              href="/work#count-technologies"
+              className="link-arrow"
+              style={{ display: "inline-flex", alignItems: "center", gap: 12, marginTop: 44, textDecoration: "none" }}
+            >
+              <span className="bit-dot" />
+              <span style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 11, letterSpacing: "0.18em", color: "#A9C77E" }}>
+                CURRENTLY BUILDING 5 SYSTEMS FOR COUNT TECHNOLOGIES →
+              </span>
+            </Link>
+          </Reveal>
         </div>
         <style>{`
           @media (max-width: 900px) { .work-grid { grid-template-columns: 1fr 1fr !important; } .work-head { grid-template-columns: 1fr !important; } }
@@ -239,20 +289,40 @@ export default function HomePage() {
       </section>
 
       {/* HOW WE WORK */}
-      <section className="section" id="how-we-work">
-        <div className="wrap">
+      <section className="section section--ink" id="how-we-work" style={{ position: "relative", overflow: "hidden" }}>
+        {/* collaboration photo background */}
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage: "url('/people/how-we-work.webp')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
+        {/* strong overlay keeps the step copy readable over the photo */}
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "linear-gradient(180deg, rgba(11,15,20,0.88) 0%, rgba(11,15,20,0.80) 42%, rgba(11,15,20,0.92) 100%)",
+          }}
+        />
+        <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
           <Reveal>
-            <h2 style={{ fontSize: "clamp(28px,3.5vw,52px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.05, maxWidth: "32ch", paddingBottom: 56 }}>
+            <h2 style={{ fontSize: "clamp(28px,3.5vw,52px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.05, color: "#F5F2EC", maxWidth: "32ch", paddingBottom: 56, textShadow: "0 2px 18px rgba(11,15,20,0.6)" }}>
               Transparent delivery. Clients see every step.
             </h2>
           </Reveal>
           <Reveal delay={100}>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", borderTop: "1px solid #D9E1E8" }} className="steps-grid">
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", borderTop: "1px solid #2A333D" }} className="steps-grid">
               {HOW_WE_WORK.map((step, i) => (
-                <div key={step.num} style={{ padding: "32px 24px 28px", borderRight: i < HOW_WE_WORK.length - 1 ? "1px solid #D9E1E8" : "none", minHeight: 220 }} className="step-cell">
-                  <div style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 11, letterSpacing: "0.12em", color: "#3A5C1A", marginBottom: 20 }}>{step.num}</div>
-                  <h4 style={{ fontSize: "clamp(17px,1.6vw,22px)", fontWeight: 600, letterSpacing: "-0.01em", marginBottom: 10 }}>{step.title}</h4>
-                  <p style={{ fontSize: 14, color: "#5C6470", lineHeight: 1.65 }}>{step.description}</p>
+                <div key={step.num} style={{ padding: "32px 24px 28px", borderRight: i < HOW_WE_WORK.length - 1 ? "1px solid #2A333D" : "none", minHeight: 220 }} className="step-cell">
+                  <div style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 11, letterSpacing: "0.12em", color: "#7BA84F", marginBottom: 20 }}>{step.num}</div>
+                  <h4 style={{ fontSize: "clamp(17px,1.6vw,22px)", fontWeight: 600, letterSpacing: "-0.01em", marginBottom: 10, color: "#F5F2EC", textShadow: "0 1px 12px rgba(11,15,20,0.7)" }}>{step.title}</h4>
+                  <p style={{ fontSize: 14, color: "#AAB2BC", lineHeight: 1.65, textShadow: "0 1px 10px rgba(11,15,20,0.85)" }}>{step.description}</p>
                 </div>
               ))}
             </div>
@@ -261,12 +331,12 @@ export default function HomePage() {
         <style>{`
           @media (max-width: 900px) {
             .steps-grid { grid-template-columns: 1fr 1fr !important; }
-            .step-cell { border-right: none !important; border-bottom: 1px solid #D9E1E8 !important; }
+            .step-cell { border-right: none !important; border-bottom: 1px solid #2A333D !important; }
             .step-cell:nth-last-child(-n+2) { border-bottom: none !important; }
           }
           @media (max-width: 480px) {
             .steps-grid { grid-template-columns: 1fr !important; }
-            .step-cell { border-bottom: 1px solid #D9E1E8 !important; }
+            .step-cell { border-bottom: 1px solid #2A333D !important; }
             .step-cell:last-child { border-bottom: none !important; }
           }
         `}</style>
@@ -343,8 +413,29 @@ export default function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="section section--ink" id="start">
-        <div className="wrap">
+      <section className="section section--ink" id="start" style={{ position: "relative", overflow: "hidden" }}>
+        {/* warm photo background */}
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage: "url('/people/cta-bg.webp')",
+            backgroundSize: "cover",
+            backgroundPosition: "center right",
+          }}
+        />
+        {/* overlay: darkest on the left so the text stays readable, warm glow on the right */}
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(90deg, rgba(11,15,20,0.94) 0%, rgba(11,15,20,0.82) 42%, rgba(11,15,20,0.5) 100%)",
+          }}
+        />
+        <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
           <Reveal>
             <div style={{ maxWidth: 720 }}>
               <h2 style={{ fontSize: "clamp(40px,5.5vw,80px)", fontWeight: 700, letterSpacing: "-0.035em", lineHeight: 0.97, color: "#F5F2EC", marginBottom: 28 }}>

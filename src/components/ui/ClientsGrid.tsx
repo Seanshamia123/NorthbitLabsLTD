@@ -9,6 +9,8 @@ type Client = {
   url: string;
   logo: string;
   brandColor: string;
+  /* Wordmark-style logos get a wider tile so they stay legible. */
+  wide?: boolean;
 };
 
 /* Subtle vertical drift kept from the original — amplitude pulled in so it
@@ -24,11 +26,12 @@ function LogoTile({
   index: number;
   reduced: boolean;
 }) {
+  const external = client.url.startsWith("http");
   return (
     <motion.a
       href={client.url}
-      target="_blank"
-      rel="noopener noreferrer"
+      target={external ? "_blank" : undefined}
+      rel={external ? "noopener noreferrer" : undefined}
       className="ci-tile"
       aria-label={`${client.name} — ${client.category}`}
       animate={reduced ? {} : { y: BOB }}
@@ -49,7 +52,7 @@ function LogoTile({
           : { y: 0, scale: 1.06, transition: { duration: 0.32, ease: [0.2, 0.7, 0.2, 1] } }
       }
     >
-      <span className="ci-logo">
+      <span className={client.wide ? "ci-logo ci-logo--wide" : "ci-logo"}>
         <img
           src={client.logo}
           alt={`${client.name} logo`}
@@ -168,6 +171,8 @@ export default function ClientsGrid({ clients }: { clients: Client[] }) {
           box-shadow: 0 0 0 3px rgba(58, 92, 26, 0.12);
         }
 
+        .ci-logo--wide { width: 148px; padding: 0 14px; }
+
         .ci-logo img {
           width: 78%;
           height: 78%;
@@ -238,6 +243,7 @@ export default function ClientsGrid({ clients }: { clients: Client[] }) {
         @media (max-width: 600px) {
           .ci-track { gap: clamp(28px, 9vw, 44px); }
           .ci-logo { width: 52px; height: 52px; }
+          .ci-logo--wide { width: 120px; padding: 0 10px; }
         }
       `}</style>
     </div>

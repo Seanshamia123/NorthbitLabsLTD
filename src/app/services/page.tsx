@@ -3,6 +3,7 @@ import Reveal from "@/components/ui/Reveal";
 import FadeUp from "@/components/ui/FadeUp";
 import HeroReveal from "@/components/ui/HeroReveal";
 import MagneticBtn from "@/components/ui/MagneticBtn";
+import CtaPhotoSection from "@/components/ui/CtaPhotoSection";
 import { SERVICES, ENGAGEMENT_MODELS } from "@/lib/data";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
@@ -27,7 +28,11 @@ export default function ServicesPage() {
     <>
       <BreadcrumbJsonLd name="Services" path="/services" />
       {/* HERO */}
-      <section className="hero-ink" style={{ background: "#0B0F14", color: "#F5F2EC", padding: "clamp(80px,11vw,160px) 0 clamp(64px,7vw,104px)" }}>
+      <section className="hero-ink" style={{ background: "#0B0F14", color: "#F5F2EC", padding: "clamp(80px,11vw,160px) 0 clamp(64px,7vw,104px)", overflow: "hidden" }}>
+        {/* engineers-at-work photo */}
+        <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: "url('/textures/studio-engineers-dark.webp')", backgroundSize: "cover", backgroundPosition: "center right", pointerEvents: "none" }} />
+        {/* left-dark overlay keeps the headline readable, photo glows on the right */}
+        <div aria-hidden="true" style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, rgba(11,15,20,0.94) 0%, rgba(11,15,20,0.82) 42%, rgba(11,15,20,0.55) 100%)", pointerEvents: "none" }} />
         <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(58,92,26,0.10) 1px, transparent 1px)", backgroundSize: "28px 28px", pointerEvents: "none" }} />
         <div className="wrap" style={{ position: "relative" }}>
           <div style={{ marginBottom: 32 }}>
@@ -188,24 +193,24 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="section">
+      <CtaPhotoSection>
         <div className="wrap" style={{ textAlign: "center", maxWidth: 680, margin: "0 auto" }}>
           <Reveal>
-            <h2 style={{ fontSize: "clamp(28px,4vw,60px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.05, marginBottom: 20 }}>
+            <h2 style={{ fontSize: "clamp(28px,4vw,60px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.05, marginBottom: 20, color: "#F5F2EC", textShadow: "0 2px 18px rgba(11,15,20,0.6)" }}>
               Not sure which service you need?
             </h2>
-            <p style={{ fontSize: 18, color: "#5C6470", lineHeight: 1.65, marginBottom: 36 }}>
+            <p style={{ fontSize: 18, color: "#AAB2BC", lineHeight: 1.65, marginBottom: 36, textShadow: "0 1px 10px rgba(11,15,20,0.7)" }}>
               Book a 30-minute discovery call. We will listen to what you are trying to build and tell you honestly which of our service lines fits — or if a different approach would serve you better.
             </p>
             <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
               <MagneticBtn>
-                <Link href="/contact" className="btn btn-primary">Book a discovery call →</Link>
+                <Link href="/contact" className="btn btn-signal">Book a discovery call →</Link>
               </MagneticBtn>
-              <Link href="/work" className="btn btn-ghost">See our work</Link>
+              <Link href="/work" className="btn btn-ghost btn-ghost--light">See our work</Link>
             </div>
           </Reveal>
         </div>
-      </section>
+      </CtaPhotoSection>
     </>
   );
 }
