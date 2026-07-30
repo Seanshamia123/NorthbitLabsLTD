@@ -263,7 +263,7 @@ export default function IndustriesStack({ industries }: { industries: Industry[]
           </div>
         </div>
 
-        <div style={{ position: "relative", width: "100%", maxWidth: 440, aspectRatio: "4/5", marginLeft: "auto" }}>
+        <div className="ind-stack-photo" style={{ position: "relative", width: "100%", maxWidth: 440, aspectRatio: "4/5", marginLeft: "auto" }}>
           {industries.map((ind, i) => (
             <ImageCard key={ind.slug} ind={ind} index={i} activeIndex={activeIndex} justReset={justReset} />
           ))}
@@ -276,6 +276,7 @@ export default function IndustriesStack({ industries }: { industries: Industry[]
         .ind-next-btn:hover { background: #0B0F14; color: #F5F2EC; border-color: #0B0F14; }
         @media (max-width: 860px) {
           .ind-stack-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+          .ind-stack-photo { margin-left: auto !important; margin-right: auto !important; }
         }
       `}</style>
     </div>

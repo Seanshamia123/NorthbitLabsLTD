@@ -21,6 +21,7 @@ export default function CaseImagePane({ name, category, tags, logo, brandColor, 
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      onClick={() => setHovered((h) => !h)}
       style={{
         background: dark ? "#0B0F14" : "#14181F",
         display: "flex",

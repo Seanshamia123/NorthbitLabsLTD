@@ -26,8 +26,8 @@ export default function WhatsAppButton() {
       <style>{`
         .wa-fab {
           position: fixed;
-          right: clamp(16px, 3vw, 28px);
-          bottom: clamp(16px, 3vw, 28px);
+          right: calc(clamp(16px, 3vw, 28px) + env(safe-area-inset-right, 0px));
+          bottom: calc(clamp(16px, 3vw, 28px) + env(safe-area-inset-bottom, 0px));
           z-index: 1000;
           width: 56px;
           height: 56px;

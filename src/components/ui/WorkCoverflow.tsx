@@ -132,6 +132,9 @@ export default function WorkCoverflow({ clients }: { clients: WorkClient[] }) {
         .wcf-stage {
           position: relative;
           height: clamp(420px, 44vw, 540px);
+          overflow: hidden;
+          -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+                  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
         }
         .wcf-slot {
           width: clamp(260px, 30vw, 380px);

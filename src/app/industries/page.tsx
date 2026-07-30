@@ -189,7 +189,7 @@ export default function IndustriesPage() {
             .ind-compact-desc { display: none; }
           }
           @media (max-width: 560px) {
-            .ind-compact-row { grid-template-columns: 1fr auto !important; }
+            .ind-compact-row { grid-template-columns: 1fr 72px !important; }
             .ind-compact-row > div:first-child { display: none; }
           }
         `}</style>
