@@ -1,26 +1,17 @@
 import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-async function loadFont(): Promise<ArrayBuffer | null> {
-  try {
-    // Fetch Space Grotesk Bold from Google Fonts CDN
-    const cssRes = await fetch(
-      "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap",
-      { headers: { "User-Agent": "Mozilla/5.0" } }
-    );
-    const css = await cssRes.text();
-    const match = css.match(/url\((https:\/\/fonts\.gstatic\.com[^)]+)\)/);
-    if (!match) return null;
-    return fetch(match[1]).then((r) => r.arrayBuffer());
-  } catch {
-    return null;
-  }
-}
-
 export default async function Image() {
-  const fontData = await loadFont();
+  const fontsDir = join(process.cwd(), "src/fonts-og");
+  const [clashBold, clashRegular, satoshiBold] = await Promise.all([
+    readFile(join(fontsDir, "ClashGrotesk-Bold.ttf")),
+    readFile(join(fontsDir, "ClashGrotesk-Regular.ttf")),
+    readFile(join(fontsDir, "Satoshi-Bold.ttf")),
+  ]);
 
   return new ImageResponse(
     (
@@ -33,7 +24,7 @@ export default async function Image() {
           flexDirection: "column",
           padding: "64px 72px",
           position: "relative",
-          fontFamily: "'Space Grotesk', sans-serif",
+          fontFamily: "'Clash Grotesk'",
         }}
       >
         {/* Green left accent bar */}
@@ -60,50 +51,30 @@ export default async function Image() {
           }}
         />
 
-        {/* Top: NorthBit monogram + brand name */}
+        {/* Top: Northbit Labs logomark + wordmark */}
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-          {/* Monogram: dark rounded square, white N, green bit-square superscript */}
-          <div
-            style={{
-              width: 44,
-              height: 44,
-              background: "#1C1C1C",
-              borderRadius: 9,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              position: "relative",
-              flexShrink: 0,
-            }}
+          <svg
+            width="40"
+            height="30"
+            viewBox="46.97 46.97 124.95 93.94"
+            style={{ flexShrink: 0 }}
           >
-            {/* Green bit indicator — top-right corner */}
-            <div
-              style={{
-                position: "absolute",
-                top: 7,
-                right: 7,
-                width: 9,
-                height: 9,
-                background: "#3A5C1A",
-              }}
+            <path
+              fill="#3A5C1A"
+              d="M127.19,46.97h44.73v87.58c0,3.51-2.85,6.36-6.36,6.36h-38.37V46.97h0Z"
             />
-            {/* N letter */}
-            <span
-              style={{
-                color: "#FFFFFF",
-                fontFamily: "'Space Grotesk', sans-serif",
-                fontWeight: 700,
-                fontSize: 22,
-                letterSpacing: "-0.06em",
-                lineHeight: 1,
-              }}
-            >
-              N
-            </span>
-          </div>
+            <polygon
+              fill="#3A5C1A"
+              points="149.56 140.91 89.13 140.91 46.97 94.47 46.97 62.5 82.14 62.5 149.56 140.91"
+            />
+            <polygon
+              fill="#3A5C1A"
+              points="68.53 140.91 46.97 140.91 46.97 119.35 68.53 140.91"
+            />
+          </svg>
           <span
             style={{
-              fontFamily: "'Space Grotesk', sans-serif",
+              fontFamily: "'Clash Grotesk'",
               fontSize: 15,
               fontWeight: 700,
               letterSpacing: "0.18em",
@@ -111,7 +82,7 @@ export default async function Image() {
               color: "#8A919C",
             }}
           >
-            NORTHBIT LABS
+            Northbit Labs
           </span>
         </div>
 
@@ -143,7 +114,7 @@ export default async function Image() {
           <div
             style={{
               fontSize: 72,
-              fontWeight: 300,
+              fontWeight: 400,
               color: "#4D7724",
               letterSpacing: "-0.035em",
               lineHeight: 1.0,
@@ -161,6 +132,7 @@ export default async function Image() {
                 style={{
                   padding: "8px 16px",
                   border: "1px solid #232931",
+                  fontFamily: "'Satoshi'",
                   fontSize: 13,
                   color: "#8A919C",
                   letterSpacing: "0.04em",
@@ -184,15 +156,16 @@ export default async function Image() {
         >
           <span
             style={{
+              fontFamily: "'Satoshi'",
               fontSize: 16,
               color: "#3A5C1A",
-              fontWeight: 600,
+              fontWeight: 700,
               letterSpacing: "0.04em",
             }}
           >
             northbitlabs.tech
           </span>
-          <span style={{ fontSize: 14, color: "#4a5260", letterSpacing: "0.08em" }}>
+          <span style={{ fontFamily: "'Satoshi'", fontSize: 14, color: "#4a5260", letterSpacing: "0.08em" }}>
             NAIROBI, KENYA
           </span>
         </div>
@@ -200,9 +173,11 @@ export default async function Image() {
     ),
     {
       ...size,
-      ...(fontData
-        ? { fonts: [{ name: "Space Grotesk", data: fontData, weight: 700, style: "normal" }] }
-        : {}),
+      fonts: [
+        { name: "Clash Grotesk", data: clashBold, weight: 700, style: "normal" },
+        { name: "Clash Grotesk", data: clashRegular, weight: 400, style: "normal" },
+        { name: "Satoshi", data: satoshiBold, weight: 700, style: "normal" },
+      ],
     }
   );
 }

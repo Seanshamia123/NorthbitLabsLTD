@@ -135,7 +135,7 @@ export async function POST(request: Request) {
       // User-supplied fields are escaped before being interpolated into HTML.
       html: `
         <table style="font-family:sans-serif;font-size:15px;color:#0B0F14;border-collapse:collapse;width:100%;max-width:600px">
-          <tr><td style="padding:32px 32px 0"><img src="https://northbitlabs.tech/favicon.svg" width="32" height="32" alt="NorthBit Labs" /></td></tr>
+          <tr><td style="padding:32px 32px 0"><img src="https://northbitlabs.tech/favicon.svg" width="32" height="32" alt="Northbit Labs" /></td></tr>
           <tr><td style="padding:24px 32px 0;font-size:22px;font-weight:600">New enquiry</td></tr>
           <tr><td style="padding:24px 32px;border-top:1px solid #D9E1E8;margin-top:16px">
             <p style="margin:0 0 8px"><strong>Name:</strong> ${esc(name)}</p>

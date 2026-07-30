@@ -5,7 +5,7 @@ const WHATSAPP_NUMBER = CONTACT.phone.replace(/[^0-9]/g, "");
 
 // Pre-filled message the visitor sends you. Edit this line to change it.
 const PREFILL_MESSAGE =
-  "Hi NorthBit Labs 👋 I'd like to book a discovery call about a software project for my business.";
+  "Hi Northbit Labs 👋 I'd like to book a discovery call about a software project for my business.";
 
 export default function WhatsAppButton() {
   const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(PREFILL_MESSAGE)}`;
@@ -15,7 +15,7 @@ export default function WhatsAppButton() {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Chat with NorthBit Labs on WhatsApp"
+      aria-label="Chat with Northbit Labs on WhatsApp"
       className="wa-fab"
     >
       <span className="wa-fab__label" aria-hidden="true">Chat with us</span>

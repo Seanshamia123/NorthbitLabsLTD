@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -7,23 +7,30 @@ import SmoothScroll from "@/components/ui/SmoothScroll";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import JsonLd from "@/components/seo/JsonLd";
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-space-grotesk",
+const clashGrotesk = localFont({
+  src: [
+    { path: "../fonts/ClashGrotesk-Regular.woff2", weight: "400", style: "normal" },
+    { path: "../fonts/ClashGrotesk-Medium.woff2", weight: "500", style: "normal" },
+    { path: "../fonts/ClashGrotesk-SemiBold.woff2", weight: "600", style: "normal" },
+    { path: "../fonts/ClashGrotesk-Bold.woff2", weight: "700", style: "normal" },
+  ],
+  variable: "--font-clash-grotesk",
   display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-jetbrains-mono",
+const satoshi = localFont({
+  src: [
+    { path: "../fonts/Satoshi-Regular.woff2", weight: "400", style: "normal" },
+    { path: "../fonts/Satoshi-Medium.woff2", weight: "500", style: "normal" },
+    { path: "../fonts/Satoshi-Bold.woff2", weight: "700", style: "normal" },
+  ],
+  variable: "--font-satoshi",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://northbitlabs.tech"),
-  title: "NorthBit Labs — Custom Software · AI Operations · Consulting",
+  title: "Northbit Labs — Custom Software · AI Operations · Consulting",
   description:
     "A technology firm that builds custom software designed around your business, applies AI to streamline your operations, and delivers measurable results. Based in Kenya.",
   keywords: [
@@ -33,11 +40,11 @@ export const metadata: Metadata = {
     "technology consulting Kenya",
     "fintech software CBK",
     "Mpesa integration",
-    "NorthBit Labs",
+    "Northbit Labs",
   ],
-  authors: [{ name: "NorthBit Labs" }],
-  creator: "NorthBit Labs",
-  publisher: "NorthBit Labs",
+  authors: [{ name: "Northbit Labs" }],
+  creator: "Northbit Labs",
+  publisher: "Northbit Labs",
   alternates: {
     canonical: "/",
   },
@@ -49,25 +56,25 @@ export const metadata: Metadata = {
     ? { google: process.env.GOOGLE_SITE_VERIFICATION }
     : undefined,
   openGraph: {
-    title: "NorthBit Labs — Software Engineered North",
+    title: "Northbit Labs — Software Engineered North",
     description:
       "Custom software, AI operations and technology consulting for businesses in Kenya and East Africa.",
     url: "/",
     type: "website",
     locale: "en_KE",
-    siteName: "NorthBit Labs",
+    siteName: "Northbit Labs",
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "NorthBit Labs — Software built around the way your business works.",
+        alt: "Northbit Labs — Software built around the way your business works.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "NorthBit Labs — Software Engineered North",
+    title: "Northbit Labs — Software Engineered North",
     description:
       "Custom software, AI operations and technology consulting for businesses in Kenya and East Africa.",
   },
@@ -81,7 +88,7 @@ export default function RootLayout({
   return (
     <html
       lang="en-KE"
-      className={`${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
+      className={`${clashGrotesk.variable} ${satoshi.variable}`}
     >
       <head>
         {/* Kill React DevTools in production — prevents component-tree inspection */}
@@ -94,7 +101,7 @@ export default function RootLayout({
         )}
         <JsonLd />
       </head>
-      <body style={{ fontFamily: "var(--font-space-grotesk), system-ui, sans-serif" }}>
+      <body style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif" }}>
         <SmoothScroll />
         <Header />
         <main>{children}</main>

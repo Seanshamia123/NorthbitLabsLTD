@@ -19,7 +19,7 @@ export default function JsonLd() {
       {
         "@type": ["Organization", "ProfessionalService"],
         "@id": `${BASE_URL}/#organization`,
-        name: "NorthBit Labs",
+        name: "Northbit Labs",
         url: BASE_URL,
         logo: {
           "@type": "ImageObject",
@@ -28,7 +28,7 @@ export default function JsonLd() {
           contentUrl: `${BASE_URL}/icon-512.png`,
           width: 512,
           height: 512,
-          caption: "NorthBit Labs",
+          caption: "Northbit Labs",
         },
         image: { "@id": `${BASE_URL}/#logo` },
         description:
@@ -65,7 +65,7 @@ export default function JsonLd() {
         "@type": "WebSite",
         "@id": `${BASE_URL}/#website`,
         url: BASE_URL,
-        name: "NorthBit Labs",
+        name: "Northbit Labs",
         description:
           "Custom software, AI operations and technology consulting for businesses in Kenya and East Africa.",
         publisher: { "@id": `${BASE_URL}/#organization` },

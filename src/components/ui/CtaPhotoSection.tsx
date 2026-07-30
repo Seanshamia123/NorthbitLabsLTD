@@ -20,9 +20,10 @@ export default function CtaPhotoSection({
       id={id}
       style={{ position: "relative", overflow: "hidden", ...style }}
     >
-      {/* warm meeting photo */}
+      {/* warm meeting photo — slow Ken Burns drift */}
       <div
         aria-hidden
+        className="cta-photo-zoom"
         style={{
           position: "absolute",
           inset: 0,
@@ -31,6 +32,11 @@ export default function CtaPhotoSection({
           backgroundPosition: "center right",
         }}
       />
+      <style>{`
+        .cta-photo-zoom { animation: cta-ken-burns 24s ease-in-out infinite alternate; }
+        @keyframes cta-ken-burns { from { transform: scale(1); } to { transform: scale(1.06); } }
+        @media (prefers-reduced-motion: reduce) { .cta-photo-zoom { animation: none; } }
+      `}</style>
       {/* overlay keeps the copy readable while the warm glow shows through */}
       <div
         aria-hidden

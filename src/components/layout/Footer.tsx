@@ -42,7 +42,7 @@ export default function Footer() {
             <p style={{ fontSize: 14, color: "#9098A4", maxWidth: "32ch", lineHeight: 1.65, marginBottom: 24 }}>
               A technology firm building custom software, AI operations and consulting services for operators in Kenya.
             </p>
-            <div style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 10, letterSpacing: "0.22em", color: "#4a5260", textTransform: "uppercase" }}>
+            <div style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 10, letterSpacing: "0.22em", color: "#4a5260", textTransform: "uppercase" }}>
               SOFTWARE · ENGINEERED · NORTH
             </div>
           </div>
@@ -50,7 +50,7 @@ export default function Footer() {
           {/* Link cols */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h5 style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 11, letterSpacing: "0.22em", color: "#9098A4", textTransform: "uppercase", fontWeight: 500, marginBottom: 20 }}>
+              <h5 style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 11, letterSpacing: "0.22em", color: "#9098A4", textTransform: "uppercase", fontWeight: 500, marginBottom: 20 }}>
                 {title}
               </h5>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 10 }}>
@@ -76,7 +76,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: 28, fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 12, color: "#4a5260", letterSpacing: "0.06em", flexWrap: "wrap", gap: 16 }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: 28, fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 12, color: "#4a5260", letterSpacing: "0.06em", flexWrap: "wrap", gap: 16 }}>
           <span>© {year} NORTHBIT LABS · ALL RIGHTS RESERVED</span>
           <span>REGISTERED IN KENYA · NBI</span>
         </div>

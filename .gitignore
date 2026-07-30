@@ -46,3 +46,8 @@ next-env.d.ts
 
 # Ignore short advert design files (can opt-in for committing if needed)
 /short_advert
+
+# Raw brand/source assets — not referenced by the app, kept locally only
+/Northbit Labs Brand Guide.pdf
+/Northbit Labs Logo/
+/industries images/

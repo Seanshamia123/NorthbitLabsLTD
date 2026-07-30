@@ -18,15 +18,19 @@
 CSS custom properties available as `--c-ink`, `--c-polar`, `--c-signal`, etc. (defined in `globals.css :root`).
 
 ## Typography
+Per the Northbit Labs Brand Guide (V.1 2026): primary typeface Clash Grotesk, secondary Satoshi. Self-hosted via `next/font/local` from `src/fonts/` (woff2, fetched from Fontshare, free for commercial use) — no Google Fonts dependency.
+
 | Role | Font | Size | Weight | Tracking |
 |------|------|------|--------|----------|
-| Display H1 (page heroes) | Space Grotesk | `clamp(40px,6.5vw,96px)` | 600 | `-0.03em` |
-| Display H1 (home hero) | Space Grotesk | `clamp(40px,4vw,66px)` | 600 | `-0.03em` |
-| Section H2 | Space Grotesk | `clamp(26px,3.5vw,52px)` | 600 | `-0.02em` |
-| Card H3 | Space Grotesk | varies `clamp(17–22px)` | 600 | `-0.01em` |
-| Body | Space Grotesk | 15–17px | 400 | 0 |
-| Eyebrow / Labels | JetBrains Mono | 11px | 500 | `0.18–0.22em` |
-| Numbers / Counters | JetBrains Mono | varies | 600 | `-0.02em` |
+| Display H1 (page heroes) | Clash Grotesk | `clamp(40px,6.5vw,96px)` | 600 | `-0.03em` |
+| Display H1 (home hero) | Clash Grotesk | `clamp(40px,4vw,66px)` | 600 | `-0.03em` |
+| Section H2 | Clash Grotesk | `clamp(26px,3.5vw,52px)` | 600 | `-0.02em` |
+| Card H3 | Clash Grotesk | varies `clamp(17–22px)` | 600 | `-0.01em` |
+| Body | Satoshi | 15–17px | 400 | 0 |
+| Eyebrow / Labels | Satoshi | 11px | 500 | `0.18–0.22em` |
+| Numbers / Counters | Satoshi | varies | 600 | `-0.02em` |
+
+CSS variables: `--font-clash-grotesk` (display/headings), `--font-satoshi` (body/eyebrows/labels/numbers). JetBrains Mono has been retired — the guide only specifies the two typefaces above; eyebrows/labels keep their uppercase+tracked treatment, just in Satoshi instead of mono. Note: Satoshi ships in 400/500/700 only (no 600) — weight:600 requests fall back to the nearest available face (700) via standard CSS font matching.
 
 Line heights: body `1.65–1.75`, headlines `0.95–1.1`, dark-background body add `+0.05`.
 
@@ -61,6 +65,7 @@ Pages alternate dark/light sections:
 - **Link arrow (`.link-arrow`)**: underlined inline link with trailing `→`, slides `translateX(5px)` on hover
 - **Bit dot (`.bit-dot`)**: 8×8 Signal Green square, used as bullet or eyebrow prefix
 - **`BitMotif`**: pixel grid SVG brand motif, used in hero and as texture on dark image panels
+- **`NorthBitLogo`**: real brand-guide logo lockup (`src/components/ui/NorthBitLogo.tsx`), vector paths sourced directly from `Northbit Labs Logo/SVG/Northbit Labs Main Logo.svg`, recolored to exact brand hex. Green mark (`#3A5C1A`) never changes between variants; wordmark ink swaps `#0B0F14`/`#F5F2EC` via the `variant` prop. Favicon/apple-icon/manifest icons/OG image are all regenerated from the same mark geometry.
 - **`Reveal`**: scroll-triggered fade-up wrapper for sections
 
 ## Interaction States

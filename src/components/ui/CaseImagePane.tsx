@@ -56,7 +56,7 @@ export default function CaseImagePane({ name, category, tags, logo, brandColor, 
       >
         <div
           style={{
-            fontFamily: "var(--font-jetbrains-mono), monospace",
+            fontFamily: "var(--font-satoshi), system-ui, sans-serif",
             fontSize: 9,
             letterSpacing: "0.28em",
             color: "#3A5C1A",
@@ -69,7 +69,7 @@ export default function CaseImagePane({ name, category, tags, logo, brandColor, 
         </div>
         <div
           style={{
-            fontFamily: "var(--font-space-grotesk), sans-serif",
+            fontFamily: "var(--font-clash-grotesk), sans-serif",
             fontSize: "clamp(28px,3.5vw,56px)",
             fontWeight: 700,
             letterSpacing: "-0.04em",
@@ -83,7 +83,7 @@ export default function CaseImagePane({ name, category, tags, logo, brandColor, 
         <div style={{ width: 28, height: 1, background: "rgba(58,92,26,0.6)" }} />
         <div
           style={{
-            fontFamily: "var(--font-jetbrains-mono), monospace",
+            fontFamily: "var(--font-satoshi), system-ui, sans-serif",
             fontSize: 9,
             letterSpacing: "0.22em",
             color: "#9098A4",
@@ -142,7 +142,7 @@ export default function CaseImagePane({ name, category, tags, logo, brandColor, 
         </div>
         <div
           style={{
-            fontFamily: "var(--font-space-grotesk), sans-serif",
+            fontFamily: "var(--font-clash-grotesk), sans-serif",
             fontSize: 20,
             fontWeight: 600,
             color: "#F5F2EC",
@@ -153,7 +153,7 @@ export default function CaseImagePane({ name, category, tags, logo, brandColor, 
         </div>
         <div
           style={{
-            fontFamily: "var(--font-jetbrains-mono), monospace",
+            fontFamily: "var(--font-satoshi), system-ui, sans-serif",
             fontSize: 10,
             letterSpacing: "0.2em",
             color: "#9098A4",

@@ -61,7 +61,7 @@ export default function Header() {
         >
           {/* Logo — swaps variant based on scroll state */}
           <Link href="/" style={{ textDecoration: "none" }}>
-            <NorthBitLogo variant={scrolled ? "light" : "dark"} size="md" />
+            <NorthBitLogo variant={scrolled ? "light" : "dark"} size="lg" />
           </Link>
 
           {/* Desktop nav */}
@@ -142,7 +142,7 @@ export default function Header() {
       >
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <Link href="/" style={{ textDecoration: "none" }}>
-            <NorthBitLogo variant="dark" size="md" />
+            <NorthBitLogo variant="dark" size="lg" />
           </Link>
           <button
             onClick={() => setDrawerOpen(false)}
@@ -176,7 +176,7 @@ export default function Header() {
           Start a project →
         </Link>
 
-        <div style={{ marginTop: "auto", fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 11, letterSpacing: "0.2em", color: "#9098A4" }}>
+        <div style={{ marginTop: "auto", fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 11, letterSpacing: "0.2em", color: "#9098A4" }}>
           SOFTWARE · ENGINEERED · NORTH
         </div>
       </div>

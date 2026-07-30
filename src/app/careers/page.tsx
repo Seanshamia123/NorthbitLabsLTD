@@ -7,17 +7,17 @@ import { CONTACT } from "@/lib/data";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
-  title: "Careers — NorthBit Labs",
+  title: "Careers — Northbit Labs",
   description: "Join a small, senior team building real systems for real businesses in Kenya. No junior work, no inflated teams.",
   alternates: { canonical: "/careers" },
   openGraph: {
-    title: "Careers — NorthBit Labs",
+    title: "Careers — Northbit Labs",
     description: "Join a small, senior team building real systems for real businesses in Kenya. No junior work, no inflated teams.",
     url: "/careers",
     type: "website",
     locale: "en_KE",
   },
-  twitter: { card: "summary_large_image", title: "Careers — NorthBit Labs" },
+  twitter: { card: "summary_large_image", title: "Careers — Northbit Labs" },
 };
 
 const talentProfiles = [
@@ -64,8 +64,15 @@ export default function CareersPage() {
     <>
       <BreadcrumbJsonLd name="Careers" path="/careers" />
       {/* HERO */}
-      <section className="hero-ink" style={{ background: "#0B0F14", color: "#F5F2EC", padding: "clamp(80px,11vw,160px) 0 clamp(64px,7vw,104px)" }}>
+      <section className="hero-ink" style={{ background: "#0B0F14", color: "#F5F2EC", padding: "clamp(80px,11vw,160px) 0 clamp(64px,7vw,104px)", overflow: "hidden" }}>
+        <div aria-hidden="true" className="hero-photo-zoom" style={{ position: "absolute", inset: 0, backgroundImage: "url('/people/careers-culture.webp')", backgroundSize: "cover", backgroundPosition: "center right", pointerEvents: "none" }} />
+        <div aria-hidden="true" style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, rgba(11,15,20,0.94) 0%, rgba(11,15,20,0.82) 42%, rgba(11,15,20,0.55) 100%)", pointerEvents: "none" }} />
         <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(58,92,26,0.10) 1px, transparent 1px)", backgroundSize: "28px 28px", pointerEvents: "none" }} />
+        <style>{`
+          .hero-photo-zoom { animation: hero-ken-burns 22s ease-in-out infinite alternate; }
+          @keyframes hero-ken-burns { from { transform: scale(1); } to { transform: scale(1.07); } }
+          @media (prefers-reduced-motion: reduce) { .hero-photo-zoom { animation: none; } }
+        `}</style>
         <div className="wrap" style={{ position: "relative" }}>
           <div style={{ marginBottom: 32 }}>
             <HeroReveal
@@ -96,7 +103,7 @@ export default function CareersPage() {
                   We hire for ownership, not output.
                 </h2>
                 <p style={{ fontSize: 17, color: "#5C6470", lineHeight: 1.75, marginBottom: 18 }}>
-                  Everyone at NorthBit Labs touches the client. You will be on calls, on site when needed, and
+                  Everyone at Northbit Labs touches the client. You will be on calls, on site when needed, and
                   accountable for the quality of what ships. We do not separate &ldquo;developers&rdquo; from
                   &ldquo;client-facing&rdquo; roles.
                 </p>
@@ -133,7 +140,7 @@ export default function CareersPage() {
           <Reveal>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1.8fr", gap: 64, alignItems: "end", paddingBottom: 56 }} className="bench-head">
               <div>
-                <p style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 11, letterSpacing: "0.22em", color: "#9098A4", textTransform: "uppercase", marginBottom: 16 }}>
+                <p style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 11, letterSpacing: "0.22em", color: "#9098A4", textTransform: "uppercase", marginBottom: 16 }}>
                   Who we want to hear from
                 </p>
                 <h2 style={{ fontSize: "clamp(24px,3vw,44px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.1 }}>
@@ -162,7 +169,7 @@ export default function CareersPage() {
                   }}
                   className="bench-row"
                 >
-                  <div style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 24, fontWeight: 600, letterSpacing: "-0.02em", color: "#D9E1E8", paddingTop: 4 }}>
+                  <div style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 24, fontWeight: 600, letterSpacing: "-0.02em", color: "#D9E1E8", paddingTop: 4 }}>
                     {profile.num}
                   </div>
                   <div>
@@ -174,7 +181,7 @@ export default function CareersPage() {
                     </p>
                   </div>
                   <div>
-                    <div style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 10, letterSpacing: "0.2em", color: "#9098A4", textTransform: "uppercase", marginBottom: 14 }}>
+                    <div style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 10, letterSpacing: "0.2em", color: "#9098A4", textTransform: "uppercase", marginBottom: 14 }}>
                       What fits
                     </div>
                     <ul style={{ listStyle: "none", padding: 0, margin: "0 0 28px", display: "flex", flexDirection: "column", gap: 10 }}>
@@ -223,7 +230,7 @@ export default function CareersPage() {
               </div>
               <div>
                 <a
-                  href={`mailto:${CONTACT.email}?subject=Open Application — NorthBit Labs`}
+                  href={`mailto:${CONTACT.email}?subject=Open Application — Northbit Labs`}
                   className="btn btn-signal"
                   style={{ fontSize: 16 }}
                 >

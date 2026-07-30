@@ -9,17 +9,17 @@ import { CLIENTS, ACTIVE_BUILD } from "@/lib/data";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
-  title: "Work — NorthBit Labs",
+  title: "Work — Northbit Labs",
   description: "Five active client partnerships, each one personally earned — plus five systems in active development for Count Technologies. Magena Pilates, Premier Beauty Clinic, S.Socials, Remitcore and Kasapay.",
   alternates: { canonical: "/work" },
   openGraph: {
-    title: "Work — NorthBit Labs",
+    title: "Work — Northbit Labs",
     description: "Five active client partnerships, each one personally earned — plus five systems in active development for Count Technologies. Magena Pilates, Premier Beauty Clinic, S.Socials, Remitcore and Kasapay.",
     url: "/work",
     type: "website",
     locale: "en_KE",
   },
-  twitter: { card: "summary_large_image", title: "Work — NorthBit Labs" },
+  twitter: { card: "summary_large_image", title: "Work — Northbit Labs" },
 };
 
 export default function WorkPage() {
@@ -27,8 +27,15 @@ export default function WorkPage() {
     <>
       <BreadcrumbJsonLd name="Work" path="/work" />
       {/* HERO */}
-      <section className="hero-ink" style={{ background: "#0B0F14", color: "#F5F2EC", padding: "clamp(80px,11vw,160px) 0 clamp(64px,7vw,104px)" }}>
+      <section className="hero-ink" style={{ background: "#0B0F14", color: "#F5F2EC", padding: "clamp(80px,11vw,160px) 0 clamp(64px,7vw,104px)", overflow: "hidden" }}>
+        <div aria-hidden="true" className="hero-photo-zoom" style={{ position: "absolute", inset: 0, backgroundImage: "url('/people/work-hero.webp')", backgroundSize: "cover", backgroundPosition: "center right", pointerEvents: "none" }} />
+        <div aria-hidden="true" style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, rgba(11,15,20,0.94) 0%, rgba(11,15,20,0.82) 42%, rgba(11,15,20,0.55) 100%)", pointerEvents: "none" }} />
         <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(58,92,26,0.10) 1px, transparent 1px)", backgroundSize: "28px 28px", pointerEvents: "none" }} />
+        <style>{`
+          .hero-photo-zoom { animation: hero-ken-burns 22s ease-in-out infinite alternate; }
+          @keyframes hero-ken-burns { from { transform: scale(1); } to { transform: scale(1.07); } }
+          @media (prefers-reduced-motion: reduce) { .hero-photo-zoom { animation: none; } }
+        `}</style>
         <div className="wrap" style={{ position: "relative" }}>
           <div style={{ marginBottom: 32 }}>
             <HeroReveal
@@ -89,7 +96,7 @@ export default function WorkPage() {
                           Visit live site →
                         </a>
                       </MagneticBtn>
-                      <span style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 10, letterSpacing: "0.2em", color: "#3A5C1A", background: "rgba(58,92,26,0.1)", padding: "4px 10px", borderRadius: 999 }}>
+                      <span style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 10, letterSpacing: "0.2em", color: "#3A5C1A", background: "rgba(58,92,26,0.1)", padding: "4px 10px", borderRadius: 999 }}>
                         {client.status}
                       </span>
                     </div>
@@ -114,7 +121,7 @@ export default function WorkPage() {
           <Reveal>
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 24 }}>
               <span className="bit-dot" />
-              <span style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 11, letterSpacing: "0.2em", color: "#7BA84F" }}>IN ACTIVE DEVELOPMENT</span>
+              <span style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 11, letterSpacing: "0.2em", color: "#7BA84F" }}>IN ACTIVE DEVELOPMENT</span>
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: 40, alignItems: "start", paddingBottom: 24 }} className="ab-head">
               <h2 style={{ fontSize: "clamp(28px,3.5vw,52px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.05, color: "#F5F2EC", maxWidth: "22ch" }}>
@@ -130,16 +137,16 @@ export default function WorkPage() {
             {ACTIVE_BUILD.systems.map((s, i) => (
               <Reveal key={s.num} delay={i * 60}>
                 <div style={{ display: "grid", gridTemplateColumns: "52px 1.2fr 2fr auto", gap: "0 40px", padding: "30px 0", borderBottom: "1px solid #232931", alignItems: "center" }} className="ab-row">
-                  <div style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 11, letterSpacing: "0.2em", color: "#4a5260" }}>{s.num}</div>
+                  <div style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 11, letterSpacing: "0.2em", color: "#4a5260" }}>{s.num}</div>
                   <div>
                     <h3 style={{ fontSize: "clamp(16px,1.8vw,22px)", fontWeight: 600, color: "#F5F2EC", letterSpacing: "-0.015em", lineHeight: 1.25, marginBottom: 4 }}>{s.title}</h3>
-                    <span style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 9, letterSpacing: "0.24em", color: "#4a5260" }}>{s.domain}</span>
+                    <span style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 9, letterSpacing: "0.24em", color: "#4a5260" }}>{s.domain}</span>
                   </div>
                   <p style={{ fontSize: 15, color: "#8A919C", lineHeight: 1.7 }} className="ab-line">{s.line}</p>
                   <span
                     className="ab-badge"
                     style={{
-                      fontFamily: "var(--font-jetbrains-mono), monospace",
+                      fontFamily: "var(--font-satoshi), system-ui, sans-serif",
                       fontSize: 10,
                       letterSpacing: "0.18em",
                       whiteSpace: "nowrap",
@@ -186,7 +193,7 @@ export default function WorkPage() {
             ].map((v, i) => (
               <Reveal key={v.title} delay={i * 80}>
                 <div style={{ display: "grid", gridTemplateColumns: "48px 1fr 2.2fr", gap: "0 40px", padding: "32px 0", borderBottom: "1px solid #232931", alignItems: "start" }} className="value-row">
-                  <div style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 11, letterSpacing: "0.2em", color: "#4a5260", paddingTop: 3 }}>0{i + 1}</div>
+                  <div style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 11, letterSpacing: "0.2em", color: "#4a5260", paddingTop: 3 }}>0{i + 1}</div>
                   <h3 style={{ fontSize: "clamp(17px,1.8vw,22px)", fontWeight: 600, color: "#F5F2EC", letterSpacing: "-0.015em", lineHeight: 1.2 }}>{v.title}</h3>
                   <p style={{ fontSize: 15, color: "#8A919C", lineHeight: 1.7 }} className="value-body">{v.body}</p>
                 </div>

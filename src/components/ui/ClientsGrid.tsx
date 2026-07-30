@@ -88,7 +88,7 @@ export default function ClientsGrid({ clients }: { clients: Client[] }) {
         animate={visible ? { opacity: 1 } : {}}
         transition={{ duration: 0.45, ease: "easeOut" }}
       >
-        Working with operators in Kenya
+        Delivered for companies across Kenya
       </motion.p>
 
       <motion.div
@@ -112,7 +112,7 @@ export default function ClientsGrid({ clients }: { clients: Client[] }) {
 
       <style>{`
         .ci-eyebrow {
-          font-family: var(--font-jetbrains-mono), monospace;
+          font-family: var(--font-satoshi), system-ui, sans-serif;
           font-size: 11px;
           letter-spacing: 0.22em;
           text-transform: uppercase;
@@ -205,7 +205,7 @@ export default function ClientsGrid({ clients }: { clients: Client[] }) {
         .ci-tile:hover .ci-name { opacity: 1; transform: translate(-50%, 0); }
 
         .ci-name-co {
-          font-family: var(--font-space-grotesk), sans-serif;
+          font-family: var(--font-clash-grotesk), sans-serif;
           font-size: 14px;
           font-weight: 600;
           letter-spacing: -0.01em;
@@ -213,7 +213,7 @@ export default function ClientsGrid({ clients }: { clients: Client[] }) {
           line-height: 1;
         }
         .ci-name-cat {
-          font-family: var(--font-jetbrains-mono), monospace;
+          font-family: var(--font-satoshi), system-ui, sans-serif;
           font-size: 10px;
           letter-spacing: 0.14em;
           text-transform: uppercase;

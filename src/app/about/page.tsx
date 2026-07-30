@@ -8,17 +8,17 @@ import { CONTACT, DIFFERENTIATORS } from "@/lib/data";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
-  title: "About — NorthBit Labs",
-  description: "NorthBit Labs is a technology firm founded to solve a recurring problem: ambitious businesses held back by manual processes and software built for someone else.",
+  title: "About — Northbit Labs",
+  description: "Northbit Labs is a technology firm founded to solve a recurring problem: ambitious businesses held back by manual processes and software built for someone else.",
   alternates: { canonical: "/about" },
   openGraph: {
-    title: "About — NorthBit Labs",
-    description: "NorthBit Labs is a technology firm founded to solve a recurring problem: ambitious businesses held back by manual processes and software built for someone else.",
+    title: "About — Northbit Labs",
+    description: "Northbit Labs is a technology firm founded to solve a recurring problem: ambitious businesses held back by manual processes and software built for someone else.",
     url: "/about",
     type: "website",
     locale: "en_KE",
   },
-  twitter: { card: "summary_large_image", title: "About — NorthBit Labs" },
+  twitter: { card: "summary_large_image", title: "About — Northbit Labs" },
 };
 
 export default function AboutPage() {
@@ -26,8 +26,15 @@ export default function AboutPage() {
     <>
       <BreadcrumbJsonLd name="About" path="/about" />
       {/* HERO */}
-      <section className="hero-ink" style={{ background: "#0B0F14", color: "#F5F2EC", padding: "clamp(80px,11vw,160px) 0 clamp(64px,7vw,104px)" }}>
+      <section className="hero-ink" style={{ background: "#0B0F14", color: "#F5F2EC", padding: "clamp(80px,11vw,160px) 0 clamp(64px,7vw,104px)", overflow: "hidden" }}>
+        <div aria-hidden="true" className="hero-photo-zoom" style={{ position: "absolute", inset: 0, backgroundImage: "url('/people/about-hero.webp')", backgroundSize: "cover", backgroundPosition: "center right", pointerEvents: "none" }} />
+        <div aria-hidden="true" style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, rgba(11,15,20,0.94) 0%, rgba(11,15,20,0.82) 42%, rgba(11,15,20,0.55) 100%)", pointerEvents: "none" }} />
         <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(58,92,26,0.10) 1px, transparent 1px)", backgroundSize: "28px 28px", pointerEvents: "none" }} />
+        <style>{`
+          .hero-photo-zoom { animation: hero-ken-burns 22s ease-in-out infinite alternate; }
+          @keyframes hero-ken-burns { from { transform: scale(1); } to { transform: scale(1.07); } }
+          @media (prefers-reduced-motion: reduce) { .hero-photo-zoom { animation: none; } }
+        `}</style>
         <div className="wrap" style={{ position: "relative" }}>
           <div style={{ marginBottom: 32 }}>
             <HeroReveal
@@ -41,7 +48,7 @@ export default function AboutPage() {
           </div>
           <FadeUp delay={0.18}>
             <p style={{ fontSize: "clamp(16px,1.4vw,20px)", color: "#8A919C", maxWidth: "58ch", lineHeight: 1.65 }}>
-              NorthBit Labs is a technology firm founded to solve a recurring problem: ambitious businesses held back by manual processes, mismatched off-the-shelf tools and software built for someone else.
+              Northbit Labs is a technology firm founded to solve a recurring problem: ambitious businesses held back by manual processes, mismatched off-the-shelf tools and software built for someone else.
             </p>
           </FadeUp>
         </div>
@@ -61,7 +68,7 @@ export default function AboutPage() {
                     Our work is to design systems around how clients actually operate, automate the operational work that consumes time without creating value, and advise leaders on the technology decisions that determine whether their next phase of growth is profitable or painful.
                   </p>
                   <p style={{ fontSize: 17, color: "#5C6470", lineHeight: 1.75 }}>
-                    We are small by design. Every engagement is handled directly by senior practitioners. There are no junior handoffs and no inflated teams. When you work with NorthBit Labs, you work with the people writing the code, designing the workflows and answering your questions.
+                    We are small by design. Every engagement is handled directly by senior practitioners. There are no junior handoffs and no inflated teams. When you work with Northbit Labs, you work with the people writing the code, designing the workflows and answering your questions.
                   </p>
                 </div>
               </div>
@@ -79,7 +86,7 @@ export default function AboutPage() {
                       { label: "References", val: "On request" },
                     ].map((item) => (
                       <div key={item.label}>
-                        <div style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 11, color: "#9098A4", letterSpacing: "0.12em", marginBottom: 4 }}>{item.label}</div>
+                        <div style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 11, color: "#9098A4", letterSpacing: "0.12em", marginBottom: 4 }}>{item.label}</div>
                         <div style={{ fontSize: 16, fontWeight: 600, color: "#F5F2EC" }}>{item.val}</div>
                       </div>
                     ))}
@@ -153,7 +160,7 @@ export default function AboutPage() {
                   <span style={{ fontSize: 40, fontWeight: 700, color: "#F5F2EC", letterSpacing: "-0.02em" }}>SP</span>
                 </div>
                 <div style={{ textAlign: "center", position: "relative", zIndex: 1 }}>
-                  <div style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 10, letterSpacing: "0.22em", color: "#3A5C1A", textTransform: "uppercase" }}>
+                  <div style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 10, letterSpacing: "0.22em", color: "#3A5C1A", textTransform: "uppercase" }}>
                     {CONTACT.founderTitle}
                   </div>
                 </div>
@@ -164,7 +171,7 @@ export default function AboutPage() {
                 </h2>
                 <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
                   <p style={{ fontSize: 17, color: "#5C6470", lineHeight: 1.75 }}>
-                    Sean leads NorthBit Labs and oversees every client engagement. He works hands-on across software architecture, AI implementation and business strategy. His approach is direct: understand the business first, then choose the tools — never the other way around.
+                    Sean leads Northbit Labs and oversees every client engagement. He works hands-on across software architecture, AI implementation and business strategy. His approach is direct: understand the business first, then choose the tools — never the other way around.
                   </p>
                   <p style={{ fontSize: 17, color: "#5C6470", lineHeight: 1.75 }}>
                     Clients work with Sean from the first conversation through delivery. Every engagement letter, scope and project decision passes through his desk. There are no account managers or project coordinators between you and the person solving your problem.

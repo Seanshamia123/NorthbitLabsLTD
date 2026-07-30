@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "NorthBit Labs",
-    short_name: "NorthBit Labs",
+    name: "Northbit Labs",
+    short_name: "Northbit Labs",
     description:
       "Custom software, AI operations and technology consulting for businesses in Kenya and East Africa.",
     start_url: "/",

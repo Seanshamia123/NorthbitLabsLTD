@@ -4,21 +4,22 @@ import FadeUp from "@/components/ui/FadeUp";
 import HeroReveal from "@/components/ui/HeroReveal";
 import MagneticBtn from "@/components/ui/MagneticBtn";
 import CtaPhotoSection from "@/components/ui/CtaPhotoSection";
+import ServicesCarousel from "@/components/ui/ServicesCarousel";
 import { SERVICES, ENGAGEMENT_MODELS } from "@/lib/data";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
-  title: "Services — NorthBit Labs",
+  title: "Services — Northbit Labs",
   description: "Custom software, AI-powered automation and technology consulting. Three pillars, 13 capabilities, one senior-practitioner team.",
   alternates: { canonical: "/services" },
   openGraph: {
-    title: "Services — NorthBit Labs",
+    title: "Services — Northbit Labs",
     description: "Custom software, AI-powered automation and technology consulting. Three pillars, 13 capabilities, one senior-practitioner team.",
     url: "/services",
     type: "website",
     locale: "en_KE",
   },
-  twitter: { card: "summary_large_image", title: "Services — NorthBit Labs" },
+  twitter: { card: "summary_large_image", title: "Services — Northbit Labs" },
 };
 
 export default function ServicesPage() {
@@ -29,11 +30,16 @@ export default function ServicesPage() {
       <BreadcrumbJsonLd name="Services" path="/services" />
       {/* HERO */}
       <section className="hero-ink" style={{ background: "#0B0F14", color: "#F5F2EC", padding: "clamp(80px,11vw,160px) 0 clamp(64px,7vw,104px)", overflow: "hidden" }}>
-        {/* engineers-at-work photo */}
-        <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: "url('/textures/studio-engineers-dark.webp')", backgroundSize: "cover", backgroundPosition: "center right", pointerEvents: "none" }} />
+        {/* engineers-at-work photo — slow Ken Burns drift */}
+        <div aria-hidden="true" className="hero-photo-zoom" style={{ position: "absolute", inset: 0, backgroundImage: "url('/people/services-hero.webp')", backgroundSize: "cover", backgroundPosition: "center right", pointerEvents: "none" }} />
         {/* left-dark overlay keeps the headline readable, photo glows on the right */}
         <div aria-hidden="true" style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, rgba(11,15,20,0.94) 0%, rgba(11,15,20,0.82) 42%, rgba(11,15,20,0.55) 100%)", pointerEvents: "none" }} />
         <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(58,92,26,0.10) 1px, transparent 1px)", backgroundSize: "28px 28px", pointerEvents: "none" }} />
+        <style>{`
+          .hero-photo-zoom { animation: hero-ken-burns 22s ease-in-out infinite alternate; }
+          @keyframes hero-ken-burns { from { transform: scale(1); } to { transform: scale(1.07); } }
+          @media (prefers-reduced-motion: reduce) { .hero-photo-zoom { animation: none; } }
+        `}</style>
         <div className="wrap" style={{ position: "relative" }}>
           <div style={{ marginBottom: 32 }}>
             <HeroReveal
@@ -65,7 +71,7 @@ export default function ServicesPage() {
                   className="pillar-row"
                 >
                   <div style={{ paddingTop: 4 }}>
-                    <div style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 28, fontWeight: 600, letterSpacing: "-0.02em", color: "#D9E1E8" }}>
+                    <div style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 28, fontWeight: 600, letterSpacing: "-0.02em", color: "#D9E1E8" }}>
                       {String(i + 1).padStart(2, "0")}
                     </div>
                   </div>
@@ -99,52 +105,16 @@ export default function ServicesPage() {
       <section className="section section--frost">
         <div className="wrap">
           <Reveal>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: 40, alignItems: "end", paddingBottom: 48 }} className="caps-head">
-              <h2 style={{ fontSize: "clamp(24px,3vw,44px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.1, maxWidth: "24ch" }}>
+            <div style={{ paddingBottom: 48, maxWidth: "34ch" }}>
+              <h2 style={{ fontSize: "clamp(24px,3vw,44px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.1 }}>
                 The full stack of what we do.
               </h2>
             </div>
           </Reveal>
           <Reveal delay={80}>
-            <div
-              style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 0, borderTop: "1px solid #D9E1E8", borderLeft: "1px solid #D9E1E8" }}
-              className="caps-grid"
-            >
-              {SERVICES.map((s) => (
-                <div
-                  key={s.id}
-                  id={s.pillar ? undefined : s.id}
-                  className="cap-card"
-                  style={{
-                    padding: "32px 36px",
-                    borderRight: "1px solid #D9E1E8",
-                    borderBottom: "1px solid #D9E1E8",
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 12,
-                    background: s.pillar ? "rgba(58,92,26,0.04)" : "transparent",
-                  }}
-                >
-                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                    <span style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 11, color: "#9098A4", letterSpacing: "0.1em" }}>
-                      {s.num}
-                    </span>
-                    {s.pillar && (
-                      <span style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 9, letterSpacing: "0.2em", color: "#3A5C1A", background: "rgba(58,92,26,0.1)", padding: "2px 8px", borderRadius: 999 }}>
-                        PILLAR
-                      </span>
-                    )}
-                  </div>
-                  <h3 style={{ fontSize: 22, fontWeight: 600, letterSpacing: "-0.01em", lineHeight: 1.2 }}>{s.title}</h3>
-                  <p style={{ fontSize: 14, color: "#5C6470", lineHeight: 1.6 }}>{s.description}</p>
-                </div>
-              ))}
-            </div>
+            <ServicesCarousel services={SERVICES} />
           </Reveal>
         </div>
-        <style>{`
-          @media (max-width: 680px) { .caps-grid { grid-template-columns: 1fr !important; } .caps-head { grid-template-columns: 1fr !important; } }
-        `}</style>
       </section>
 
       {/* ENGAGEMENT MODELS */}
@@ -159,7 +129,7 @@ export default function ServicesPage() {
             <div style={{ borderTop: "1px solid #232931", width: "100%" }}>
               <div className="eng-header" style={{ display: "grid", gridTemplateColumns: "1fr 2fr 2fr", padding: "16px 0", borderBottom: "1px solid #232931", gap: 32 }}>
                 {["Model", "Best For", "How It Works"].map((h) => (
-                  <div key={h} style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 11, letterSpacing: "0.18em", color: "#9098A4", textTransform: "uppercase" }}>{h}</div>
+                  <div key={h} style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 11, letterSpacing: "0.18em", color: "#9098A4", textTransform: "uppercase" }}>{h}</div>
                 ))}
               </div>
               {ENGAGEMENT_MODELS.map((m, i) => (
@@ -170,11 +140,11 @@ export default function ServicesPage() {
                 >
                   <div style={{ fontWeight: 600, fontSize: 18, color: "#F5F2EC" }}>{m.model}</div>
                   <div>
-                    <div className="eng-label" style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 10, letterSpacing: "0.18em", color: "#9098A4", textTransform: "uppercase", marginBottom: 6 }}>Best For</div>
+                    <div className="eng-label" style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 10, letterSpacing: "0.18em", color: "#9098A4", textTransform: "uppercase", marginBottom: 6 }}>Best For</div>
                     <div style={{ fontSize: 15, color: "#8A919C", lineHeight: 1.6 }}>{m.bestFor}</div>
                   </div>
                   <div>
-                    <div className="eng-label" style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 10, letterSpacing: "0.18em", color: "#9098A4", textTransform: "uppercase", marginBottom: 6 }}>How It Works</div>
+                    <div className="eng-label" style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 10, letterSpacing: "0.18em", color: "#9098A4", textTransform: "uppercase", marginBottom: 6 }}>How It Works</div>
                     <div style={{ fontSize: 15, color: "#8A919C", lineHeight: 1.6 }}>{m.howItWorks}</div>
                   </div>
                 </div>

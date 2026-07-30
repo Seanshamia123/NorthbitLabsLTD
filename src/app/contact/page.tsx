@@ -51,8 +51,16 @@ export default function ContactPage() {
   return (
     <>
       {/* HERO */}
-      <section className="hero-ink" style={{ background: "#0B0F14", color: "#F5F2EC", padding: "clamp(80px,11vw,160px) 0 clamp(64px,7vw,104px)" }}>
+      <section className="hero-ink" style={{ background: "#0B0F14", color: "#F5F2EC", padding: "clamp(80px,11vw,160px) 0 clamp(64px,7vw,104px)", overflow: "hidden" }}>
+        {/* office/desk photo — slow Ken Burns drift */}
+        <div aria-hidden="true" className="hero-photo-zoom" style={{ position: "absolute", inset: 0, backgroundImage: "url('/people/contact-hero.webp')", backgroundSize: "cover", backgroundPosition: "center right", pointerEvents: "none" }} />
+        <div aria-hidden="true" style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, rgba(11,15,20,0.94) 0%, rgba(11,15,20,0.82) 42%, rgba(11,15,20,0.55) 100%)", pointerEvents: "none" }} />
         <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(58,92,26,0.10) 1px, transparent 1px)", backgroundSize: "28px 28px", pointerEvents: "none" }} />
+        <style>{`
+          .hero-photo-zoom { animation: hero-ken-burns 22s ease-in-out infinite alternate; }
+          @keyframes hero-ken-burns { from { transform: scale(1); } to { transform: scale(1.07); } }
+          @media (prefers-reduced-motion: reduce) { .hero-photo-zoom { animation: none; } }
+        `}</style>
         <div className="wrap" style={{ position: "relative" }}>
           <div style={{ marginBottom: 32 }}>
             <HeroReveal
@@ -105,9 +113,9 @@ export default function ContactPage() {
                 },
               ].map((item) => (
                 <div key={item.num} style={{ background: "#F5F2EC", border: "1px solid #D9E1E8", borderRadius: 8, padding: "40px 36px" }}>
-                  <div style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 28, fontWeight: 600, letterSpacing: "-0.02em", color: "#D9E1E8", marginBottom: 20 }}>{item.num}</div>
+                  <div style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 28, fontWeight: 600, letterSpacing: "-0.02em", color: "#D9E1E8", marginBottom: 20 }}>{item.num}</div>
                   <h3 style={{ fontSize: 26, fontWeight: 600, letterSpacing: "-0.015em", marginBottom: 6 }}>{item.title}</h3>
-                  <p style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 11, letterSpacing: "0.14em", color: "#3A5C1A", marginBottom: 20 }}>{item.sub}</p>
+                  <p style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 11, letterSpacing: "0.14em", color: "#3A5C1A", marginBottom: 20 }}>{item.sub}</p>
                   <p style={{ fontSize: 16, color: "#5C6470", lineHeight: 1.7, marginBottom: 28 }}>{item.desc}</p>
                   <MagneticBtn>
                     <a href={item.href} className="btn btn-primary" style={{ fontSize: 15 }}>{item.cta} →</a>
@@ -165,7 +173,7 @@ export default function ContactPage() {
 
                     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }} className="form-row">
                       <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                        <label htmlFor="name" style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "#5C6470" }}>
+                        <label htmlFor="name" style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "#5C6470" }}>
                           Name
                         </label>
                         <input
@@ -181,7 +189,7 @@ export default function ContactPage() {
                         />
                       </div>
                       <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                        <label htmlFor="company" style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "#5C6470" }}>
+                        <label htmlFor="company" style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "#5C6470" }}>
                           Company
                         </label>
                         <input
@@ -198,7 +206,7 @@ export default function ContactPage() {
                     </div>
 
                     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                      <label htmlFor="email" style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "#5C6470" }}>
+                      <label htmlFor="email" style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "#5C6470" }}>
                         Email
                       </label>
                       <input
@@ -215,7 +223,7 @@ export default function ContactPage() {
                     </div>
 
                     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                      <label htmlFor="message" style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "#5C6470" }}>
+                      <label htmlFor="message" style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "#5C6470" }}>
                         What are you trying to build?
                       </label>
                       <textarea
@@ -267,7 +275,7 @@ export default function ContactPage() {
                     { label: "Founder", val: CONTACT.founder, href: null },
                   ].map((item) => (
                     <div key={item.label} style={{ padding: "22px 0", borderBottom: "1px solid #D9E1E8" }}>
-                      <div style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 11, letterSpacing: "0.18em", color: "#9098A4", textTransform: "uppercase", marginBottom: 6 }}>
+                      <div style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 11, letterSpacing: "0.18em", color: "#9098A4", textTransform: "uppercase", marginBottom: 6 }}>
                         {item.label}
                       </div>
                       {item.href ? (
@@ -284,7 +292,7 @@ export default function ContactPage() {
                 </div>
 
                 <div style={{ marginTop: 32, background: "#0B0F14", borderRadius: 8, padding: "28px 28px" }}>
-                  <div style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: 11, letterSpacing: "0.2em", color: "#3A5C1A", marginBottom: 12 }}>
+                  <div style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 11, letterSpacing: "0.2em", color: "#3A5C1A", marginBottom: 12 }}>
                     WHAT HAPPENS NEXT
                   </div>
                   <p style={{ fontSize: 15, color: "#8A919C", lineHeight: 1.65 }}>

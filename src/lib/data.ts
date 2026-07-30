@@ -1,6 +1,7 @@
 export const SERVICES = [
   {
     id: "custom-software",
+    image: "/services/custom-software.jpg",
     num: "01",
     title: "Custom Software Development",
     pillar: true,
@@ -18,6 +19,7 @@ export const SERVICES = [
   },
   {
     id: "ai-operations",
+    image: "/services/ai-operations.jpg",
     num: "02",
     title: "AI-Powered Operations & Automation",
     pillar: true,
@@ -35,6 +37,7 @@ export const SERVICES = [
   },
   {
     id: "consulting",
+    image: "/services/consulting.jpg",
     num: "03",
     title: "Technology Consulting",
     pillar: true,
@@ -50,6 +53,7 @@ export const SERVICES = [
   },
   {
     id: "web-development",
+    image: "/services/web-development.jpg",
     num: "04",
     title: "Web Development",
     pillar: false,
@@ -58,6 +62,7 @@ export const SERVICES = [
   },
   {
     id: "mobile",
+    image: "/services/mobile.jpg",
     num: "05",
     title: "Mobile App Development",
     pillar: false,
@@ -66,6 +71,7 @@ export const SERVICES = [
   },
   {
     id: "cloud-devops",
+    image: "/services/cloud-devops.jpg",
     num: "06",
     title: "Cloud & DevOps",
     pillar: false,
@@ -74,6 +80,7 @@ export const SERVICES = [
   },
   {
     id: "data-analytics",
+    image: "/services/data-analytics.jpg",
     num: "07",
     title: "Data Engineering & Analytics",
     pillar: false,
@@ -82,6 +89,7 @@ export const SERVICES = [
   },
   {
     id: "qa-testing",
+    image: "/services/qa-testing.jpg",
     num: "08",
     title: "QA & Testing",
     pillar: false,
@@ -90,6 +98,7 @@ export const SERVICES = [
   },
   {
     id: "ui-ux",
+    image: "/services/ui-ux.jpg",
     num: "09",
     title: "UI / UX Design",
     pillar: false,
@@ -98,6 +107,7 @@ export const SERVICES = [
   },
   {
     id: "cybersecurity",
+    image: "/services/cybersecurity.jpg",
     num: "10",
     title: "Cybersecurity",
     pillar: false,
@@ -106,6 +116,7 @@ export const SERVICES = [
   },
   {
     id: "fintech",
+    image: "/services/fintech.jpg",
     num: "11",
     title: "Fintech & Payments",
     pillar: false,
@@ -114,6 +125,7 @@ export const SERVICES = [
   },
   {
     id: "staff-augmentation",
+    image: "/services/staff-augmentation.jpg",
     num: "12",
     title: "IT Staff Augmentation",
     pillar: false,
@@ -122,6 +134,7 @@ export const SERVICES = [
   },
   {
     id: "modernization",
+    image: "/services/modernization.jpg",
     num: "13",
     title: "Enterprise Modernization",
     pillar: false,
@@ -137,6 +150,7 @@ export const INDUSTRIES = [
     description:
       "Core banking, lending, payments, KYC/AML, treasury and the regulator-facing layer that wraps it. CBK-compliant, AML-ready.",
     slug: "fintech",
+    image: "/industries/fintech.jpg",
     featured: true,
   },
   {
@@ -145,6 +159,7 @@ export const INDUSTRIES = [
     description:
       "EHR integrations, patient platforms, telemedicine and clinical workflow tooling.",
     slug: "healthcare",
+    image: "/industries/healthcare.jpg",
   },
   {
     num: "/03",
@@ -152,6 +167,7 @@ export const INDUSTRIES = [
     description:
       "Booking systems, membership platforms, client management and the scheduling layer your instructors actually use.",
     slug: "wellness",
+    image: "/industries/wellness.jpg",
     featured: true,
   },
   {
@@ -160,6 +176,7 @@ export const INDUSTRIES = [
     description:
       "Headless commerce, POS, inventory management, loyalty and the payment integrations your market requires.",
     slug: "retail",
+    image: "/industries/retail.jpg",
     featured: true,
   },
   {
@@ -168,6 +185,7 @@ export const INDUSTRIES = [
     description:
       "Booking, staff management, product inventory, client records and the customer-facing experience that wins repeat business.",
     slug: "beauty",
+    image: "/industries/beauty.jpg",
     featured: true,
   },
   {
@@ -176,6 +194,7 @@ export const INDUSTRIES = [
     description:
       "Portfolios, content platforms, CRM for influencers and the digital presence that lands brand deals.",
     slug: "media",
+    image: "/industries/media.jpg",
     featured: true,
   },
   {
@@ -184,6 +203,7 @@ export const INDUSTRIES = [
     description:
       "Fleet management, freight, warehouse and last-mile visibility tools.",
     slug: "logistics",
+    image: "/industries/logistics.jpg",
   },
   {
     num: "/08",
@@ -191,6 +211,7 @@ export const INDUSTRIES = [
     description:
       "Listings, leasing, property operations and smart-building integrations.",
     slug: "proptech",
+    image: "/industries/proptech.jpg",
   },
   {
     num: "/09",
@@ -198,6 +219,7 @@ export const INDUSTRIES = [
     description:
       "Learning platforms, assessment, credentialing and student-outcome analytics.",
     slug: "edtech",
+    image: "/industries/edtech.jpg",
   },
   {
     num: "/10",
@@ -205,6 +227,7 @@ export const INDUSTRIES = [
     description:
       "Client management, billing, workflow automation and the reporting layer for service-led businesses.",
     slug: "professional-services",
+    image: "/industries/professional-services.jpg",
   },
 ];
 
@@ -317,7 +340,7 @@ export const ACTIVE_BUILD = {
   logoColor: "/logos/count-technologies.png",
   headline: "Five systems for one client.",
   intro:
-    "Count Technologies Ltd. engaged NorthBit to design and build five systems in parallel — accounting, forex booking, HR, a field Android app and an AML screening agent. One is already in production in the field; we are rebuilding it while the other four take shape.",
+    "Count Technologies Ltd. engaged Northbit to design and build five systems in parallel — accounting, forex booking, HR, a field Android app and an AML screening agent. One is already in production in the field; we are rebuilding it while the other four take shape.",
   systems: [
     {
       num: "01",
