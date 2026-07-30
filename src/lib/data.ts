@@ -316,7 +316,7 @@ export const CLIENTS = [
     category: "Fintech & Payments",
     tags: ["FINTECH", "PAYMENTS", "CUSTOM SOFTWARE"],
     url: "https://www.kasapay.com/",
-    logo: "/logos/kasapay.jpeg",
+    logo: "/logos/kasapay-logo.png",
     image: "/work/kasapay.webp",
     brandColor: "#1D5599",
     headline: "Building the core platform for a CBK dual-licensed PSP.",
