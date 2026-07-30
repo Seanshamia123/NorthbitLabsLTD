@@ -56,8 +56,8 @@ function LogoTile({
         <img
           src={client.logo}
           alt={`${client.name} logo`}
-          width={64}
-          height={64}
+          width={96}
+          height={96}
           loading="lazy"
           decoding="async"
         />
@@ -156,35 +156,22 @@ export default function ClientsGrid({ clients }: { clients: Client[] }) {
         }
 
         .ci-logo {
-          width: 64px;
-          height: 64px;
+          width: 96px;
+          height: 96px;
           display: flex;
           align-items: center;
           justify-content: center;
-          border-radius: 8px;
-          background: rgba(11, 15, 20, 0.035);
-          transition: background 0.3s cubic-bezier(0.2, 0.7, 0.2, 1),
-                      box-shadow 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
-        }
-        .ci-tile:hover .ci-logo {
-          background: rgba(11, 15, 20, 0.06);
-          box-shadow: 0 0 0 3px rgba(58, 92, 26, 0.12);
+          background: none;
         }
 
-        .ci-logo--wide { width: 148px; padding: 0 14px; }
+        .ci-logo--wide { width: 220px; padding: 0; }
 
         .ci-logo img {
-          width: 78%;
-          height: 78%;
+          width: 100%;
+          height: 100%;
           object-fit: contain;
           display: block;
-          /* Logos sit calm at rest, snap to full presence on hover. */
-          filter: grayscale(0.35);
-          opacity: 0.78;
-          transition: filter 0.32s cubic-bezier(0.2, 0.7, 0.2, 1),
-                      opacity 0.32s cubic-bezier(0.2, 0.7, 0.2, 1);
         }
-        .ci-tile:hover .ci-logo img { filter: grayscale(0); opacity: 1; }
 
         /* Name is absolutely placed so revealing it never shifts the track. */
         .ci-name {
@@ -233,8 +220,6 @@ export default function ClientsGrid({ clients }: { clients: Client[] }) {
           flex-wrap: wrap;
           gap: clamp(28px, 4vw, 56px);
         }
-        .ci-marquee[data-reduced="true"] .ci-logo img { filter: none; opacity: 1; }
-
         @media (prefers-reduced-motion: reduce) {
           .ci-track { animation: none; }
           .ci-name { transition: opacity 0.3s ease; transform: translate(-50%, 0); }
@@ -242,8 +227,8 @@ export default function ClientsGrid({ clients }: { clients: Client[] }) {
 
         @media (max-width: 600px) {
           .ci-track { gap: clamp(28px, 9vw, 44px); }
-          .ci-logo { width: 52px; height: 52px; }
-          .ci-logo--wide { width: 120px; padding: 0 10px; }
+          .ci-logo { width: 72px; height: 72px; }
+          .ci-logo--wide { width: 170px; padding: 0; }
         }
       `}</style>
     </div>
