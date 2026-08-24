@@ -182,9 +182,15 @@ export default function HomePage() {
                     </ul>
                   )}
                   <MagneticBtn>
-                    <Link href={`/services#${p.id}`} className="btn btn-primary" style={{ fontSize: 14 }}>
-                      Explore {p.pillarLabel} →
-                    </Link>
+                    {p.id === "consulting" ? (
+                      <Link href="/free-consultation" className="btn btn-primary" style={{ fontSize: 14 }}>
+                        Free Consultation →
+                      </Link>
+                    ) : (
+                      <Link href={`/services#${p.id}`} className="btn btn-primary" style={{ fontSize: 14 }}>
+                        Explore {p.pillarLabel} →
+                      </Link>
+                    )}
                   </MagneticBtn>
                 </div>
               );

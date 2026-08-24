@@ -39,15 +39,45 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://northbitlabs.tech"),
   title: "Northbit Labs — Custom Software · AI Operations · Consulting",
   description:
-    "A technology firm that builds custom software designed around your business, applies AI to streamline your operations, and delivers measurable results. Based in Kenya.",
+    "A technology firm that builds custom software designed around your business, applies AI to streamline your operations, and delivers measurable results. Based in Kenya, serving clients across Africa, Europe and worldwide.",
   keywords: [
-    "custom software Kenya",
-    "software development Nairobi",
-    "AI automation Kenya",
-    "technology consulting Kenya",
-    "fintech software CBK",
-    "Mpesa integration",
+    // Brand
     "Northbit Labs",
+    // Custom software — geo variants
+    "custom software Kenya",
+    "custom software development Africa",
+    "custom software development East Africa",
+    "custom software company Nairobi",
+    "software development company Kenya",
+    "bespoke software development Europe",
+    "custom software development company",
+    // AI operations / automation — geo variants
+    "AI automation Kenya",
+    "AI automation Africa",
+    "AI-powered operations East Africa",
+    "business process automation Kenya",
+    "AI consulting company",
+    // Technology consulting — geo variants
+    "technology consulting Kenya",
+    "technology consulting Africa",
+    "IT consulting East Africa",
+    "technology audit Nairobi",
+    "AI readiness assessment",
+    // Fintech / payments
+    "fintech software CBK",
+    "fintech software development Africa",
+    "Mpesa integration",
+    "payment integration Kenya",
+    // Web, mobile, cloud
+    "web development Kenya",
+    "mobile app development Kenya",
+    "mobile app development Africa",
+    "cloud and DevOps consulting Kenya",
+    // Broader reach
+    "software development company East Africa",
+    "software outsourcing Kenya",
+    "technology partner for startups Africa",
+    "IT staff augmentation Kenya",
   ],
   authors: [{ name: "Northbit Labs" }],
   creator: "Northbit Labs",
@@ -65,7 +95,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Northbit Labs — Software Engineered North",
     description:
-      "Custom software, AI operations and technology consulting for businesses in Kenya and East Africa.",
+      "Custom software, AI operations and technology consulting for businesses in Kenya, East Africa, and clients across Africa, Europe and the world.",
     url: "/",
     type: "website",
     locale: "en_KE",
@@ -83,7 +113,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Northbit Labs — Software Engineered North",
     description:
-      "Custom software, AI operations and technology consulting for businesses in Kenya and East Africa.",
+      "Custom software, AI operations and technology consulting for businesses in Kenya, East Africa, and clients across Africa, Europe and the world.",
   },
 };
 
@@ -120,6 +150,14 @@ export default function RootLayout({
           gtag('js', new Date());
 
           gtag('config', 'G-16N31NC7BL');`}
+        </Script>
+        {/* Microsoft Clarity */}
+        <Script id="microsoft-clarity" strategy="afterInteractive">
+          {`(function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "y7jd0es8om");`}
         </Script>
         <SmoothScroll />
         <Header />

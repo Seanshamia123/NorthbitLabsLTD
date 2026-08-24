@@ -24,6 +24,7 @@ const footerLinks = {
     { label: "Work", href: "/work" },
     { label: "Careers", href: "/careers" },
     { label: "Contact", href: "/contact" },
+    { label: "Free Consultation", href: "/free-consultation" },
   ],
 };
 

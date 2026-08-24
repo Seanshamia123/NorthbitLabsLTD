@@ -52,6 +52,9 @@ export default function JsonLd() {
         areaServed: [
           { "@type": "Country", name: "Kenya" },
           { "@type": "Place", name: "East Africa" },
+          { "@type": "Place", name: "Africa" },
+          { "@type": "Place", name: "Europe" },
+          { "@type": "Place", name: "Worldwide" },
         ],
         knowsAbout: [
           "Custom Software Development",
