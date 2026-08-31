@@ -5,8 +5,8 @@ const isDev = process.env.NODE_ENV !== "production";
 // React + Turbopack need eval() in dev for hot reload / stack reconstruction.
 // Production never uses eval, so this is scoped to development only.
 const scriptSrc = isDev
-  ? "script-src 'self' 'unsafe-inline' 'unsafe-eval'"
-  : "script-src 'self' 'unsafe-inline'";
+  ? "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.clarity.ms"
+  : "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms";
 
 const securityHeaders = [
   { key: "X-Frame-Options", value: "DENY" },
@@ -28,8 +28,8 @@ const securityHeaders = [
       scriptSrc,
       "style-src 'self' 'unsafe-inline'",
       "font-src 'self'",
-      "img-src 'self' data: blob:",
-      "connect-src 'self'",
+      "img-src 'self' data: blob: https://www.googletagmanager.com https://www.google-analytics.com",
+      "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms",
       "frame-src 'none'",
       "object-src 'none'",
       "base-uri 'self'",
