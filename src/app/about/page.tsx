@@ -8,17 +8,17 @@ import { CONTACT, DIFFERENTIATORS } from "@/lib/data";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
-  title: "About — Northbit Labs",
+  title: "About - Northbit Labs",
   description: "Northbit Labs is a technology firm founded to solve a recurring problem: ambitious businesses held back by manual processes and software built for someone else.",
   alternates: { canonical: "/about" },
   openGraph: {
-    title: "About — Northbit Labs",
+    title: "About - Northbit Labs",
     description: "Northbit Labs is a technology firm founded to solve a recurring problem: ambitious businesses held back by manual processes and software built for someone else.",
     url: "/about",
     type: "website",
     locale: "en_KE",
   },
-  twitter: { card: "summary_large_image", title: "About — Northbit Labs" },
+  twitter: { card: "summary_large_image", title: "About - Northbit Labs" },
 };
 
 export default function AboutPage() {
@@ -75,7 +75,7 @@ export default function AboutPage() {
               <div>
                 <div style={{ background: "#0B0F14", borderRadius: 8, padding: "36px 40px" }}>
                   <p style={{ fontSize: 20, color: "#F5F2EC", lineHeight: 1.6, fontWeight: 500, letterSpacing: "-0.01em", marginBottom: 24 }}>
-                    &ldquo;We deliver systems that work in your business on day one — not theoretical playbooks.&rdquo;
+                    &ldquo;We deliver systems that work in your business on day one, not theoretical playbooks.&rdquo;
                   </p>
                   <p style={{ fontSize: 15, color: "#8A919C", lineHeight: 1.65 }}>
                     Every solution we ship is measured against one question: did it save the client time, money or both? If the answer is not clearly yes, it does not ship.
@@ -171,7 +171,7 @@ export default function AboutPage() {
                 </h2>
                 <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
                   <p style={{ fontSize: 17, color: "#5C6470", lineHeight: 1.75 }}>
-                    Sean leads Northbit Labs and oversees every client engagement. He works hands-on across software architecture, AI implementation and business strategy. His approach is direct: understand the business first, then choose the tools — never the other way around.
+                    Sean leads Northbit Labs and oversees every client engagement. He works hands-on across software architecture, AI implementation and business strategy. His approach is direct: understand the business first, then choose the tools, never the other way around.
                   </p>
                   <p style={{ fontSize: 17, color: "#5C6470", lineHeight: 1.75 }}>
                     Clients work with Sean from the first conversation through delivery. Every engagement letter, scope and project decision passes through his desk. There are no account managers or project coordinators between you and the person solving your problem.

@@ -9,17 +9,17 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 
 export const metadata = {
-  title: "Industries — Northbit Labs",
+  title: "Industries - Northbit Labs",
   description: "Fintech, wellness, beauty, retail, brand building and more. Domains we know well enough to push back in.",
   alternates: { canonical: "/industries" },
   openGraph: {
-    title: "Industries — Northbit Labs",
+    title: "Industries - Northbit Labs",
     description: "Fintech, wellness, beauty, retail, brand building and more. Domains we know well enough to push back in.",
     url: "/industries",
     type: "website",
     locale: "en_KE",
   },
-  twitter: { card: "summary_large_image", title: "Industries — Northbit Labs" },
+  twitter: { card: "summary_large_image", title: "Industries - Northbit Labs" },
 };
 
 export default function IndustriesPage() {

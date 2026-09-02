@@ -12,7 +12,7 @@ type Status = "idle" | "loading" | "success" | "error";
 const INCLUDED = [
   "A focused conversation about the problem you are trying to solve",
   "An honest read on whether you need new software, a better process, or nothing at all",
-  "A short list of next steps you can act on — with or without us",
+  "A short list of next steps you can act on, with or without us",
 ];
 
 export default function FreeConsultationPage() {
@@ -80,7 +80,7 @@ export default function FreeConsultationPage() {
           </div>
           <FadeUp delay={0.42}>
             <p style={{ fontSize: "clamp(16px,1.4vw,20px)", color: "#8A919C", maxWidth: "56ch", lineHeight: 1.65 }}>
-              A no-obligation 30-minute call with a senior practitioner — not a salesperson. We work with operators
+              A no-obligation 30-minute call with a senior practitioner, not a salesperson. We work with operators
               and founders in Kenya, East Africa, across Africa, Europe and worldwide. Tell us what you are trying
               to build; we will tell you honestly what it takes.
             </p>
@@ -258,8 +258,8 @@ export default function FreeConsultationPage() {
                     WHO THIS IS FOR
                   </div>
                   <p style={{ fontSize: 15, color: "#8A919C", lineHeight: 1.65 }}>
-                    Founders and operators anywhere — Kenya, East Africa, across the wider African continent, Europe
-                    or elsewhere — who need a clear technology direction before committing budget to a build. No
+                    Founders and operators anywhere (Kenya, East Africa, across the wider African continent, Europe
+                    or elsewhere) who need a clear technology direction before committing budget to a build. No
                     pitch deck, no pressure to sign anything.
                   </p>
                 </div>

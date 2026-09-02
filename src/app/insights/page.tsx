@@ -8,19 +8,19 @@ import { POSTS } from "@/lib/posts";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
-  title: "Insights — Northbit Labs",
+  title: "Insights - Northbit Labs",
   description:
     "Notes on AI operations, custom software and fintech engineering in Kenya and East Africa, from the team building it.",
   alternates: { canonical: "/insights" },
   openGraph: {
-    title: "Insights — Northbit Labs",
+    title: "Insights - Northbit Labs",
     description:
       "Notes on AI operations, custom software and fintech engineering in Kenya and East Africa, from the team building it.",
     url: "/insights",
     type: "website",
     locale: "en_KE",
   },
-  twitter: { card: "summary_large_image", title: "Insights — Northbit Labs" },
+  twitter: { card: "summary_large_image", title: "Insights - Northbit Labs" },
 };
 
 export default function InsightsPage() {

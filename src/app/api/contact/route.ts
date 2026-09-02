@@ -124,10 +124,10 @@ export async function POST(request: Request) {
       from: FROM,
       to: TO,
       replyTo: email,
-      subject: `New enquiry from ${name}${company ? ` — ${company}` : ""}`,
+      subject: `New enquiry from ${name}${company ? ` - ${company}` : ""}`,
       text: [
         `Name:    ${name}`,
-        `Company: ${company || "—"}`,
+        `Company: ${company || "Not provided"}`,
         `Email:   ${email}`,
         ``,
         message || "(no message)",
@@ -139,7 +139,7 @@ export async function POST(request: Request) {
           <tr><td style="padding:24px 32px 0;font-size:22px;font-weight:600">New enquiry</td></tr>
           <tr><td style="padding:24px 32px;border-top:1px solid #D9E1E8;margin-top:16px">
             <p style="margin:0 0 8px"><strong>Name:</strong> ${esc(name)}</p>
-            <p style="margin:0 0 8px"><strong>Company:</strong> ${esc(company) || "—"}</p>
+            <p style="margin:0 0 8px"><strong>Company:</strong> ${esc(company) || "Not provided"}</p>
             <p style="margin:0 0 8px"><strong>Email:</strong> <a href="mailto:${esc(email)}">${esc(email)}</a></p>
           </td></tr>
           <tr><td style="padding:0 32px 32px;border-top:1px solid #D9E1E8">

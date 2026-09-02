@@ -2,13 +2,13 @@
 
 > A technology firm based in Kiserian, Kenya that builds custom software, applies AI to streamline business operations, and provides technology consulting for SMEs across Kenya, East Africa, and clients in Europe and worldwide.
 
-Founded and led by Sean Paul Shamia (Founder & CEO). Northbit Labs works across three service lines — custom software development, AI-powered operations & automation, and technology consulting — with particular depth in fintech (CBK-compliant, AML-ready systems, Mpesa/Daraja integrations).
+Founded and led by Sean Paul Shamia (Founder & CEO). Northbit Labs works across three service lines: custom software development, AI-powered operations & automation, and technology consulting, with particular depth in fintech (CBK-compliant, AML-ready systems, Mpesa/Daraja integrations).
 
 ## Key pages
 
 - [Home](https://northbitlabs.tech/): What Northbit Labs does and who it serves.
 - [Services](https://northbitlabs.tech/services): The three service pillars, all capabilities, engagement models (Project, Retainer, Consultation), and frequently asked questions.
-- [Industries](https://northbitlabs.tech/industries): Industries served with live client proof — fintech & banking, wellness & fitness, beauty & personal care, retail & e-commerce, brand & media, logistics, healthcare.
+- [Industries](https://northbitlabs.tech/industries): Industries served with live client proof: fintech & banking, wellness & fitness, beauty & personal care, retail & e-commerce, brand & media, logistics, healthcare.
 - [Work](https://northbitlabs.tech/work): Case studies, including Magena Pilates, Premier Beauty Clinic and S.Socials, plus systems in active development for Count Technologies.
 - [Insights](https://northbitlabs.tech/insights): Articles on AI automation, custom software and fintech engineering for African SMEs.
 - [FAQ](https://northbitlabs.tech/faq): Every commonly asked question about the company, services, pricing and industries in one place.

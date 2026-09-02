@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SmoothScroll from "@/components/ui/SmoothScroll";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
+import CookieConsent from "@/components/ui/CookieConsent";
 import JsonLd from "@/components/seo/JsonLd";
 
 const clashGrotesk = localFont({
@@ -37,7 +37,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://northbitlabs.tech"),
-  title: "Northbit Labs — Custom Software · AI Operations · Consulting",
+  title: "Northbit Labs · Custom Software · AI Operations · Consulting",
   description:
     "A technology firm that builds custom software designed around your business, applies AI to streamline your operations, and delivers measurable results. Based in Kenya, serving clients across Africa, Europe and worldwide.",
   // The meta keywords tag has had no effect on Google ranking since 2009 and
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     ? { google: process.env.GOOGLE_SITE_VERIFICATION }
     : undefined,
   openGraph: {
-    title: "Northbit Labs — Software Engineered North",
+    title: "Northbit Labs - Software Engineered North",
     description:
       "Custom software, AI operations and technology consulting for businesses in Kenya, East Africa, and clients across Africa, Europe and the world.",
     url: "/",
@@ -78,13 +78,13 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Northbit Labs — Software built around the way your business works.",
+        alt: "Northbit Labs: software built around the way your business works.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Northbit Labs — Software Engineered North",
+    title: "Northbit Labs - Software Engineered North",
     description:
       "Custom software, AI operations and technology consulting for businesses in Kenya, East Africa, and clients across Africa, Europe and the world.",
   },
@@ -112,31 +112,14 @@ export default function RootLayout({
         <JsonLd />
       </head>
       <body style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif" }}>
-        {/* Google tag (gtag.js) */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-16N31NC7BL"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-16N31NC7BL');`}
-        </Script>
-        {/* Microsoft Clarity */}
-        <Script id="microsoft-clarity" strategy="afterInteractive">
-          {`(function(c,l,a,r,i,t,y){
-              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-          })(window, document, "clarity", "script", "y7jd0es8om");`}
-        </Script>
+        <a href="#main-content" className="skip-link">Skip to content</a>
         <SmoothScroll />
         <Header />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
         <WhatsAppButton />
+        {/* GA4 + Microsoft Clarity only load after the visitor accepts the cookie banner */}
+        <CookieConsent />
       </body>
     </html>
   );

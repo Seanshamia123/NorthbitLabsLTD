@@ -57,7 +57,7 @@ export default function WorkCoverflow({ clients }: { clients: WorkClient[] }) {
               <div style={{ aspectRatio: "16/9", background: "#1C2129", position: "relative", overflow: "hidden" }}>
                 <img
                   src={client.image}
-                  alt={`${client.name} — live site`}
+                  alt={`${client.name} live site`}
                   loading="lazy"
                   style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top center", display: "block" }}
                 />

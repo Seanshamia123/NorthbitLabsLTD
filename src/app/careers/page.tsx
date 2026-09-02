@@ -7,17 +7,17 @@ import { CONTACT } from "@/lib/data";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
-  title: "Careers — Northbit Labs",
+  title: "Careers - Northbit Labs",
   description: "Join a small, senior team building real systems for real businesses in Kenya. No junior work, no inflated teams.",
   alternates: { canonical: "/careers" },
   openGraph: {
-    title: "Careers — Northbit Labs",
+    title: "Careers - Northbit Labs",
     description: "Join a small, senior team building real systems for real businesses in Kenya. No junior work, no inflated teams.",
     url: "/careers",
     type: "website",
     locale: "en_KE",
   },
-  twitter: { card: "summary_large_image", title: "Careers — Northbit Labs" },
+  twitter: { card: "summary_large_image", title: "Careers - Northbit Labs" },
 };
 
 const talentProfiles = [
@@ -28,7 +28,7 @@ const talentProfiles = [
       "You have shipped production systems, not just side projects. You are comfortable across the stack, can hold a client conversation without a PM in the room, and you care about how the software actually gets used.",
     traits: [
       "5+ years across frontend and backend in production",
-      "TypeScript, React, Node.js — or an equivalent stack you can defend",
+      "TypeScript, React, Node.js, or an equivalent stack you can defend",
       "Mpesa / payment integration experience is a strong plus",
       "Can translate a business problem into a technical decision",
     ],
@@ -37,10 +37,10 @@ const talentProfiles = [
     num: "02",
     title: "AI & Automation Engineer",
     description:
-      "You build things with LLMs and automation tools that solve real operational problems — not demos. You can scope an automation roadmap from a business workflow and see it through to deployment.",
+      "You build things with LLMs and automation tools that solve real operational problems, not demos. You can scope an automation roadmap from a business workflow and see it through to deployment.",
     traits: [
       "Production experience with LLM pipelines, agents or workflow automation",
-      "LangChain, LlamaIndex, or similar — and honest about their limits",
+      "LangChain, LlamaIndex, or similar, and honest about their limits",
       "WhatsApp Business API, web hooks, or inter-system integrations",
       "Comfortable explaining trade-offs to non-technical clients",
     ],
@@ -49,7 +49,7 @@ const talentProfiles = [
     num: "03",
     title: "Technology Consultant",
     description:
-      "You have been on enough projects to know what goes wrong before it does. You help businesses make sound technology decisions — build vs. buy, right-sizing scope, picking the right battle first.",
+      "You have been on enough projects to know what goes wrong before it does. You help businesses make sound technology decisions: build vs. buy, right-sizing scope, picking the right battle first.",
     traits: [
       "Background in software delivery, engineering leadership, or architecture",
       "Can run a technology audit and produce something a business owner can act on",
@@ -148,7 +148,7 @@ export default function CareersPage() {
                 </h2>
               </div>
               <p style={{ fontSize: "clamp(15px,1.3vw,18px)", color: "#5C6470", lineHeight: 1.7, maxWidth: "58ch" }}>
-                We do not post roles until we have a specific client need. But we are always building our bench — a small
+                We do not post roles until we have a specific client need. But we are always building our bench: a small
                 group of trusted practitioners we can bring in when the right project arrives. If you fit one of the
                 profiles below, send us a message.
               </p>
@@ -230,14 +230,14 @@ export default function CareersPage() {
               </div>
               <div>
                 <a
-                  href={`mailto:${CONTACT.email}?subject=Open Application — Northbit Labs`}
+                  href={`mailto:${CONTACT.email}?subject=Open Application - Northbit Labs`}
                   className="btn btn-signal"
                   style={{ fontSize: 16 }}
                 >
                   Send an open application →
                 </a>
                 <p style={{ fontSize: 14, color: "#9098A4", marginTop: 16, maxWidth: "36ch", lineHeight: 1.6 }}>
-                  We read every message personally. If there is a fit — now or in the future — we will get back to you.
+                  We read every message personally. If there is a fit, now or in the future, we will get back to you.
                 </p>
               </div>
             </div>

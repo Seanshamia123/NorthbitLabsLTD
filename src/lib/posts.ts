@@ -29,7 +29,7 @@ export const POSTS: Post[] = [
     body: [
       {
         type: "p",
-        text: "Every founder we talk to has heard the AI pitch a dozen times. Fewer have seen it actually change how their business runs day to day. The gap usually isn't the technology — it's that most AI projects start with the wrong question. Instead of asking \"where can we use AI,\" the useful question is \"what does my team do every week that a system could do instead.\"",
+        text: "Every founder we talk to has heard the AI pitch a dozen times. Fewer have seen it actually change how their business runs day to day. The gap usually comes down to asking the wrong question, not a technology problem. Instead of asking \"where can we use AI,\" the useful question is \"what does my team do every week that a system could do instead.\"",
       },
       {
         type: "h2",
@@ -37,12 +37,12 @@ export const POSTS: Post[] = [
       },
       {
         type: "p",
-        text: "The highest-return automations we've built for clients across Kenya and East Africa are rarely glamorous. They're the WhatsApp inbox that gets forty near-identical enquiries a day. The spreadsheet someone updates by hand every morning. The follow-up message that gets sent — or forgotten — after every lead. None of these need a custom AI model. They need a well-built assistant wired into the tools your team already uses.",
+        text: "The highest-return automations we've built for clients across Kenya and East Africa are rarely glamorous. They're the WhatsApp inbox that gets forty near-identical enquiries a day. The spreadsheet someone updates by hand every morning. The follow-up message that gets sent, or forgotten, after every lead. None of these need a custom AI model. They need a well-built assistant wired into the tools your team already uses.",
       },
       {
         type: "list",
         items: [
-          "Customer enquiries answered instantly on WhatsApp, web chat or email — with a clean handoff to a human when it matters",
+          "Customer enquiries answered instantly on WhatsApp, web chat or email, with a clean handoff to a human when it matters",
           "Leads automatically qualified and routed before your team even opens their inbox",
           "Reports and documents generated from data that already lives in your systems",
           "Bookings, support tickets and internal requests routed to the right person automatically",
@@ -59,11 +59,11 @@ export const POSTS: Post[] = [
       },
       {
         type: "p",
-        text: "We size every automation project in hours returned to the business per week, not in features shipped. A client who gets back fifteen hours of manual follow-up work each week can redeploy that time into sales, service or simply going home on time. That's the number that matters — the AI underneath is just the mechanism.",
+        text: "We size every automation project in hours returned to the business per week, not in features shipped. A client who gets back fifteen hours of manual follow-up work each week can redeploy that time into sales, service or simply going home on time. That's the number that matters. The AI underneath is just the mechanism.",
       },
       {
         type: "p",
-        text: "If you're not sure where your first automation should be, that's normal — most businesses aren't. Book a discovery call and we'll walk through your operations together and point at the one process worth automating first.",
+        text: "If you're not sure where your first automation should be, that's normal. Most businesses aren't. Book a discovery call and we'll walk through your operations together and point at the one process worth automating first.",
       },
     ],
   },
@@ -109,7 +109,7 @@ export const POSTS: Post[] = [
       },
       {
         type: "p",
-        text: "The most cost-effective path for most growing fintechs isn't to rip everything out — it's to replace the parts of the stack that are actually constraining growth, while keeping what works. We've done this for clients moving off patchwork MVPs onto systems built specifically for compliance-heavy, high-volume operations, without pausing the business to do it.",
+        text: "The most cost-effective path for most growing fintechs is replacing the parts of the stack that are actually constraining growth, not ripping everything out. We've done this for clients moving off patchwork MVPs onto systems built specifically for compliance-heavy, high-volume operations, without pausing the business to do it.",
       },
       {
         type: "p",
@@ -121,7 +121,7 @@ export const POSTS: Post[] = [
     slug: "mpesa-integration-what-kenyan-businesses-get-wrong",
     title: "Mpesa Integration: What Kenyan Businesses Get Wrong",
     excerpt:
-      "The Daraja API documentation makes Mpesa integration look simple. Production traffic — failed callbacks, duplicate transactions, timeouts — tells a different story.",
+      "The Daraja API documentation makes Mpesa integration look simple. Production traffic (failed callbacks, duplicate transactions, timeouts) tells a different story.",
     category: "Custom Software",
     date: "2026-06-30",
     readTime: "5 min read",
@@ -129,7 +129,7 @@ export const POSTS: Post[] = [
     body: [
       {
         type: "p",
-        text: "Almost every business we work with in Kenya eventually needs Mpesa integrated somewhere — a booking platform, a fintech ledger, an internal payments dashboard. The Daraja API sandbox makes it look like an afternoon's work. Production traffic tells a different story.",
+        text: "Almost every business we work with in Kenya eventually needs Mpesa integrated somewhere: a booking platform, a fintech ledger, an internal payments dashboard. The Daraja API sandbox makes it look like an afternoon's work. Production traffic tells a different story.",
       },
       {
         type: "h2",
@@ -146,7 +146,7 @@ export const POSTS: Post[] = [
       },
       {
         type: "p",
-        text: "None of these are exotic edge cases — they're what a real customer base produces at volume. A system that hasn't been built to expect them will eventually show a customer \"payment failed\" for a payment that actually went through, or worse, the reverse.",
+        text: "None of these are exotic edge cases. They're what a real customer base produces at volume. A system that hasn't been built to expect them will eventually show a customer \"payment failed\" for a payment that actually went through, or worse, the reverse.",
       },
       {
         type: "link",
@@ -185,7 +185,7 @@ export const POSTS: Post[] = [
         type: "list",
         items: [
           "How many workflows the system needs to support, not how many screens it has",
-          "Whether it needs to integrate with systems you already run — Mpesa, a POS, an existing database — versus starting clean",
+          "Whether it needs to integrate with systems you already run (Mpesa, a POS, an existing database) versus starting clean",
           "Compliance requirements: a CBK-regulated fintech build carries more engineering and review overhead than an internal booking tool",
           "Whether you need ongoing support after launch, or a one-time build handed over cleanly",
         ],
@@ -196,11 +196,11 @@ export const POSTS: Post[] = [
       },
       {
         type: "p",
-        text: "Project engagements are fixed scope, fixed price, with agreed milestones and a timeline — the right fit when you already know what you're building. Retainers allocate monthly hours to your business for ongoing improvements, support and new initiatives, with flexible scope inside that allocation. Consultation is hourly or fixed-fee advisory work — audits, build-versus-buy decisions, roadmaps — with no obligation to proceed to a build afterward.",
+        text: "Project engagements are fixed scope, fixed price, with agreed milestones and a timeline: the right fit when you already know what you're building. Retainers allocate monthly hours to your business for ongoing improvements, support and new initiatives, with flexible scope inside that allocation. Consultation is hourly or fixed-fee advisory work (audits, build-versus-buy decisions, roadmaps) with no obligation to proceed to a build afterward.",
       },
       {
         type: "p",
-        text: "The honest answer to \"how much\" is: tell us what you're trying to build, and we'll size it against one of these three models in a single call — no proposal fee, no obligation.",
+        text: "The honest answer to \"how much\" is: tell us what you're trying to build, and we'll size it against one of these three models in a single call. No proposal fee, no obligation.",
       },
       {
         type: "link",
@@ -212,17 +212,17 @@ export const POSTS: Post[] = [
       {
         question: "Does Northbit Labs charge a flat rate for all software projects?",
         answer:
-          "No — pricing depends on the engagement model and scope. Project work is fixed-price against an agreed scope; Retainers are a monthly allocation of hours; Consultation is hourly or fixed-fee advisory work.",
+          "No. Pricing depends on the engagement model and scope. Project work is fixed-price against an agreed scope; Retainers are a monthly allocation of hours; Consultation is hourly or fixed-fee advisory work.",
       },
       {
         question: "Can I get a price without committing to a project?",
         answer:
-          "Yes — that's what a Consultation engagement is for: an hourly or fixed-fee audit or roadmap, with no obligation to proceed to a build.",
+          "Yes. That's what a Consultation engagement is for: an hourly or fixed-fee audit or roadmap, with no obligation to proceed to a build.",
       },
       {
         question: "Is fintech software more expensive to build?",
         answer:
-          "Usually, yes — CBK compliance, AML screening and the review overhead that comes with regulated financial systems add engineering time that a standard internal tool doesn't need.",
+          "Usually, yes. CBK compliance, AML screening and the review overhead that comes with regulated financial systems add engineering time that a standard internal tool doesn't need.",
       },
     ],
   },
@@ -230,7 +230,7 @@ export const POSTS: Post[] = [
     slug: "what-is-an-ai-readiness-assessment",
     title: "What Is an AI Readiness Assessment (and Do You Need One)?",
     excerpt:
-      "It's not a sales pitch for a specific AI product. It's the audit that should happen before you buy one — a structured look at where automation would actually work in your business.",
+      "It's the audit that should happen before you buy a specific AI product: a structured look at where automation would actually work in your business.",
     category: "AI Operations",
     date: "2026-08-18",
     readTime: "5 min read",
@@ -238,7 +238,7 @@ export const POSTS: Post[] = [
     body: [
       {
         type: "p",
-        text: "An AI readiness assessment is a short, structured review of your business's data, workflows and tools to find out where AI automation would actually work — and where it wouldn't yet. It's not a sales pitch for a specific product; it's the audit that should happen before you buy one.",
+        text: "An AI readiness assessment is a short, structured review of your business's data, workflows and tools to find out where AI automation would actually work, and where it wouldn't yet. Think of it as the audit that should happen before you buy a specific product, not a pitch for one.",
       },
       {
         type: "h2",
@@ -247,10 +247,10 @@ export const POSTS: Post[] = [
       {
         type: "list",
         items: [
-          "Where your team's time is going — which repetitive tasks eat the most hours each week",
+          "Where your team's time is going: which repetitive tasks eat the most hours each week",
           "What data already exists in a usable form, and what's still trapped in someone's head or a spreadsheet",
           "Which tools you already run, and whether they can be connected instead of replaced",
-          "What a failure mode looks like — where a wrong AI-driven decision would actually cost you",
+          "What a failure mode looks like: where a wrong AI-driven decision would actually cost you",
         ],
       },
       {
@@ -259,7 +259,7 @@ export const POSTS: Post[] = [
       },
       {
         type: "p",
-        text: "A prioritized roadmap, sized in hours returned to the business per week rather than features shipped — the same standard we hold every automation we build to. You leave knowing which process is worth automating first, whether that's something we build together or something you take to another team.",
+        text: "A prioritized roadmap, sized in hours returned to the business per week rather than features shipped. That's the same standard we hold every automation we build to. You leave knowing which process is worth automating first, whether that's something we build together or something you take to another team.",
       },
       {
         type: "link",
@@ -268,19 +268,19 @@ export const POSTS: Post[] = [
       },
       {
         type: "p",
-        text: "If you're not sure where to start, that's normal — most founders aren't. Book a discovery call and we'll walk through your operations together.",
+        text: "If you're not sure where to start, that's normal. Most founders aren't. Book a discovery call and we'll walk through your operations together.",
       },
     ],
     faq: [
       {
         question: "How long does an AI readiness assessment take?",
         answer:
-          "It's a Consultation engagement — hourly or fixed-fee advisory work scoped to your business, not a multi-month audit.",
+          "It's a Consultation engagement: hourly or fixed-fee advisory work scoped to your business, not a multi-month audit.",
       },
       {
         question: "Do I need to already have AI in mind to book one?",
         answer:
-          "No — most founders who book one don't know where to start. That's the point of the assessment: to find the highest-return automation, not to validate a tool you've already picked.",
+          "No. Most founders who book one don't know where to start. That's the point of the assessment: to find the highest-return automation, not to validate a tool you've already picked.",
       },
       {
         question: "Does the assessment commit me to a build?",

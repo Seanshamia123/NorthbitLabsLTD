@@ -26,7 +26,7 @@ export async function generateMetadata({
   if (!post) return {};
 
   return {
-    title: `${post.title} — Northbit Labs`,
+    title: `${post.title} - Northbit Labs`,
     description: post.excerpt,
     alternates: { canonical: `/insights/${post.slug}` },
     openGraph: {

@@ -10,17 +10,17 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 
 export const metadata = {
-  title: "Services — Northbit Labs",
+  title: "Services - Northbit Labs",
   description: "Custom software, AI-powered automation and technology consulting. Three pillars, 13 capabilities, one senior-practitioner team.",
   alternates: { canonical: "/services" },
   openGraph: {
-    title: "Services — Northbit Labs",
+    title: "Services - Northbit Labs",
     description: "Custom software, AI-powered automation and technology consulting. Three pillars, 13 capabilities, one senior-practitioner team.",
     url: "/services",
     type: "website",
     locale: "en_KE",
   },
-  twitter: { card: "summary_large_image", title: "Services — Northbit Labs" },
+  twitter: { card: "summary_large_image", title: "Services - Northbit Labs" },
 };
 
 export default function ServicesPage() {
@@ -59,7 +59,7 @@ export default function ServicesPage() {
           </FadeUp>
           <FadeUp delay={0.56}>
             <p style={{ fontSize: 15, color: "#D9E1E8", maxWidth: "58ch", lineHeight: 1.7, marginTop: 28, paddingLeft: 20, borderLeft: "3px solid #3A5C1A" }}>
-              In short: Northbit Labs builds custom software, AI-powered automation and technology consulting for SMEs across Kenya, East Africa, and clients in Europe and worldwide — with particular depth in CBK-compliant fintech systems and Mpesa integrations.
+              In short: Northbit Labs builds custom software, AI-powered automation and technology consulting for SMEs across Kenya, East Africa, and clients in Europe and worldwide, with particular depth in CBK-compliant fintech systems and Mpesa integrations.
             </p>
           </FadeUp>
         </div>
@@ -210,7 +210,7 @@ export default function ServicesPage() {
               Not sure which service you need?
             </h2>
             <p style={{ fontSize: 18, color: "#AAB2BC", lineHeight: 1.65, marginBottom: 36, textShadow: "0 1px 10px rgba(11,15,20,0.7)" }}>
-              Book a 30-minute discovery call. We will listen to what you are trying to build and tell you honestly which of our service lines fits — or if a different approach would serve you better.
+              Book a 30-minute discovery call. We will listen to what you are trying to build and tell you honestly which of our service lines fits, or if a different approach would serve you better.
             </p>
             <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
               <MagneticBtn>

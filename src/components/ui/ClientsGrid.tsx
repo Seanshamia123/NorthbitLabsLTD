@@ -33,7 +33,7 @@ function LogoTile({
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
       className="ci-tile"
-      aria-label={`${client.name} — ${client.category}`}
+      aria-label={`${client.name}, ${client.category}`}
       animate={reduced ? {} : { y: BOB }}
       transition={
         reduced

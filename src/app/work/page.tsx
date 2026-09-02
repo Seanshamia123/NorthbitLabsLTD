@@ -9,17 +9,17 @@ import { CLIENTS, ACTIVE_BUILD } from "@/lib/data";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
-  title: "Work — Northbit Labs",
-  description: "Five active client partnerships, each one personally earned — plus five systems in active development for Count Technologies. Magena Pilates, Premier Beauty Clinic, S.Socials, Remitcore and Kasapay.",
+  title: "Work - Northbit Labs",
+  description: "Five active client partnerships, each one personally earned, plus five systems in active development for Count Technologies. Magena Pilates, Premier Beauty Clinic, S.Socials, Remitcore and Kasapay.",
   alternates: { canonical: "/work" },
   openGraph: {
-    title: "Work — Northbit Labs",
-    description: "Five active client partnerships, each one personally earned — plus five systems in active development for Count Technologies. Magena Pilates, Premier Beauty Clinic, S.Socials, Remitcore and Kasapay.",
+    title: "Work - Northbit Labs",
+    description: "Five active client partnerships, each one personally earned, plus five systems in active development for Count Technologies. Magena Pilates, Premier Beauty Clinic, S.Socials, Remitcore and Kasapay.",
     url: "/work",
     type: "website",
     locale: "en_KE",
   },
-  twitter: { card: "summary_large_image", title: "Work — Northbit Labs" },
+  twitter: { card: "summary_large_image", title: "Work - Northbit Labs" },
 };
 
 export default function WorkPage() {

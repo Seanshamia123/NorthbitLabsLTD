@@ -10,19 +10,19 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 
 export const metadata = {
-  title: "FAQ — Northbit Labs",
+  title: "FAQ - Northbit Labs",
   description:
-    "Every question we're asked about Northbit Labs, in one place — company, services, pricing, industries and the projects we write about.",
+    "Every question we're asked about Northbit Labs, in one place: company, services, pricing, industries and the projects we write about.",
   alternates: { canonical: "/faq" },
   openGraph: {
-    title: "FAQ — Northbit Labs",
+    title: "FAQ - Northbit Labs",
     description:
-      "Every question we're asked about Northbit Labs, in one place — company, services, pricing, industries and the projects we write about.",
+      "Every question we're asked about Northbit Labs, in one place: company, services, pricing, industries and the projects we write about.",
     url: "/faq",
     type: "website",
     locale: "en_KE",
   },
-  twitter: { card: "summary_large_image", title: "FAQ — Northbit Labs" },
+  twitter: { card: "summary_large_image", title: "FAQ - Northbit Labs" },
 };
 
 const postFaqs = POSTS.filter((p) => p.faq && p.faq.length > 0) as (typeof POSTS[number] & {
@@ -75,7 +75,7 @@ export default function FaqPage() {
           </div>
           <FadeUp delay={0.42}>
             <p style={{ fontSize: "clamp(16px,1.4vw,20px)", color: "#8A919C", maxWidth: "54ch", lineHeight: 1.65 }}>
-              Every question we&apos;re commonly asked about the company, our services, pricing and the industries we work in — in one place.
+              Every question we&apos;re commonly asked about the company, our services, pricing and the industries we work in, collected in one place.
             </p>
           </FadeUp>
         </div>

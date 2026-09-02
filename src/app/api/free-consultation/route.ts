@@ -126,12 +126,12 @@ export async function POST(request: Request) {
       from: FROM,
       to: TO,
       replyTo: email,
-      subject: `Free consultation request from ${name}${company ? ` — ${company}` : ""}`,
+      subject: `Free consultation request from ${name}${company ? ` - ${company}` : ""}`,
       text: [
         `Name:    ${name}`,
-        `Company: ${company || "—"}`,
+        `Company: ${company || "Not provided"}`,
         `Email:   ${email}`,
-        `Phone:   ${phone || "—"}`,
+        `Phone:   ${phone || "Not provided"}`,
         ``,
         message || "(no message)",
       ].join("\n"),
@@ -142,9 +142,9 @@ export async function POST(request: Request) {
           <tr><td style="padding:24px 32px 0;font-size:22px;font-weight:600">New free consultation request</td></tr>
           <tr><td style="padding:24px 32px;border-top:1px solid #D9E1E8;margin-top:16px">
             <p style="margin:0 0 8px"><strong>Name:</strong> ${esc(name)}</p>
-            <p style="margin:0 0 8px"><strong>Company:</strong> ${esc(company) || "—"}</p>
+            <p style="margin:0 0 8px"><strong>Company:</strong> ${esc(company) || "Not provided"}</p>
             <p style="margin:0 0 8px"><strong>Email:</strong> <a href="mailto:${esc(email)}">${esc(email)}</a></p>
-            <p style="margin:0 0 8px"><strong>Phone:</strong> ${esc(phone) || "—"}</p>
+            <p style="margin:0 0 8px"><strong>Phone:</strong> ${esc(phone) || "Not provided"}</p>
           </td></tr>
           <tr><td style="padding:0 32px 32px;border-top:1px solid #D9E1E8">
             <p style="margin:16px 0 8px;font-weight:600">What they want to discuss</p>

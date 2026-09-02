@@ -7,7 +7,7 @@ export const SERVICES = [
     pillar: true,
     pillarLabel: "Custom Software",
     description:
-      "Systems designed around how your business actually runs. Internal tools, booking platforms, client-facing portals, and line-of-business applications built to your exact workflow — not a template forced onto it.",
+      "Systems designed around how your business actually runs. Internal tools, booking platforms, client-facing portals, and line-of-business applications built to your exact workflow, not a template forced onto it.",
     bullets: [
       "Custom booking, scheduling and client management platforms",
       "Financial systems for Fintechs and Banks (CBK standards, AML screening)",
@@ -94,7 +94,7 @@ export const SERVICES = [
     title: "QA & Testing",
     pillar: false,
     description:
-      "Manual, automated, performance and security testing as an embedded function — not a phase tacked on at the end.",
+      "Manual, automated, performance and security testing as an embedded function, not a phase tacked on at the end.",
   },
   {
     id: "ui-ux",
@@ -301,7 +301,7 @@ export const CLIENTS = [
     brandColor: "#1E3A8A",
     headline: "Maintaining and evolving a cross-border remittance platform.",
     description:
-      "Trusted for over a year with Remitcore's live cross-border payments platform — a single-contract, single-API, single-settlement aggregator for money-transfer businesses. We handle ongoing maintenance, feature updates and bug fixes on the production system.",
+      "Trusted for over a year with Remitcore's live cross-border payments platform: a single-contract, single-API, single-settlement aggregator for money-transfer businesses. We handle ongoing maintenance, feature updates and bug fixes on the production system.",
     outcomes: [
       "Over a year maintaining the live production platform",
       "Continuous feature updates and improvements",
@@ -321,7 +321,7 @@ export const CLIENTS = [
     brandColor: "#1D5599",
     headline: "Building the core platform for a CBK dual-licensed PSP.",
     description:
-      "Engineering the core payment platform for Kasapay — Kenya's first non-telco operator dual-licensed by the Central Bank of Kenya as both a payment service provider and a money-remittance operator. Payment acceptance, payouts, transaction management and settlement, built to CBK compliance standards.",
+      "Engineering the core payment platform for Kasapay, Kenya's first non-telco operator dual-licensed by the Central Bank of Kenya as both a payment service provider and a money-remittance operator. Payment acceptance, payouts, transaction management and settlement, built to CBK compliance standards.",
     outcomes: [
       "Core PSP platform engineered from the ground up",
       "Payment acceptance, payouts and settlement flows",
@@ -340,7 +340,7 @@ export const ACTIVE_BUILD = {
   logoColor: "/logos/count-technologies.png",
   headline: "Five systems for one client.",
   intro:
-    "Count Technologies Ltd. engaged Northbit to design and build five systems in parallel — accounting, forex booking, HR, a field Android app and an AML screening agent. One is already in production in the field; we are rebuilding it while the other four take shape.",
+    "Count Technologies Ltd. engaged Northbit to design and build five systems in parallel: accounting, forex booking, HR, a field Android app and an AML screening agent. One is already in production in the field; we are rebuilding it while the other four take shape.",
   systems: [
     {
       num: "01",
@@ -369,7 +369,7 @@ export const ACTIVE_BUILD = {
     {
       num: "04",
       title: "Field Android App",
-      line: "Already in production across organisations and NGOs in South Sudan — we are rebuilding and upgrading it.",
+      line: "Already in production across organisations and NGOs in South Sudan. We are rebuilding and upgrading it.",
       domain: "MOBILE",
       status: "IN PRODUCTION · UPGRADING",
       live: true,
@@ -390,7 +390,7 @@ export const STATS = [
   { num: "5", label: "Active client partnerships, each one personally earned and referenced." },
   { num: "5", label: "Systems in active development for a single client engagement." },
   { num: "5", label: "Working days to receive a written proposal after your first call." },
-  { num: "30", label: "Minute discovery call — no pitch deck, no fluff — to start every engagement." },
+  { num: "30", label: "Minute discovery call (no pitch deck, no fluff) to start every engagement." },
 ];
 
 export const HOW_WE_WORK = [
@@ -398,7 +398,7 @@ export const HOW_WE_WORK = [
     num: "01",
     title: "Discover",
     description:
-      "We sit down with the client — owners, managers and the people doing the actual work — to map how the business runs today. We document the bottlenecks, the workarounds and the things that already work well. No assumptions.",
+      "We sit down with the client (owners, managers and the people doing the actual work) to map how the business runs today. We document the bottlenecks, the workarounds and the things that already work well. No assumptions.",
   },
   {
     num: "02",
@@ -492,7 +492,7 @@ export const SERVICES_FAQS = [
   {
     question: "What does Northbit Labs do?",
     answer:
-      "Northbit Labs is a technology firm based in Kiserian, Kenya that builds custom software, applies AI to automate business operations, and provides technology consulting — for SMEs across Kenya, East Africa, and clients in Europe and worldwide.",
+      "Northbit Labs is a technology firm based in Kiserian, Kenya that builds custom software, applies AI to automate business operations, and provides technology consulting for SMEs across Kenya, East Africa, and clients in Europe and worldwide.",
   },
   {
     question: "How much does custom software development cost in Kenya?",
@@ -507,7 +507,7 @@ export const SERVICES_FAQS = [
   {
     question: "What's the difference between your three service lines?",
     answer:
-      "Custom Software Development is systems built around how your business runs. AI-Powered Operations & Automation applies AI to the repetitive work draining your team's time. Technology Consulting is advisory — audits, build-versus-buy decisions and AI-readiness assessments — for when you need direction before you invest.",
+      "Custom Software Development is systems built around how your business runs. AI-Powered Operations & Automation applies AI to the repetitive work draining your team's time. Technology Consulting is advisory work (audits, build-versus-buy decisions and AI-readiness assessments) for when you need direction before you invest.",
   },
   {
     question: "Do you work with early-stage startups or only established businesses?",
@@ -556,6 +556,6 @@ export const GENERAL_FAQS = [
   {
     question: "What happens on a discovery call?",
     answer:
-      "It's a free 30-minute call. We listen to what you're trying to build and tell you honestly how — or whether — we can help. No obligation to proceed.",
+      "It's a free 30-minute call. We listen to what you're trying to build and tell you honestly how, or whether, we can help. No obligation to proceed.",
   },
 ];

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CONTACT } from "@/lib/data";
 import NorthBitLogo from "@/components/ui/NorthBitLogo";
+import CookiePreferencesLink from "@/components/ui/CookiePreferencesLink";
 
 const footerLinks = {
   Services: [
@@ -80,6 +81,13 @@ export default function Footer() {
         {/* Bottom bar */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: 28, fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 12, color: "#4a5260", letterSpacing: "0.06em", flexWrap: "wrap", gap: 16 }}>
           <span>© {year} NORTHBIT LABS · ALL RIGHTS RESERVED</span>
+          <div style={{ display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap" }}>
+            <Link href="/privacy" className="foot-link" style={{ fontSize: 12, color: "#4a5260", letterSpacing: "0.06em", textDecoration: "none" }}>PRIVACY POLICY</Link>
+            <Link href="/terms" className="foot-link" style={{ fontSize: 12, color: "#4a5260", letterSpacing: "0.06em", textDecoration: "none" }}>TERMS OF SERVICE</Link>
+            <span style={{ fontSize: 12 }}>
+              <CookiePreferencesLink label="COOKIE PREFERENCES" muted />
+            </span>
+          </div>
           <span>REGISTERED IN KENYA · NBI</span>
         </div>
       </div>
