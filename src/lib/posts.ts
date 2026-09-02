@@ -1,7 +1,8 @@
 export type PostBlock =
   | { type: "p"; text: string }
   | { type: "h2"; text: string }
-  | { type: "list"; items: string[] };
+  | { type: "list"; items: string[] }
+  | { type: "link"; text: string; href: string };
 
 export interface Post {
   slug: string;
@@ -12,6 +13,7 @@ export interface Post {
   readTime: string;
   author: string;
   body: PostBlock[];
+  faq?: { question: string; answer: string }[];
 }
 
 export const POSTS: Post[] = [
@@ -23,7 +25,7 @@ export const POSTS: Post[] = [
     category: "AI Operations",
     date: "2026-08-10",
     readTime: "6 min read",
-    author: "Northbit Labs",
+    author: "Sean Paul Shamia",
     body: [
       {
         type: "p",
@@ -47,6 +49,11 @@ export const POSTS: Post[] = [
         ],
       },
       {
+        type: "link",
+        text: "See how we build AI-powered operations & automation",
+        href: "/services#ai-operations",
+      },
+      {
         type: "h2",
         text: "Measure the hours back, not the technology",
       },
@@ -68,7 +75,7 @@ export const POSTS: Post[] = [
     category: "Fintech",
     date: "2026-07-22",
     readTime: "7 min read",
-    author: "Northbit Labs",
+    author: "Sean Paul Shamia",
     body: [
       {
         type: "p",
@@ -92,6 +99,11 @@ export const POSTS: Post[] = [
         ],
       },
       {
+        type: "link",
+        text: "See our fintech & banking work",
+        href: "/industries#fintech",
+      },
+      {
         type: "h2",
         text: "Custom doesn't mean starting from zero",
       },
@@ -113,7 +125,7 @@ export const POSTS: Post[] = [
     category: "Custom Software",
     date: "2026-06-30",
     readTime: "5 min read",
-    author: "Northbit Labs",
+    author: "Sean Paul Shamia",
     body: [
       {
         type: "p",
@@ -137,12 +149,143 @@ export const POSTS: Post[] = [
         text: "None of these are exotic edge cases — they're what a real customer base produces at volume. A system that hasn't been built to expect them will eventually show a customer \"payment failed\" for a payment that actually went through, or worse, the reverse.",
       },
       {
+        type: "link",
+        text: "More on how we build for fintech & banking",
+        href: "/industries#fintech",
+      },
+      {
         type: "h2",
         text: "Build for reconciliation from day one",
       },
       {
         type: "p",
         text: "The integrations that hold up under real usage treat the callback as one signal among several, not the source of truth. That means a reconciliation job that checks transaction status directly, idempotency keys that prevent double-processing, and clear operator visibility when something needs a human to look at it. It's more work upfront. It's much less work at 11pm when a customer says they paid and your system says they didn't.",
+      },
+    ],
+  },
+  {
+    slug: "how-much-does-custom-software-cost-in-kenya",
+    title: "How Much Does Custom Software Development Cost in Kenya?",
+    excerpt:
+      "There's no single number, and you should be suspicious of anyone who gives you one before understanding your business. Here's what actually drives the price, and how we structure engagements.",
+    category: "Custom Software",
+    date: "2026-08-28",
+    readTime: "5 min read",
+    author: "Sean Paul Shamia",
+    body: [
+      {
+        type: "p",
+        text: "There's no single number, and treat anyone who gives you one before understanding your business with real suspicion. What we can tell you honestly is what actually moves the price up or down, and how we structure engagements so you're never paying for scope you didn't ask for.",
+      },
+      {
+        type: "h2",
+        text: "What actually drives the price",
+      },
+      {
+        type: "list",
+        items: [
+          "How many workflows the system needs to support, not how many screens it has",
+          "Whether it needs to integrate with systems you already run — Mpesa, a POS, an existing database — versus starting clean",
+          "Compliance requirements: a CBK-regulated fintech build carries more engineering and review overhead than an internal booking tool",
+          "Whether you need ongoing support after launch, or a one-time build handed over cleanly",
+        ],
+      },
+      {
+        type: "h2",
+        text: "Three ways we structure an engagement",
+      },
+      {
+        type: "p",
+        text: "Project engagements are fixed scope, fixed price, with agreed milestones and a timeline — the right fit when you already know what you're building. Retainers allocate monthly hours to your business for ongoing improvements, support and new initiatives, with flexible scope inside that allocation. Consultation is hourly or fixed-fee advisory work — audits, build-versus-buy decisions, roadmaps — with no obligation to proceed to a build afterward.",
+      },
+      {
+        type: "p",
+        text: "The honest answer to \"how much\" is: tell us what you're trying to build, and we'll size it against one of these three models in a single call — no proposal fee, no obligation.",
+      },
+      {
+        type: "link",
+        text: "Get a specific number for your project",
+        href: "/contact",
+      },
+    ],
+    faq: [
+      {
+        question: "Does Northbit Labs charge a flat rate for all software projects?",
+        answer:
+          "No — pricing depends on the engagement model and scope. Project work is fixed-price against an agreed scope; Retainers are a monthly allocation of hours; Consultation is hourly or fixed-fee advisory work.",
+      },
+      {
+        question: "Can I get a price without committing to a project?",
+        answer:
+          "Yes — that's what a Consultation engagement is for: an hourly or fixed-fee audit or roadmap, with no obligation to proceed to a build.",
+      },
+      {
+        question: "Is fintech software more expensive to build?",
+        answer:
+          "Usually, yes — CBK compliance, AML screening and the review overhead that comes with regulated financial systems add engineering time that a standard internal tool doesn't need.",
+      },
+    ],
+  },
+  {
+    slug: "what-is-an-ai-readiness-assessment",
+    title: "What Is an AI Readiness Assessment (and Do You Need One)?",
+    excerpt:
+      "It's not a sales pitch for a specific AI product. It's the audit that should happen before you buy one — a structured look at where automation would actually work in your business.",
+    category: "AI Operations",
+    date: "2026-08-18",
+    readTime: "5 min read",
+    author: "Sean Paul Shamia",
+    body: [
+      {
+        type: "p",
+        text: "An AI readiness assessment is a short, structured review of your business's data, workflows and tools to find out where AI automation would actually work — and where it wouldn't yet. It's not a sales pitch for a specific product; it's the audit that should happen before you buy one.",
+      },
+      {
+        type: "h2",
+        text: "What we're actually looking at",
+      },
+      {
+        type: "list",
+        items: [
+          "Where your team's time is going — which repetitive tasks eat the most hours each week",
+          "What data already exists in a usable form, and what's still trapped in someone's head or a spreadsheet",
+          "Which tools you already run, and whether they can be connected instead of replaced",
+          "What a failure mode looks like — where a wrong AI-driven decision would actually cost you",
+        ],
+      },
+      {
+        type: "h2",
+        text: "What comes out of it",
+      },
+      {
+        type: "p",
+        text: "A prioritized roadmap, sized in hours returned to the business per week rather than features shipped — the same standard we hold every automation we build to. You leave knowing which process is worth automating first, whether that's something we build together or something you take to another team.",
+      },
+      {
+        type: "link",
+        text: "See our Technology Consulting service line",
+        href: "/services#consulting",
+      },
+      {
+        type: "p",
+        text: "If you're not sure where to start, that's normal — most founders aren't. Book a discovery call and we'll walk through your operations together.",
+      },
+    ],
+    faq: [
+      {
+        question: "How long does an AI readiness assessment take?",
+        answer:
+          "It's a Consultation engagement — hourly or fixed-fee advisory work scoped to your business, not a multi-month audit.",
+      },
+      {
+        question: "Do I need to already have AI in mind to book one?",
+        answer:
+          "No — most founders who book one don't know where to start. That's the point of the assessment: to find the highest-return automation, not to validate a tool you've already picked.",
+      },
+      {
+        question: "Does the assessment commit me to a build?",
+        answer:
+          "No. Consultation engagements carry no obligation to proceed to a Project or Retainer afterward.",
       },
     ],
   },

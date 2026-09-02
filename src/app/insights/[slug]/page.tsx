@@ -8,7 +8,9 @@ import MagneticBtn from "@/components/ui/MagneticBtn";
 import CtaPhotoSection from "@/components/ui/CtaPhotoSection";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import ArticleJsonLd from "@/components/seo/ArticleJsonLd";
+import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import { POSTS, getPostBySlug } from "@/lib/posts";
+import { CONTACT } from "@/lib/data";
 
 export function generateStaticParams() {
   return POSTS.map((p) => ({ slug: p.slug }));
@@ -63,7 +65,9 @@ export default async function InsightPostPage({
         slug={post.slug}
         datePublished={post.date}
         author={post.author}
+        authorUrl="https://northbitlabs.tech/about"
       />
+      {post.faq && post.faq.length > 0 && <FaqJsonLd faqs={post.faq} />}
 
       {/* HERO */}
       <section className="section--ink" style={{ background: "#0B0F14", color: "#F5F2EC", padding: "clamp(72px,10vw,132px) 0 clamp(56px,6vw,88px)", overflow: "hidden", position: "relative" }}>
@@ -87,7 +91,9 @@ export default async function InsightPostPage({
           />
           <FadeUp delay={0.32}>
             <div style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 14, color: "#8A919C" }}>
-              <span>{post.author}</span>
+              <Link href="/about" style={{ color: "inherit", textDecoration: "none" }} title={`${post.author}, ${CONTACT.founderTitle}`}>
+                {post.author}
+              </Link>
               <span style={{ width: 3, height: 3, borderRadius: "50%", background: "#4a5260" }} />
               <span>{new Date(post.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</span>
               <span style={{ width: 3, height: 3, borderRadius: "50%", background: "#4a5260" }} />
@@ -113,6 +119,18 @@ export default async function InsightPostPage({
                     </h2>
                   );
                 }
+                if (block.type === "link") {
+                  return (
+                    <p key={i} style={{ margin: "-6px 0 28px" }}>
+                      <Link
+                        href={block.href}
+                        style={{ display: "inline-flex", alignItems: "center", gap: 8, fontSize: 15, fontWeight: 600, color: "#3A5C1A", textDecoration: "none" }}
+                      >
+                        {block.text} →
+                      </Link>
+                    </p>
+                  );
+                }
                 if (block.type === "list") {
                   return (
                     <ul key={i} style={{ listStyle: "none", padding: 0, margin: "0 0 28px", display: "flex", flexDirection: "column", gap: 12 }}>
@@ -132,6 +150,21 @@ export default async function InsightPostPage({
                 );
               })}
             </article>
+            {post.faq && post.faq.length > 0 && (
+              <div style={{ marginTop: 56, paddingTop: 40, borderTop: "1px solid #D9E1E8" }}>
+                <h2 style={{ fontSize: "clamp(21px,2.5vw,28px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2, color: "#0B0F14", marginBottom: 28 }}>
+                  Questions people ask about this.
+                </h2>
+                <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+                  {post.faq.map((f) => (
+                    <div key={f.question}>
+                      <h3 style={{ fontSize: 17, fontWeight: 600, letterSpacing: "-0.01em", color: "#0B0F14", marginBottom: 8 }}>{f.question}</h3>
+                      <p style={{ fontSize: 15.5, color: "#5C6470", lineHeight: 1.7, maxWidth: "62ch" }}>{f.answer}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </Reveal>
         </div>
       </section>

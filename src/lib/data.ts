@@ -484,3 +484,78 @@ export const CONTACT = {
   founder: "Sean Paul Shamia",
   founderTitle: "Founder & CEO",
 };
+
+// FAQ content lives here (not inline on each page) so /services, /industries
+// and the /faq aggregator page all render and mark up the same answers —
+// AI answer engines penalize inconsistent claims about the same business.
+export const SERVICES_FAQS = [
+  {
+    question: "What does Northbit Labs do?",
+    answer:
+      "Northbit Labs is a technology firm based in Kiserian, Kenya that builds custom software, applies AI to automate business operations, and provides technology consulting — for SMEs across Kenya, East Africa, and clients in Europe and worldwide.",
+  },
+  {
+    question: "How much does custom software development cost in Kenya?",
+    answer:
+      "It depends on scope and engagement model. We work three ways: fixed-scope Project engagements with an agreed price and timeline, monthly Retainers for ongoing support and new initiatives, and hourly or fixed-fee Consultation for audits and roadmaps before any build commitment. Book a discovery call and we'll give you an honest, specific number for your project.",
+  },
+  {
+    question: "Does Northbit Labs build Mpesa and payment integrations?",
+    answer:
+      "Yes. Mpesa STK push, card collections, and the compliance layer around them are part of our custom software and fintech work, including CBK-compliant, AML-ready systems for fintechs and banks.",
+  },
+  {
+    question: "What's the difference between your three service lines?",
+    answer:
+      "Custom Software Development is systems built around how your business runs. AI-Powered Operations & Automation applies AI to the repetitive work draining your team's time. Technology Consulting is advisory — audits, build-versus-buy decisions and AI-readiness assessments — for when you need direction before you invest.",
+  },
+  {
+    question: "Do you work with early-stage startups or only established businesses?",
+    answer:
+      "Both. Consultation engagements suit teams that need direction before committing to a build; Project and Retainer engagements suit businesses ready to build or scale a system now.",
+  },
+];
+
+export const INDUSTRIES_FAQS = [
+  {
+    question: "Which industries does Northbit Labs work in?",
+    answer:
+      "We have live client work in fintech & banking, wellness & fitness, beauty & personal care, and brand & media, plus depth in retail & e-commerce, healthcare, and logistics & supply chain.",
+  },
+  {
+    question: "Is Northbit Labs's fintech work CBK-compliant?",
+    answer:
+      "Yes. We build financial systems for fintechs and banks to Central Bank of Kenya standards, including AI-driven AML screening, Mpesa STK push and card collections, and the regulatory reporting layer around them.",
+  },
+  {
+    question: "Does Northbit Labs only work with businesses in Kenya?",
+    answer:
+      "No. We're based in Kiserian, Kenya and most of our live client work is with Kenyan and East African SMEs, but we also serve clients in Europe and worldwide.",
+  },
+  {
+    question: "What if my industry isn't listed?",
+    answer:
+      "Tell us what you're building. We've worked across many verticals and will tell you honestly whether we have the domain depth to help.",
+  },
+];
+
+export const GENERAL_FAQS = [
+  {
+    question: "Where is Northbit Labs based?",
+    answer:
+      "Northbit Labs is based in Kiserian, Kajiado North District, Kenya, and serves clients across Kenya, East Africa, Europe and worldwide.",
+  },
+  {
+    question: "Who founded Northbit Labs?",
+    answer: `Northbit Labs was founded by ${CONTACT.founder}, who leads the company as ${CONTACT.founderTitle}.`,
+  },
+  {
+    question: "How do I get in touch with Northbit Labs?",
+    answer: `Email ${CONTACT.email}, call ${CONTACT.phone}, or book a discovery call directly from the Contact page.`,
+  },
+  {
+    question: "What happens on a discovery call?",
+    answer:
+      "It's a free 30-minute call. We listen to what you're trying to build and tell you honestly how — or whether — we can help. No obligation to proceed.",
+  },
+];

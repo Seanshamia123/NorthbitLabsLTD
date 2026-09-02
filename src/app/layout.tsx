@@ -40,44 +40,17 @@ export const metadata: Metadata = {
   title: "Northbit Labs — Custom Software · AI Operations · Consulting",
   description:
     "A technology firm that builds custom software designed around your business, applies AI to streamline your operations, and delivers measurable results. Based in Kenya, serving clients across Africa, Europe and worldwide.",
+  // The meta keywords tag has had no effect on Google ranking since 2009 and
+  // carries no weight with AI answer engines either — they read page content,
+  // not this list. Kept short for the few crawlers that still glance at it;
+  // real targeting now lives in on-page copy, FAQ schema and /insights.
   keywords: [
-    // Brand
     "Northbit Labs",
-    // Custom software — geo variants
-    "custom software Kenya",
-    "custom software development Africa",
-    "custom software development East Africa",
-    "custom software company Nairobi",
-    "software development company Kenya",
-    "bespoke software development Europe",
-    "custom software development company",
-    // AI operations / automation — geo variants
+    "custom software development Kenya",
     "AI automation Kenya",
-    "AI automation Africa",
-    "AI-powered operations East Africa",
-    "business process automation Kenya",
-    "AI consulting company",
-    // Technology consulting — geo variants
     "technology consulting Kenya",
-    "technology consulting Africa",
-    "IT consulting East Africa",
-    "technology audit Nairobi",
-    "AI readiness assessment",
-    // Fintech / payments
     "fintech software CBK",
-    "fintech software development Africa",
     "Mpesa integration",
-    "payment integration Kenya",
-    // Web, mobile, cloud
-    "web development Kenya",
-    "mobile app development Kenya",
-    "mobile app development Africa",
-    "cloud and DevOps consulting Kenya",
-    // Broader reach
-    "software development company East Africa",
-    "software outsourcing Kenya",
-    "technology partner for startups Africa",
-    "IT staff augmentation Kenya",
   ],
   authors: [{ name: "Northbit Labs" }],
   creator: "Northbit Labs",

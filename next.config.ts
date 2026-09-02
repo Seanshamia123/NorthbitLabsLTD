@@ -28,7 +28,7 @@ const securityHeaders = [
       scriptSrc,
       "style-src 'self' 'unsafe-inline'",
       "font-src 'self'",
-      "img-src 'self' data: blob: https://www.googletagmanager.com https://www.google-analytics.com",
+      "img-src 'self' data: blob: https://www.googletagmanager.com https://www.google-analytics.com https://www.clarity.ms https://*.clarity.ms",
       "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms",
       "frame-src 'none'",
       "object-src 'none'",

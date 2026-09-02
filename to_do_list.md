@@ -1,0 +1,2 @@
+1. Real client testimonials → Review schema. Still the single biggest unlock left on the table. If you can get even one short quote + permission from Magena Pilates, Premier Beauty Clinic, or S.Socials, that's genuine evidence AI engines weight heavily — I can wire it up same day.
+3. JobPosting schema on /careers, if you have real open roles — a legitimate, non-fabricated structured-data win, and it directly answers "is Northbit Labs hiring" style queries from AI job-search assistants.

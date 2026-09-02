@@ -5,8 +5,9 @@ import HeroReveal from "@/components/ui/HeroReveal";
 import MagneticBtn from "@/components/ui/MagneticBtn";
 import CtaPhotoSection from "@/components/ui/CtaPhotoSection";
 import ServicesCarousel from "@/components/ui/ServicesCarousel";
-import { SERVICES, ENGAGEMENT_MODELS } from "@/lib/data";
+import { SERVICES, ENGAGEMENT_MODELS, SERVICES_FAQS } from "@/lib/data";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import FaqJsonLd from "@/components/seo/FaqJsonLd";
 
 export const metadata = {
   title: "Services — Northbit Labs",
@@ -54,6 +55,11 @@ export default function ServicesPage() {
           <FadeUp delay={0.42}>
             <p style={{ fontSize: "clamp(16px,1.4vw,20px)", color: "#8A919C", maxWidth: "54ch", lineHeight: 1.65 }}>
               We work across three closely connected service lines. Most clients start with one and grow into the others as we get to know their business.
+            </p>
+          </FadeUp>
+          <FadeUp delay={0.56}>
+            <p style={{ fontSize: 15, color: "#D9E1E8", maxWidth: "58ch", lineHeight: 1.7, marginTop: 28, paddingLeft: 20, borderLeft: "3px solid #3A5C1A" }}>
+              In short: Northbit Labs builds custom software, AI-powered automation and technology consulting for SMEs across Kenya, East Africa, and clients in Europe and worldwide — with particular depth in CBK-compliant fintech systems and Mpesa integrations.
             </p>
           </FadeUp>
         </div>
@@ -161,6 +167,40 @@ export default function ServicesPage() {
           }
         `}</style>
       </section>
+
+      {/* FAQ — visible Q&A, also emitted as FAQPage schema for answer engines */}
+      <section className="section">
+        <div className="wrap">
+          <Reveal>
+            <div style={{ marginBottom: 48, maxWidth: "38ch" }}>
+              <p style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 11, letterSpacing: "0.2em", color: "#3A5C1A", textTransform: "uppercase", marginBottom: 16 }}>
+                Common questions
+              </p>
+              <h2 style={{ fontSize: "clamp(24px,3vw,40px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.1 }}>
+                What people usually ask first.
+              </h2>
+            </div>
+          </Reveal>
+          <div style={{ borderTop: "1px solid #D9E1E8" }}>
+            {SERVICES_FAQS.map((f, i) => (
+              <Reveal key={f.question} delay={i * 60}>
+                <div style={{ padding: "28px 0", borderBottom: "1px solid #D9E1E8" }}>
+                  <h3 style={{ fontSize: "clamp(16px,1.8vw,19px)", fontWeight: 600, letterSpacing: "-0.01em", lineHeight: 1.3, marginBottom: 10 }}>
+                    {f.question}
+                  </h3>
+                  <p style={{ fontSize: 15, color: "#5C6470", lineHeight: 1.7, maxWidth: "62ch" }}>{f.answer}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal delay={SERVICES_FAQS.length * 60}>
+            <Link href="/faq#services" style={{ display: "inline-flex", alignItems: "center", gap: 8, fontSize: 14, fontWeight: 600, color: "#3A5C1A", textDecoration: "none", marginTop: 32 }}>
+              See every FAQ →
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+      <FaqJsonLd faqs={SERVICES_FAQS} />
 
       {/* CTA */}
       <CtaPhotoSection>

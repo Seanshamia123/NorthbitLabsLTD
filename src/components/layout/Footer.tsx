@@ -23,6 +23,7 @@ const footerLinks = {
     { label: "About", href: "/about" },
     { label: "Work", href: "/work" },
     { label: "Careers", href: "/careers" },
+    { label: "FAQ", href: "/faq" },
     { label: "Contact", href: "/contact" },
     { label: "Free Consultation", href: "/free-consultation" },
   ],

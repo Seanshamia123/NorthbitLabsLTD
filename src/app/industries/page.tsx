@@ -4,8 +4,9 @@ import FadeUp from "@/components/ui/FadeUp";
 import HeroReveal from "@/components/ui/HeroReveal";
 import MagneticBtn from "@/components/ui/MagneticBtn";
 import CtaPhotoSection from "@/components/ui/CtaPhotoSection";
-import { INDUSTRIES } from "@/lib/data";
+import { INDUSTRIES, INDUSTRIES_FAQS } from "@/lib/data";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import FaqJsonLd from "@/components/seo/FaqJsonLd";
 
 export const metadata = {
   title: "Industries — Northbit Labs",
@@ -50,6 +51,11 @@ export default function IndustriesPage() {
             <p style={{ fontSize: "clamp(16px,1.4vw,20px)", color: "#8A919C", maxWidth: "54ch", lineHeight: 1.65 }}>
               Generic software forces your business to bend around the tool. Our domain knowledge means we can challenge
               your assumptions and propose solutions that fit your industry&apos;s actual constraints.
+            </p>
+          </FadeUp>
+          <FadeUp delay={0.56}>
+            <p style={{ fontSize: 15, color: "#D9E1E8", maxWidth: "58ch", lineHeight: 1.7, marginTop: 28, paddingLeft: 20, borderLeft: "3px solid #3A5C1A" }}>
+              In short: Northbit Labs has live client work in fintech &amp; banking, wellness &amp; fitness, beauty &amp; personal care and brand &amp; media, with CBK-compliant, AML-ready systems for regulated fintech builds.
             </p>
           </FadeUp>
         </div>
@@ -234,6 +240,40 @@ export default function IndustriesPage() {
         </div>
         <style>{`@media (max-width: 760px) { .fintech-grid { grid-template-columns: 1fr !important; gap: 40px !important; } }`}</style>
       </section>
+
+      {/* FAQ — visible Q&A, also emitted as FAQPage schema for answer engines */}
+      <section className="section">
+        <div className="wrap">
+          <Reveal>
+            <div style={{ marginBottom: 48, maxWidth: "38ch" }}>
+              <p style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 11, letterSpacing: "0.2em", color: "#3A5C1A", textTransform: "uppercase", marginBottom: 16 }}>
+                Common questions
+              </p>
+              <h2 style={{ fontSize: "clamp(24px,3vw,40px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.1 }}>
+                What people usually ask first.
+              </h2>
+            </div>
+          </Reveal>
+          <div style={{ borderTop: "1px solid #D9E1E8" }}>
+            {INDUSTRIES_FAQS.map((f, i) => (
+              <Reveal key={f.question} delay={i * 60}>
+                <div style={{ padding: "28px 0", borderBottom: "1px solid #D9E1E8" }}>
+                  <h3 style={{ fontSize: "clamp(16px,1.8vw,19px)", fontWeight: 600, letterSpacing: "-0.01em", lineHeight: 1.3, marginBottom: 10 }}>
+                    {f.question}
+                  </h3>
+                  <p style={{ fontSize: 15, color: "#5C6470", lineHeight: 1.7, maxWidth: "62ch" }}>{f.answer}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal delay={INDUSTRIES_FAQS.length * 60}>
+            <Link href="/faq#industries" style={{ display: "inline-flex", alignItems: "center", gap: 8, fontSize: 14, fontWeight: 600, color: "#3A5C1A", textDecoration: "none", marginTop: 32 }}>
+              See every FAQ →
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+      <FaqJsonLd faqs={INDUSTRIES_FAQS} />
 
       {/* CTA */}
       <CtaPhotoSection>
