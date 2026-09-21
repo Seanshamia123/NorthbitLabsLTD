@@ -1,6 +1,5 @@
 "use client";
-import { motion, useInView, useReducedMotion } from "framer-motion";
-import { useRef, ReactNode } from "react";
+import { useEffect, useRef, useState, ReactNode } from "react";
 
 interface RevealProps {
   children: ReactNode;
@@ -9,23 +8,36 @@ interface RevealProps {
   className?: string;
 }
 
-const ease = [0.23, 1, 0.32, 1] as const;
-
+// Scroll-triggered fade-up via IntersectionObserver + CSS (see globals.css
+// .nb-reveal). Framer-motion is not imported here, so pages that only use
+// Reveal/FadeUp/HeroReveal ship no animation-library JavaScript at all.
 export default function Reveal({ children, delay = 0, style, className = "" }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const shouldReduce = useReducedMotion();
-  const isInView = useInView(ref, { once: true, margin: "0px 0px -48px 0px" });
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "0px 0px -48px 0px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   return (
-    <motion.div
+    <div
       ref={ref}
-      initial={shouldReduce ? {} : { opacity: 0, y: 20 }}
-      animate={(shouldReduce || isInView) ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-      transition={shouldReduce ? { duration: 0 } : { duration: 0.55, delay: delay / 1000, ease }}
-      style={style}
-      className={className}
+      className={`nb-reveal${inView ? " nb-reveal--in" : ""}${className ? " " + className : ""}`}
+      style={{ ...style, ["--reveal-delay" as string]: `${delay}ms` }}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }

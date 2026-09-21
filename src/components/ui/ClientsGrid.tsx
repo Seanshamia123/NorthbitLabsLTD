@@ -13,7 +13,7 @@ type Client = {
   wide?: boolean;
 };
 
-/* Subtle vertical drift kept from the original — amplitude pulled in so it
+/* Subtle vertical drift kept from the original - amplitude pulled in so it
    reads as life, not noise, while the track scrolls horizontally. */
 const BOB = [0, -8, 0, -5, 0];
 
@@ -116,7 +116,7 @@ export default function ClientsGrid({ clients }: { clients: Client[] }) {
           font-size: 11px;
           letter-spacing: 0.22em;
           text-transform: uppercase;
-          color: #9098A4;
+          color: #5C6470;
           padding: clamp(28px, 3.5vw, 44px) 0 0;
           margin: 0;
         }
@@ -204,11 +204,11 @@ export default function ClientsGrid({ clients }: { clients: Client[] }) {
           font-size: 10px;
           letter-spacing: 0.14em;
           text-transform: uppercase;
-          color: #9098A4;
+          color: #5C6470;
           line-height: 1;
         }
 
-        /* Reduced motion: no scroll, no drift — a calm, centered, full-color row. */
+        /* Reduced motion: no scroll, no drift - a calm, centered, full-color row. */
         .ci-marquee[data-reduced="true"] {
           -webkit-mask-image: none;
                   mask-image: none;

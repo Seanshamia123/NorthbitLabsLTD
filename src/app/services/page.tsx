@@ -31,7 +31,7 @@ export default function ServicesPage() {
       <BreadcrumbJsonLd name="Services" path="/services" />
       {/* HERO */}
       <section className="hero-ink" style={{ background: "#0B0F14", color: "#F5F2EC", padding: "clamp(80px,11vw,160px) 0 clamp(64px,7vw,104px)", overflow: "hidden" }}>
-        {/* engineers-at-work photo — slow Ken Burns drift */}
+        {/* engineers-at-work photo - slow Ken Burns drift */}
         <div aria-hidden="true" className="hero-photo-zoom" style={{ position: "absolute", inset: 0, backgroundImage: "url('/people/services-hero.webp')", backgroundSize: "cover", backgroundPosition: "center right", pointerEvents: "none" }} />
         {/* left-dark overlay keeps the headline readable, photo glows on the right */}
         <div aria-hidden="true" style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, rgba(11,15,20,0.94) 0%, rgba(11,15,20,0.82) 42%, rgba(11,15,20,0.55) 100%)", pointerEvents: "none" }} />
@@ -168,7 +168,7 @@ export default function ServicesPage() {
         `}</style>
       </section>
 
-      {/* FAQ — visible Q&A, also emitted as FAQPage schema for answer engines */}
+      {/* FAQ - visible Q&A, also emitted as FAQPage schema for answer engines */}
       <section className="section">
         <div className="wrap">
           <Reveal>

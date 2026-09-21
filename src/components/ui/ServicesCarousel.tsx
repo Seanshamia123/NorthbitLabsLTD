@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import Image from "next/image";
 import { motion, useMotionValue, animate, useReducedMotion } from "framer-motion";
 
 interface Service {
@@ -22,6 +23,13 @@ const EASE = [0.2, 0.7, 0.2, 1] as const;
 
 function cardWidth(s: Service) {
   return s.pillar ? PILLAR_W : STD_W;
+}
+
+// Apple-style momentum projection (Designing Fluid Interfaces): where a flick
+// would coast to under exponential deceleration. We snap to the card nearest
+// that projected point, not the release point, so a fast flick throws further.
+function project(velocity: number, decel = 0.998) {
+  return ((velocity / 1000) * decel) / (1 - decel);
 }
 
 export default function ServicesCarousel({ services }: { services: Service[] }) {
@@ -93,14 +101,17 @@ export default function ServicesCarousel({ services }: { services: Service[] }) 
   );
 
   const snapTo = useCallback(
-    (i: number) => {
+    (i: number, velocity = 0) => {
       const clamped = ((i % count) + count) % count;
       const target = -Math.min(offsets[clamped], maxDragRef.current);
       snappingRef.current = true;
+      // Hand the release velocity to the spring so there is no seam between
+      // the finger letting go and the settle animation taking over.
       animate(x, target, {
         type: "spring",
         stiffness: 260,
         damping: 34,
+        velocity,
         onComplete: () => {
           snappingRef.current = false;
         },
@@ -111,7 +122,7 @@ export default function ServicesCarousel({ services }: { services: Service[] }) 
     [count, offsets, x]
   );
 
-  // continuous slow horizontal drift — pauses on hover/drag/snap, reverses at each end
+  // continuous slow horizontal drift - pauses on hover/drag/snap, reverses at each end
   useEffect(() => {
     if (shouldReduceMotion) return;
     let raf: number;
@@ -158,9 +169,10 @@ export default function ServicesCarousel({ services }: { services: Service[] }) 
           onDragStart={() => {
             draggingRef.current = true;
           }}
-          onDragEnd={() => {
+          onDragEnd={(_, info) => {
             draggingRef.current = false;
-            snapTo(nearestIndex(x.get()));
+            const projected = x.get() + project(info.velocity.x);
+            snapTo(nearestIndex(projected), info.velocity.x);
           }}
           whileTap={{ cursor: "grabbing" }}
         >
@@ -179,12 +191,13 @@ export default function ServicesCarousel({ services }: { services: Service[] }) 
               }}
             >
               <div style={{ position: "relative", width: "100%", aspectRatio: s.pillar ? "4/3.4" : "4/5" }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src={s.image}
                   alt={s.title}
+                  fill
+                  sizes="(max-width: 768px) 85vw, 460px"
                   draggable={false}
-                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", pointerEvents: "none" }}
+                  style={{ objectFit: "cover", pointerEvents: "none" }}
                 />
                 <div style={{ position: "absolute", top: 14, left: 14, display: "flex", alignItems: "center", gap: 10 }}>
                   <span style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 11, color: "#F5F2EC", background: "rgba(11,15,20,0.55)", backdropFilter: "blur(4px)", padding: "4px 10px", borderRadius: 999, letterSpacing: "0.08em" }}>

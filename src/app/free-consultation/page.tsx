@@ -122,7 +122,7 @@ export default function FreeConsultationPage() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-                    {/* Honeypot — visually hidden, bots fill it */}
+                    {/* Honeypot - visually hidden, bots fill it */}
                     <input
                       type="text"
                       name="website"

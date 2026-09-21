@@ -1,11 +1,6 @@
-import { CONTACT } from "@/lib/data";
+import { CONTACT, SOCIAL } from "@/lib/data";
 
 const BASE_URL = "https://northbitlabs.tech";
-
-const SOCIAL = {
-  instagram: "https://www.instagram.com/northbitlabs/",
-  linkedinFounder: "https://www.linkedin.com/in/sean-paul-shamia-48a327333/",
-};
 
 /**
  * Site-wide structured data (JSON-LD), rendered once in the root layout <head>.
@@ -35,7 +30,7 @@ export default function JsonLd() {
           "A technology firm that builds custom software designed around your business, applies AI to streamline your operations, and delivers measurable results. Based in Kenya.",
         email: CONTACT.email,
         telephone: CONTACT.phone,
-        sameAs: [SOCIAL.instagram],
+        sameAs: [SOCIAL.instagram, SOCIAL.x],
         founder: {
           "@type": "Person",
           name: CONTACT.founder,

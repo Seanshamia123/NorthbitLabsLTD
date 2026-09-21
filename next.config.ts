@@ -38,7 +38,7 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
-  // Pin the workspace root — a stray lockfile at /home/pc made Turbopack
+  // Pin the workspace root - a stray lockfile at /home/pc made Turbopack
   // infer the wrong root. __dirname is this project directory.
   turbopack: {
     root: __dirname,
@@ -54,6 +54,19 @@ const nextConfig: NextConfig = {
       {
         source: "/(.*)",
         headers: securityHeaders,
+      },
+    ];
+  },
+  // Canonicalization: force the apex domain. Any request that arrives on
+  // www.northbitlabs.tech is 308-redirected to the bare northbitlabs.tech,
+  // matching the <link rel="canonical"> so search engines index one URL only.
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.northbitlabs.tech" }],
+        destination: "https://northbitlabs.tech/:path*",
+        permanent: true,
       },
     ];
   },

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
 import FadeUp from "@/components/ui/FadeUp";
 import HeroReveal from "@/components/ui/HeroReveal";
@@ -61,7 +62,7 @@ export default function IndustriesPage() {
         </div>
       </section>
 
-      {/* PROOF — active clients, editorial treatment */}
+      {/* PROOF - active clients, editorial treatment */}
       <section className="section">
         <div className="wrap">
           <Reveal>
@@ -87,12 +88,13 @@ export default function IndustriesPage() {
                   style={{ display: "block", position: "relative", width: "100%", aspectRatio: "4/5", borderRadius: 8, overflow: "hidden", border: "1px solid #D9E1E8" }}
                   className="ind-proof-photo-link"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={ind.image}
                     alt={ind.title}
+                    fill
+                    sizes="(max-width: 900px) 90vw, 45vw"
                     className="ind-proof-photo"
-                    style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                    style={{ objectFit: "cover" }}
                   />
                   <div style={{ position: "absolute", left: 18, bottom: 18, display: "flex", alignItems: "center", gap: 8, padding: "6px 14px", borderRadius: 999, background: "rgba(11,15,20,0.6)", backdropFilter: "blur(4px)" }}>
                     <span style={{ width: 6, height: 6, background: "#3A5C1A", flexShrink: 0 }} />
@@ -144,7 +146,7 @@ export default function IndustriesPage() {
         `}</style>
       </section>
 
-      {/* CAPABILITIES — domains we can extend into next, compact reference list */}
+      {/* CAPABILITIES - domains we can extend into next, compact reference list */}
       <section className="section section--frost">
         <div className="wrap">
           <Reveal>
@@ -172,14 +174,15 @@ export default function IndustriesPage() {
                     href={`/industries#${ind.slug}`}
                     aria-hidden="true"
                     tabIndex={-1}
-                    style={{ display: "block", width: "100%", aspectRatio: "4/5", borderRadius: 6, overflow: "hidden", border: "1px solid #D9E1E8" }}
+                    style={{ display: "block", position: "relative", width: "100%", aspectRatio: "4/5", borderRadius: 6, overflow: "hidden", border: "1px solid #D9E1E8" }}
                   >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <Image
                       src={ind.image}
                       alt={ind.title}
+                      fill
+                      sizes="(max-width: 900px) 90vw, 30vw"
                       className="ind-compact-photo"
-                      style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                      style={{ objectFit: "cover" }}
                     />
                   </Link>
                 </div>
@@ -241,7 +244,7 @@ export default function IndustriesPage() {
         <style>{`@media (max-width: 760px) { .fintech-grid { grid-template-columns: 1fr !important; gap: 40px !important; } }`}</style>
       </section>
 
-      {/* FAQ — visible Q&A, also emitted as FAQPage schema for answer engines */}
+      {/* FAQ - visible Q&A, also emitted as FAQPage schema for answer engines */}
       <section className="section">
         <div className="wrap">
           <Reveal>

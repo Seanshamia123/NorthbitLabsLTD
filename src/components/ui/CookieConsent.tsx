@@ -7,11 +7,24 @@ type Consent = "accepted" | "declined";
 const STORAGE_KEY = "nb_cookie_consent";
 export const REOPEN_EVENT = "nb:open-cookie-prefs";
 
+type GtagConsent = { analytics_storage: "granted" | "denied" };
+
 /**
- * Analytics (GA4 + Microsoft Clarity) only load once the visitor has
- * actively accepted — not on page load. Declining (or not yet deciding)
- * means neither script tag renders at all.
+ * Google Consent Mode v2. GA4 loads for every visitor, but the root layout
+ * defaults all consent signals to "denied", so before acceptance GA only sends
+ * cookieless, anonymous pings (modeled traffic - no cookies). Accepting flips
+ * `analytics_storage` to "granted" (full, cookie-based measurement).
+ *
+ * Microsoft Clarity (session recording - more invasive, sets cookies) stays
+ * strictly gated: its script renders only after an explicit accept.
  */
+function updateConsent(state: GtagConsent["analytics_storage"]) {
+  const g = (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag;
+  if (typeof g === "function") {
+    g("consent", "update", { analytics_storage: state });
+  }
+}
+
 export default function CookieConsent() {
   const [consent, setConsent] = useState<Consent | null>(null);
   const [open, setOpen] = useState(false);
@@ -20,6 +33,8 @@ export default function CookieConsent() {
     const stored = window.localStorage.getItem(STORAGE_KEY) as Consent | null;
     if (stored === "accepted" || stored === "declined") {
       setConsent(stored);
+      // Re-assert the prior choice against Consent Mode's denied default.
+      updateConsent(stored === "accepted" ? "granted" : "denied");
     } else {
       setOpen(true);
     }
@@ -33,35 +48,39 @@ export default function CookieConsent() {
     window.localStorage.setItem(STORAGE_KEY, next);
     setConsent(next);
     setOpen(false);
+    updateConsent(next === "accepted" ? "granted" : "denied");
   }
 
   return (
     <>
-      {consent === "accepted" && (
-        <>
-          <Script src="https://www.googletagmanager.com/gtag/js?id=G-16N31NC7BL" strategy="afterInteractive" />
-          <Script id="google-analytics" strategy="afterInteractive">
-            {`window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+      {/*
+        GA4 loads for everyone. It honors the Consent Mode default set in the
+        root layout: cookieless pings until `analytics_storage` is granted on
+        accept. `gtag` and `dataLayer` are already defined globally in <head>.
+      */}
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-16N31NC7BL" strategy="afterInteractive" />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`window.gtag('config', 'G-16N31NC7BL');`}
+      </Script>
 
-            gtag('config', 'G-16N31NC7BL');`}
-          </Script>
-          <Script id="microsoft-clarity" strategy="afterInteractive">
-            {`(function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "y7jd0es8om");`}
-          </Script>
-        </>
+      {/* Clarity is only injected after an explicit accept. */}
+      {consent === "accepted" && (
+        <Script id="microsoft-clarity" strategy="afterInteractive">
+          {`(function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "y7jd0es8om");`}
+        </Script>
       )}
 
       {open && (
         <div className="cookie-banner" role="dialog" aria-label="Cookie preferences" aria-live="polite">
           <p className="cookie-banner__title">Cookies</p>
           <p className="cookie-banner__body">
-            We use Google Analytics and Microsoft Clarity to understand how visitors use this site. Nothing is sold. See our{" "}
+            We use anonymous, cookieless analytics by default. Accept to enable full
+            Google Analytics and Microsoft Clarity (with cookies) so we can see how
+            the site is used and improve it. Nothing is sold. See our{" "}
             <Link href="/privacy" className="inline-link" style={{ textDecoration: "underline" }}>
               Privacy Policy
             </Link>{" "}

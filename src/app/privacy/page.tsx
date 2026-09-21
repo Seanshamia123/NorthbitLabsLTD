@@ -81,12 +81,14 @@ export default function PrivacyPage() {
 
               <H2>Information collected automatically</H2>
               <P>
-                If you accept analytics cookies through the banner on this site, we use Google Analytics 4 and Microsoft
-                Clarity to understand how visitors use northbitlabs.tech: pages viewed, approximate location derived from
-                your IP address, device and browser type, referring site, and session recordings or click/scroll behaviour
-                (Clarity). Neither tool loads, and no analytics cookie is set, unless you accept. You can change your
-                choice at any time using &ldquo;Cookie Preferences&rdquo; in the footer, or by clearing your browser&apos;s stored
-                site data. See{" "}
+                We use Google Analytics 4 to understand how visitors use northbitlabs.tech: pages viewed, approximate
+                location derived from your IP address, device and browser type, and referring site. By default this runs
+                in a privacy-preserving, cookieless mode (Google Consent Mode) that sets no cookies and does not store
+                identifiers on your device. Only anonymous, aggregated signals are collected. If you accept through
+                the banner, Google Analytics switches to full, cookie-based measurement and we additionally load Microsoft
+                Clarity for session recordings and click/scroll behaviour. Clarity never loads, and no analytics cookie is
+                set, unless you accept. You can change your choice at any time using &ldquo;Cookie Preferences&rdquo; in the
+                footer, or by clearing your browser&apos;s stored site data. See{" "}
                 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="inline-link">
                   Google&apos;s Privacy Policy
                 </a>{" "}

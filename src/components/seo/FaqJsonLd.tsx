@@ -1,6 +1,6 @@
 /**
  * FAQPage structured data. Pass the same question/answer pairs that are
- * rendered visibly on the page — schema should never describe content a
+ * rendered visibly on the page - schema should never describe content a
  * reader can't also see.
  */
 export default function FaqJsonLd({

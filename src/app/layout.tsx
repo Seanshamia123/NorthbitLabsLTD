@@ -38,10 +38,12 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://northbitlabs.tech"),
   title: "Northbit Labs · Custom Software · AI Operations · Consulting",
+  // Kept within Google's ~120–160 char display window so it isn't truncated
+  // in search results, with the primary keywords front-loaded.
   description:
-    "A technology firm that builds custom software designed around your business, applies AI to streamline your operations, and delivers measurable results. Based in Kenya, serving clients across Africa, Europe and worldwide.",
+    "Custom software development, AI operations and technology consulting in Kenya. Northbit Labs builds software around your business, with measurable results.",
   // The meta keywords tag has had no effect on Google ranking since 2009 and
-  // carries no weight with AI answer engines either — they read page content,
+  // carries no weight with AI answer engines either - they read page content,
   // not this list. Kept short for the few crawlers that still glance at it;
   // real targeting now lives in on-page copy, FAQ schema and /insights.
   keywords: [
@@ -59,7 +61,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   // Icons are resolved from the app-directory file conventions:
-  // app/favicon.ico, app/icon.svg, app/apple-icon.png — no manual links needed.
+  // app/favicon.ico, app/icon.svg, app/apple-icon.png - no manual links needed.
   // Google Search Console verification. Set GOOGLE_SITE_VERIFICATION in the
   // deployment env; the meta tag is omitted entirely when it's not set.
   verification: process.env.GOOGLE_SITE_VERIFICATION
@@ -101,7 +103,7 @@ export default function RootLayout({
       className={`${clashGrotesk.variable} ${satoshi.variable}`}
     >
       <head>
-        {/* Kill React DevTools in production — prevents component-tree inspection */}
+        {/* Kill React DevTools in production - prevents component-tree inspection */}
         {process.env.NODE_ENV === "production" && (
           <script
             dangerouslySetInnerHTML={{
@@ -109,6 +111,19 @@ export default function RootLayout({
             }}
           />
         )}
+        {/*
+          Google Consent Mode v2 - runs before gtag.js loads (see CookieConsent).
+          Every storage type defaults to "denied", so Google Analytics sends only
+          cookieless, anonymous pings until the visitor accepts in the cookie
+          banner, which flips analytics_storage to "granted". This gives modeled
+          traffic numbers pre-consent while remaining GDPR/PECR compliant - no
+          cookies are set until consent.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});gtag('js',new Date());`,
+          }}
+        />
         <JsonLd />
       </head>
       <body style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif" }}>

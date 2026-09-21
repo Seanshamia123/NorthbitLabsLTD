@@ -73,7 +73,7 @@ export default function WhatsAppButton() {
           transition: opacity 180ms ease, transform 180ms cubic-bezier(0.23, 1, 0.32, 1);
         }
 
-        /* press feedback — works on touch too */
+        /* press feedback - works on touch too */
         .wa-fab:active { transform: scale(0.96); }
 
         /* keyboard users get the label + a clear ring */

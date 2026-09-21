@@ -49,7 +49,7 @@ export default function CaseImagePane({ name, category, tags, logo, brandColor, 
         }}
       />
 
-      {/* base text layer — fades out on hover */}
+      {/* base text layer - fades out on hover */}
       <motion.div
         style={{ position: "relative", zIndex: 1, textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", gap: 18 }}
         animate={reduced ? {} : { opacity: hovered ? 0 : 1 }}
@@ -94,7 +94,7 @@ export default function CaseImagePane({ name, category, tags, logo, brandColor, 
         </div>
       </motion.div>
 
-      {/* logo reveal — slides up from below on hover */}
+      {/* logo reveal - slides up from below on hover */}
       <motion.div
         style={{
           position: "absolute",

@@ -1,5 +1,5 @@
 /**
- * NorthBit Labs logo — vector geometry taken directly from the approved
+ * NorthBit Labs logo - vector geometry taken directly from the approved
  * brand-guide lockup (Northbit Labs Logo/SVG/Northbit Labs Main Logo.svg),
  * recolored to the exact brand hex values (the guide's own files ship with
  * #0f1115/#3c5d2c, slightly off the documented #0B0F14/#3A5C1A).
@@ -14,9 +14,9 @@
  * dark backgrounds), per the guide's "Do's" page.
  *
  * Props:
- *   variant  — "light" | "dark"  (background this instance sits on)
- *   size     — "sm" | "md" | "lg"
- *   iconOnly — render the mark only, no wordmark
+ *   variant  - "light" | "dark"  (background this instance sits on)
+ *   size     - "sm" | "md" | "lg"
+ *   iconOnly - render the mark only, no wordmark
  */
 
 const MARK_PATHS = (

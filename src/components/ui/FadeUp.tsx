@@ -1,5 +1,3 @@
-"use client";
-import { motion, useReducedMotion } from "framer-motion";
 import { ReactNode } from "react";
 
 interface FadeUpProps {
@@ -9,19 +7,16 @@ interface FadeUpProps {
   className?: string;
 }
 
-const ease = [0.23, 1, 0.32, 1] as const;
-
+// Entrance fade-up as a pure-CSS animation (see globals.css .nb-fadeup).
+// No framer-motion and no "use client": it runs on the compositor from first
+// paint. `delay` is in seconds, matching the previous API.
 export default function FadeUp({ children, delay = 0, style, className }: FadeUpProps) {
-  const shouldReduce = useReducedMotion();
   return (
-    <motion.div
-      initial={shouldReduce ? {} : { opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={shouldReduce ? { duration: 0 } : { duration: 0.55, delay, ease }}
-      style={style}
-      className={className}
+    <div
+      className={`nb-fadeup${className ? " " + className : ""}`}
+      style={{ ...style, ["--fadeup-delay" as string]: `${delay}s` }}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }

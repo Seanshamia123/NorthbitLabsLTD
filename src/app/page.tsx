@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
 import FadeUp from "@/components/ui/FadeUp";
 import ClientsGrid from "@/components/ui/ClientsGrid";
@@ -6,13 +7,14 @@ import IndustriesStack from "@/components/ui/IndustriesStack";
 import WorkCoverflow from "@/components/ui/WorkCoverflow";
 import HeroReveal from "@/components/ui/HeroReveal";
 import MagneticBtn from "@/components/ui/MagneticBtn";
-import { STATS, SERVICES, INDUSTRIES, CLIENTS, ACTIVE_BUILD, HOW_WE_WORK, DIFFERENTIATORS, CONTACT } from "@/lib/data";
+import { STATS, SERVICES, INDUSTRIES, CLIENTS, LOGO_CLIENTS, ACTIVE_BUILD, HOW_WE_WORK, DIFFERENTIATORS, CONTACT } from "@/lib/data";
 
 export default function HomePage() {
   const pillars = SERVICES.filter((s) => s.pillar);
 
   const logoBand = [
     ...CLIENTS,
+    ...LOGO_CLIENTS,
     {
       id: ACTIVE_BUILD.id,
       name: ACTIVE_BUILD.client,
@@ -28,7 +30,7 @@ export default function HomePage() {
     <>
       {/* HERO */}
       <section style={{ background: "#0B0F14", color: "#F5F2EC", padding: "clamp(80px,11vw,160px) 0 clamp(72px,9vw,140px)", position: "relative", overflow: "hidden" }}>
-        {/* atmospheric backdrop — a single slow light trail, dimmed to near-invisible so it never competes with the text */}
+        {/* atmospheric backdrop - a single slow light trail, dimmed to near-invisible so it never competes with the text */}
         <div aria-hidden="true" className="hero-photo-zoom" style={{ position: "absolute", inset: 0, backgroundImage: "url('/textures/north-line.webp')", backgroundSize: "cover", backgroundPosition: "center", pointerEvents: "none" }} />
         <div aria-hidden="true" style={{ position: "absolute", inset: 0, background: "rgba(11,15,20,0.8)", pointerEvents: "none" }} />
         <div aria-hidden="true" style={{ position: "absolute", inset: 0, overflow: "hidden", backgroundImage: "radial-gradient(circle, rgba(58,92,26,0.10) 1px, transparent 1px)", backgroundSize: "28px 28px", pointerEvents: "none" }} />
@@ -144,12 +146,13 @@ export default function HomePage() {
                   className="svc-pillar-photo-link"
                   style={{ display: "block", position: "relative", width: "100%", aspectRatio: "4/5", borderRadius: 8, overflow: "hidden", border: "1px solid #D9E1E8" }}
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={p.image}
-                    alt=""
+                    alt={`${p.title}, Northbit Labs ${p.num}`}
+                    fill
+                    sizes="(max-width: 900px) 90vw, 45vw"
                     className="svc-pillar-photo"
-                    style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                    style={{ objectFit: "cover" }}
                   />
                   <div style={{ position: "absolute", left: 18, bottom: 18, display: "flex", alignItems: "center", gap: 8, padding: "6px 14px", borderRadius: 999, background: "rgba(11,15,20,0.6)", backdropFilter: "blur(4px)" }}>
                     <span style={{ width: 6, height: 6, background: "#3A5C1A", flexShrink: 0 }} />
@@ -331,7 +334,7 @@ export default function HomePage() {
               {HOW_WE_WORK.map((step) => (
                 <div key={step.num} style={{ padding: "32px 24px 28px", minHeight: 220 }} className="step-cell">
                   <div style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 11, letterSpacing: "0.12em", color: "#7BA84F", marginBottom: 20 }}>{step.num}</div>
-                  <h4 style={{ fontSize: "clamp(17px,1.6vw,22px)", fontWeight: 600, letterSpacing: "-0.01em", marginBottom: 10, color: "#F5F2EC", textShadow: "0 1px 12px rgba(11,15,20,0.7)" }}>{step.title}</h4>
+                  <h3 style={{ fontSize: "clamp(17px,1.6vw,22px)", fontWeight: 600, letterSpacing: "-0.01em", marginBottom: 10, color: "#F5F2EC", textShadow: "0 1px 12px rgba(11,15,20,0.7)" }}>{step.title}</h3>
                   <p style={{ fontSize: 14, color: "#AAB2BC", lineHeight: 1.65, textShadow: "0 1px 10px rgba(11,15,20,0.85)" }}>{step.description}</p>
                 </div>
               ))}
@@ -361,7 +364,7 @@ export default function HomePage() {
               <Reveal key={i} delay={i * 60}>
                 <div style={{ display: "grid", gridTemplateColumns: "52px 1fr 2.2fr", gap: "0 40px", padding: "36px 0", borderBottom: "1px solid #232931", alignItems: "start" }} className="diff-row">
                   <div style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 11, letterSpacing: "0.2em", color: "#4a5260", paddingTop: 3 }}>0{i + 1}</div>
-                  <h4 style={{ fontSize: "clamp(16px,1.8vw,22px)", fontWeight: 600, color: "#F5F2EC", letterSpacing: "-0.015em", lineHeight: 1.25 }}>{d.title}</h4>
+                  <h3 style={{ fontSize: "clamp(16px,1.8vw,22px)", fontWeight: 600, color: "#F5F2EC", letterSpacing: "-0.015em", lineHeight: 1.25 }}>{d.title}</h3>
                   <p style={{ fontSize: 15, color: "#8A919C", lineHeight: 1.7 }} className="diff-desc">{d.description}</p>
                 </div>
               </Reveal>

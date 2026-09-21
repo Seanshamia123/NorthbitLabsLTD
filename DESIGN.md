@@ -1,11 +1,11 @@
-# NorthBit Labs — Design System
+# NorthBit Labs - Design System
 
 ## Color Tokens
 | Name | Hex | Role |
 |------|-----|------|
 | Ink | `#0B0F14` | Primary dark background, primary text on light |
 | Polar | `#F5F2EC` | Primary light background, text on dark |
-| Signal Green | `#3A5C1A` | Brand accent — CTAs, active states, highlights |
+| Signal Green | `#3A5C1A` | Brand accent - CTAs, active states, highlights |
 | Signal Green Hi | `#4D7724` | Hover state on Signal Green |
 | Steel | `#5C6470` | Secondary body text on light backgrounds |
 | Frost | `#D9E1E8` | Borders, dividers |
@@ -18,7 +18,7 @@
 CSS custom properties available as `--c-ink`, `--c-polar`, `--c-signal`, etc. (defined in `globals.css :root`).
 
 ## Typography
-Per the Northbit Labs Brand Guide (V.1 2026): primary typeface Clash Grotesk, secondary Satoshi. Self-hosted via `next/font/local` from `src/fonts/` (woff2, fetched from Fontshare, free for commercial use) — no Google Fonts dependency.
+Per the Northbit Labs Brand Guide (V.1 2026): primary typeface Clash Grotesk, secondary Satoshi. Self-hosted via `next/font/local` from `src/fonts/` (woff2, fetched from Fontshare, free for commercial use) - no Google Fonts dependency.
 
 | Role | Font | Size | Weight | Tracking |
 |------|------|------|--------|----------|
@@ -30,7 +30,7 @@ Per the Northbit Labs Brand Guide (V.1 2026): primary typeface Clash Grotesk, se
 | Eyebrow / Labels | Satoshi | 11px | 500 | `0.18–0.22em` |
 | Numbers / Counters | Satoshi | varies | 600 | `-0.02em` |
 
-CSS variables: `--font-clash-grotesk` (display/headings), `--font-satoshi` (body/eyebrows/labels/numbers). JetBrains Mono has been retired — the guide only specifies the two typefaces above; eyebrows/labels keep their uppercase+tracked treatment, just in Satoshi instead of mono. Note: Satoshi ships in 400/500/700 only (no 600) — weight:600 requests fall back to the nearest available face (700) via standard CSS font matching.
+CSS variables: `--font-clash-grotesk` (display/headings), `--font-satoshi` (body/eyebrows/labels/numbers). JetBrains Mono has been retired - the guide only specifies the two typefaces above; eyebrows/labels keep their uppercase+tracked treatment, just in Satoshi instead of mono. Note: Satoshi ships in 400/500/700 only (no 600) - weight:600 requests fall back to the nearest available face (700) via standard CSS font matching.
 
 Line heights: body `1.65–1.75`, headlines `0.95–1.1`, dark-background body add `+0.05`.
 
@@ -42,9 +42,9 @@ Line heights: body `1.65–1.75`, headlines `0.95–1.1`, dark-background body a
 
 ## Section Alternation
 Pages alternate dark/light sections:
-- **Ink**: `background: #0B0F14, color: #F5F2EC` — use `.section--ink`
-- **Polar**: default (no class) — `background: #F5F2EC`
-- **Frost**: `background: #EFEBE3` — use `.section--frost`
+- **Ink**: `background: #0B0F14, color: #F5F2EC` - use `.section--ink`
+- **Polar**: default (no class) - `background: #F5F2EC`
+- **Frost**: `background: #EFEBE3` - use `.section--frost`
 
 ## Borders & Elevation
 - Light context borders: `1px solid #D9E1E8`
@@ -55,13 +55,13 @@ Pages alternate dark/light sections:
 ## Motion
 - Easing: `cubic-bezier(0.2,0.7,0.2,1)` throughout (ease-out-quart feel)
 - Scroll reveal: `.scroll-reveal` → `.scroll-reveal--in` via IntersectionObserver (`Reveal` component)
-- Entrance: `fadeUp` — 0.55s, translateY 20px → 0
+- Entrance: `fadeUp` - 0.55s, translateY 20px → 0
 - Hover transitions: 0.18–0.22s
 - All motion respects `prefers-reduced-motion`
 
 ## Key Patterns
 - **Eyebrow**: JetBrains Mono 11px, `0.22em` tracking, uppercase, muted color, often preceded by `.bit-dot` or section number
-- **Section header (`.s-head`)**: 3-column grid — eyebrow / h2 / link-arrow
+- **Section header (`.s-head`)**: 3-column grid - eyebrow / h2 / link-arrow
 - **Link arrow (`.link-arrow`)**: underlined inline link with trailing `→`, slides `translateX(5px)` on hover
 - **Bit dot (`.bit-dot`)**: 8×8 Signal Green square, used as bullet or eyebrow prefix
 - **`BitMotif`**: pixel grid SVG brand motif, used in hero and as texture on dark image panels
@@ -80,5 +80,5 @@ Pages alternate dark/light sections:
 - No `transform: translateY(-4px)` lift on cards
 - No identical icon-grid card rows (use numbered list layouts)
 - No inline `onFocus`/`onBlur` for styling (use `.field-input` CSS class)
-- No animating `gap` or `padding` (layout properties) — use `transform`
-- No pure `#000` or `#fff` — always use tinted brand neutrals
+- No animating `gap` or `padding` (layout properties) - use `transform`
+- No pure `#000` or `#fff` - always use tinted brand neutrals

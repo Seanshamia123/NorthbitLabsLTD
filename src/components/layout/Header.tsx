@@ -59,7 +59,7 @@ export default function Header() {
             gap: "32px",
           }}
         >
-          {/* Logo — swaps variant based on scroll state */}
+          {/* Logo - swaps variant based on scroll state */}
           <Link href="/" style={{ textDecoration: "none" }}>
             <NorthBitLogo variant={scrolled ? "light" : "dark"} size="lg" />
           </Link>

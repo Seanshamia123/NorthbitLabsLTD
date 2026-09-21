@@ -114,7 +114,7 @@ export default function WorkPage() {
         `}</style>
       </section>
 
-      {/* IN ACTIVE DEVELOPMENT — COUNT TECHNOLOGIES */}
+      {/* IN ACTIVE DEVELOPMENT - COUNT TECHNOLOGIES */}
       <section className="section section--ink" id={ACTIVE_BUILD.id} style={{ position: "relative", overflow: "hidden", borderBottom: "1px solid #232931" }}>
         <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(58,92,26,0.10) 1px, transparent 1px)", backgroundSize: "28px 28px", pointerEvents: "none" }} />
         <div className="wrap" style={{ position: "relative" }}>

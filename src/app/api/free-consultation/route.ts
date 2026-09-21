@@ -40,7 +40,7 @@ function esc(str: string): string {
     .replace(/'/g, "&#x27;");
 }
 
-// CORS preflight — browsers send this before the actual POST.
+// CORS preflight - browsers send this before the actual POST.
 export async function OPTIONS(request: Request) {
   const origin = request.headers.get("origin") ?? "";
   if (!ALLOWED_ORIGINS.includes(origin)) {
@@ -60,13 +60,13 @@ export async function OPTIONS(request: Request) {
 export async function POST(request: Request) {
   const headersList = await headers();
 
-  // Origin check — blocks cross-site form submissions.
+  // Origin check - blocks cross-site form submissions.
   const origin = headersList.get("origin") ?? "";
   if (origin && !ALLOWED_ORIGINS.includes(origin)) {
     return Response.json({ error: "Forbidden." }, { status: 403 });
   }
 
-  // Payload size guard — reject oversized bodies before parsing JSON.
+  // Payload size guard - reject oversized bodies before parsing JSON.
   const contentLength = Number(headersList.get("content-length") ?? 0);
   if (contentLength > MAX_PAYLOAD_BYTES) {
     return Response.json({ error: "Payload too large." }, { status: 413 });
@@ -97,7 +97,7 @@ export async function POST(request: Request) {
     return Response.json({ error: "Invalid request." }, { status: 400 });
   }
 
-  // Honeypot — bots fill this field, humans don't.
+  // Honeypot - bots fill this field, humans don't.
   if (body.website) {
     return Response.json({ ok: true });
   }

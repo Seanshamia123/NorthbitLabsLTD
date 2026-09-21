@@ -1,4 +1,4 @@
-# NorthBit Labs — Product Context
+# NorthBit Labs - Product Context
 
 ## Product Purpose
 Company website for NorthBit Labs, a technology firm based in Kenya. The site is the primary sales surface: it communicates credibility, qualifies prospects, and drives discovery-call bookings. Visitors are founders, operators, and decision-makers evaluating whether to engage.
@@ -17,8 +17,8 @@ Direct, honest, technically confident. "Operators" not "clients". No pitch-deck 
 ## Strategic Principles
 - Every page should drive toward the discovery call or a direct email
 - Credibility through specificity: real clients, real outcomes, real contact details
-- "Small by design" is a differentiator — lean into it, never apologise for it
-- The founder (Sean Paul Shamia) is the primary trust signal — he appears on multiple pages
+- "Small by design" is a differentiator - lean into it, never apologise for it
+- The founder (Sean Paul Shamia) is the primary trust signal - he appears on multiple pages
 
 ## Anti-references
 - SaaS marketing sites with gradient blobs and floating cards
@@ -26,7 +26,7 @@ Direct, honest, technically confident. "Operators" not "clients". No pitch-deck 
 - Sites that hide contact details behind lead-gen forms
 
 ## Key Content
-- Founder: Sean Paul Shamia — Founder & CEO
+- Founder: Sean Paul Shamia - Founder & CEO
 - Email: northbitlabs@gmail.com
 - Phone: +254 795 684 258
 - Address: Number 8, Nosim Road, Kiserian, Kajiado North District, Kenya

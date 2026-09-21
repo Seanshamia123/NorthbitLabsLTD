@@ -13,7 +13,7 @@ export default function ArticleJsonLd({
   description: string;
   slug: string;
   datePublished: string;
-  /** Defaults to datePublished — pass this explicitly once a post is actually edited post-publish. */
+  /** Defaults to datePublished - pass this explicitly once a post is actually edited post-publish. */
   dateModified?: string;
   author: string;
   /** A named author (Person) with a bio URL earns more trust than an Organization byline. */

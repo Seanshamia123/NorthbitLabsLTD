@@ -20,7 +20,7 @@ export default function CtaPhotoSection({
       id={id}
       style={{ position: "relative", overflow: "hidden", ...style }}
     >
-      {/* warm meeting photo — slow Ken Burns drift */}
+      {/* warm meeting photo - slow Ken Burns drift */}
       <div
         aria-hidden
         className="cta-photo-zoom"

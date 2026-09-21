@@ -295,7 +295,7 @@ export const CLIENTS = [
     name: "Remitcore",
     category: "Fintech & Remittance",
     tags: ["FINTECH", "REMITTANCE", "MAINTENANCE"],
-    url: "https://remitcore.co/",
+    url: "https://remitcore.com/",
     logo: "/logos/Remitcore.svg",
     image: "/work/remitcore.webp",
     brandColor: "#1E3A8A",
@@ -329,6 +329,49 @@ export const CLIENTS = [
       "Active build in progress",
     ],
     status: "In Development",
+  },
+];
+
+// Additional client logos shown in the homepage logo marquee only. These are
+// live client relationships without a public case-study screenshot yet, so they
+// populate the logo band but not the WorkCoverflow or /work case studies (which
+// require a screenshot, headline and outcomes). Only the fields ClientsGrid
+// reads are provided.
+export const LOGO_CLIENTS = [
+  {
+    id: "salaryd",
+    name: "Salaryd",
+    category: "HR & Payroll",
+    url: "https://salaryd.com/",
+    logo: "/logos/Salaryd.png",
+    brandColor: "#2F6BFF",
+    wide: true,
+  },
+  {
+    id: "sumpay",
+    name: "Sumpay",
+    category: "Fintech & Digital Credit",
+    url: "https://sumpay.co.ke/",
+    logo: "/logos/Sumpay.png",
+    brandColor: "#00A651",
+  },
+  {
+    id: "countcomply",
+    name: "CountComply",
+    category: "AML & Compliance",
+    url: "https://countcomply.com/",
+    logo: "/logos/countcomply.png",
+    brandColor: "#1E40AF",
+    wide: true,
+  },
+  {
+    id: "biopay",
+    name: "BioPay",
+    category: "Biometric Payments",
+    url: "https://biopay.africa/",
+    logo: "/logos/Biopay.png",
+    brandColor: "#0F766E",
+    wide: true,
   },
 ];
 
@@ -485,8 +528,16 @@ export const CONTACT = {
   founderTitle: "Founder & CEO",
 };
 
+// Single source of truth for social profiles - consumed by both the footer
+// (visible, crawlable links) and the Organization JSON-LD `sameAs` array.
+export const SOCIAL = {
+  instagram: "https://www.instagram.com/northbit_labs/",
+  x: "https://x.com/northbitlabs",
+  linkedinFounder: "https://www.linkedin.com/in/sean-paul-shamia-48a327333/",
+};
+
 // FAQ content lives here (not inline on each page) so /services, /industries
-// and the /faq aggregator page all render and mark up the same answers —
+// and the /faq aggregator page all render and mark up the same answers -
 // AI answer engines penalize inconsistent claims about the same business.
 export const SERVICES_FAQS = [
   {

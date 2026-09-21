@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 
 interface Industry {
@@ -113,11 +114,12 @@ function ImageCard({
           background: "#0B0F14",
         }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src={ind.image}
           alt={ind.title}
-          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+          fill
+          sizes="(max-width: 860px) 90vw, 440px"
+          style={{ objectFit: "cover" }}
         />
         <div
           style={{

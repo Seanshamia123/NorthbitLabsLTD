@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CONTACT } from "@/lib/data";
+import { CONTACT, SOCIAL } from "@/lib/data";
 import NorthBitLogo from "@/components/ui/NorthBitLogo";
 import CookiePreferencesLink from "@/components/ui/CookiePreferencesLink";
 
@@ -45,7 +45,26 @@ export default function Footer() {
             <p style={{ fontSize: 14, color: "#9098A4", maxWidth: "32ch", lineHeight: 1.65, marginBottom: 24 }}>
               A technology firm building custom software, AI operations and consulting services for operators in Kenya.
             </p>
-            <div style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 10, letterSpacing: "0.22em", color: "#4a5260", textTransform: "uppercase" }}>
+            <div style={{ display: "flex", gap: 18, marginBottom: 24, flexWrap: "wrap" }}>
+              {[
+                { label: "Instagram", href: SOCIAL.instagram },
+                { label: "X", href: SOCIAL.x },
+                { label: "LinkedIn", href: SOCIAL.linkedinFounder },
+              ].map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer me"
+                  aria-label={`Northbit Labs on ${s.label}`}
+                  className="foot-link"
+                  style={{ fontSize: 13, color: "#9098A4", textDecoration: "none", letterSpacing: "0.02em" }}
+                >
+                  {s.label}
+                </a>
+              ))}
+            </div>
+            <div style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 10, letterSpacing: "0.22em", color: "#7C8590", textTransform: "uppercase" }}>
               SOFTWARE · ENGINEERED · NORTH
             </div>
           </div>
@@ -53,9 +72,9 @@ export default function Footer() {
           {/* Link cols */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h5 style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 11, letterSpacing: "0.22em", color: "#9098A4", textTransform: "uppercase", fontWeight: 500, marginBottom: 20 }}>
+              <h2 style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 11, letterSpacing: "0.22em", color: "#9098A4", textTransform: "uppercase", fontWeight: 500, marginBottom: 20 }}>
                 {title}
-              </h5>
+              </h2>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 10 }}>
                 {links.map((link) => (
                   <li key={link.href}>
@@ -75,15 +94,15 @@ export default function Footer() {
             <a href={`mailto:${CONTACT.email}`} className="contact-link" style={{ fontSize: 14, textDecoration: "none" }}>{CONTACT.email}</a>
             <a href={`tel:${CONTACT.phone.replace(/\s/g, "")}`} className="contact-link" style={{ fontSize: 14, textDecoration: "none" }}>{CONTACT.phone}</a>
           </div>
-          <p style={{ fontSize: 13, color: "#4a5260" }}>{CONTACT.address}, {CONTACT.district}</p>
+          <p style={{ fontSize: 13, color: "#7C8590" }}>{CONTACT.address}, {CONTACT.district}</p>
         </div>
 
         {/* Bottom bar */}
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: 28, fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 12, color: "#4a5260", letterSpacing: "0.06em", flexWrap: "wrap", gap: 16 }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: 28, fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 12, color: "#7C8590", letterSpacing: "0.06em", flexWrap: "wrap", gap: 16 }}>
           <span>© {year} NORTHBIT LABS · ALL RIGHTS RESERVED</span>
           <div style={{ display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap" }}>
-            <Link href="/privacy" className="foot-link" style={{ fontSize: 12, color: "#4a5260", letterSpacing: "0.06em", textDecoration: "none" }}>PRIVACY POLICY</Link>
-            <Link href="/terms" className="foot-link" style={{ fontSize: 12, color: "#4a5260", letterSpacing: "0.06em", textDecoration: "none" }}>TERMS OF SERVICE</Link>
+            <Link href="/privacy" className="foot-link" style={{ fontSize: 12, color: "#7C8590", letterSpacing: "0.06em", textDecoration: "none" }}>PRIVACY POLICY</Link>
+            <Link href="/terms" className="foot-link" style={{ fontSize: 12, color: "#7C8590", letterSpacing: "0.06em", textDecoration: "none" }}>TERMS OF SERVICE</Link>
             <span style={{ fontSize: 12 }}>
               <CookiePreferencesLink label="COOKIE PREFERENCES" muted />
             </span>

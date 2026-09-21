@@ -16,12 +16,28 @@ const SCALE = [1, 0.82, 0.66];
 const OPACITY = [1, 0.55, 0.28];
 const OFFSET_PCT = [0, 60, 108];
 const AUTOPLAY_MS = 3400;
+// Horizontal distance that counts as advancing one card when a swipe is
+// projected. Tuned to the slot width; a flick past this throws further.
+const STEP_PX = 200;
+
+// Apple-style momentum projection: where a flick coasts to under exponential
+// deceleration. Used to decide how many cards a swipe should travel.
+function project(velocity: number, decel = 0.998) {
+  return ((velocity / 1000) * decel) / (1 - decel);
+}
 
 export default function WorkCoverflow({ clients }: { clients: WorkClient[] }) {
   const [active, setActive] = useState(0);
   const paused = useRef(false);
   const reduced = useReducedMotion();
   const total = clients.length;
+
+  // Pointer-drag state: the whole strip follows the finger (damped), then on
+  // release the momentum projection decides how many cards to advance.
+  const drag = useRef({ active: false, startX: 0, startT: 0, lastX: 0, lastT: 0, moved: false });
+  const suppressClick = useRef(false);
+  const [dragX, setDragX] = useState(0);
+  const [dragging, setDragging] = useState(false);
 
   useEffect(() => {
     if (reduced) return;
@@ -31,87 +47,158 @@ export default function WorkCoverflow({ clients }: { clients: WorkClient[] }) {
     return () => clearInterval(id);
   }, [reduced, total]);
 
+  function onPointerDown(e: React.PointerEvent) {
+    if (e.pointerType === "mouse" && e.button !== 0) return;
+    const now = performance.now();
+    drag.current = { active: true, startX: e.clientX, startT: now, lastX: e.clientX, lastT: now, moved: false };
+    paused.current = true;
+    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+  }
+
+  function onPointerMove(e: React.PointerEvent) {
+    const d = drag.current;
+    if (!d.active) return;
+    const dx = e.clientX - d.startX;
+    if (!d.moved && Math.abs(dx) > 8) {
+      d.moved = true;
+      setDragging(true);
+    }
+    if (d.moved) {
+      d.lastX = e.clientX;
+      d.lastT = performance.now();
+      setDragX(dx * 0.35); // damped follow, so it reads as resistance not 1:1 slide
+    }
+  }
+
+  function endDrag(e: React.PointerEvent) {
+    const d = drag.current;
+    if (!d.active) return;
+    d.active = false;
+    paused.current = false;
+    if (!d.moved) return;
+
+    const dx = e.clientX - d.startX;
+    // Average velocity over the gesture (px/s), stable enough for projection.
+    const elapsed = Math.max(16, performance.now() - d.startT);
+    const velocity = (dx / elapsed) * 1000;
+    const projected = dx + project(velocity);
+    // Drag left (negative) advances to the next card.
+    let steps = -Math.round(projected / STEP_PX);
+    steps = Math.max(-3, Math.min(3, steps));
+
+    if (steps !== 0) setActive((a) => (((a + steps) % total) + total) % total);
+
+    suppressClick.current = true;
+    requestAnimationFrame(() => {
+      suppressClick.current = false;
+    });
+    setDragging(false);
+    setDragX(0);
+  }
+
   return (
     <div
       className="wcf-root"
       onMouseEnter={() => { paused.current = true; }}
       onMouseLeave={() => { paused.current = false; }}
     >
-      <div className="wcf-stage">
-        {clients.map((client, i) => {
-          let diff = i - active;
-          if (diff > total / 2) diff -= total;
-          if (diff < -total / 2) diff += total;
-          const abs = Math.min(Math.abs(diff), SCALE.length - 1);
-          const sign = Math.sign(diff);
-          const scale = SCALE[abs];
-          const opacity = OPACITY[abs];
-          const offset = sign * OFFSET_PCT[abs];
-          const isCenter = diff === 0;
+      <div
+        className="wcf-stage"
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={endDrag}
+        onPointerCancel={endDrag}
+        style={{ cursor: dragging ? "grabbing" : "grab", touchAction: "pan-y" }}
+      >
+        <div
+          className="wcf-track"
+          style={{
+            transform: `translateX(${dragX}px)`,
+            transition: dragging || reduced ? "none" : "transform 0.5s cubic-bezier(0.22,0.9,0.24,1)",
+          }}
+        >
+          {clients.map((client, i) => {
+            let diff = i - active;
+            if (diff > total / 2) diff -= total;
+            if (diff < -total / 2) diff += total;
+            const abs = Math.min(Math.abs(diff), SCALE.length - 1);
+            const sign = Math.sign(diff);
+            const scale = SCALE[abs];
+            const opacity = OPACITY[abs];
+            const offset = sign * OFFSET_PCT[abs];
+            const isCenter = diff === 0;
 
-          const cardInner = (
-            <div
-              className="wcf-card"
-              style={{ background: "#14181F", borderRadius: 8, overflow: "hidden", display: "flex", flexDirection: "column", border: "1px solid #232931", height: "100%" }}
-            >
-              <div style={{ aspectRatio: "16/9", background: "#1C2129", position: "relative", overflow: "hidden" }}>
-                <img
-                  src={client.image}
-                  alt={`${client.name} live site`}
-                  loading="lazy"
-                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top center", display: "block" }}
-                />
-                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(11,15,20,0.88) 0%, rgba(11,15,20,0.12) 46%, transparent 70%)" }} />
-                <div style={{ position: "absolute", left: 16, top: 14, fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 9, letterSpacing: "0.28em", color: "#A9C77E", background: "rgba(11,15,20,0.55)", backdropFilter: "blur(4px)", padding: "3px 10px", borderRadius: 999, zIndex: 1 }}>{client.tags[0]}</div>
-                <div style={{ position: "absolute", left: 16, bottom: 14, fontFamily: "var(--font-clash-grotesk), sans-serif", fontSize: "clamp(16px,1.8vw,22px)", fontWeight: 700, letterSpacing: "-0.03em", color: "#F5F2EC", lineHeight: 1, zIndex: 1 }}>{client.name}</div>
+            const cardInner = (
+              <div
+                className="wcf-card"
+                style={{ background: "#14181F", borderRadius: 8, overflow: "hidden", display: "flex", flexDirection: "column", border: "1px solid #232931", height: "100%" }}
+              >
+                <div style={{ aspectRatio: "16/9", background: "#1C2129", position: "relative", overflow: "hidden" }}>
+                  <img
+                    src={client.image}
+                    alt={`${client.name} live site`}
+                    loading="lazy"
+                    draggable={false}
+                    style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top center", display: "block", pointerEvents: "none" }}
+                  />
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(11,15,20,0.88) 0%, rgba(11,15,20,0.12) 46%, transparent 70%)" }} />
+                  <div style={{ position: "absolute", left: 16, top: 14, fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 9, letterSpacing: "0.28em", color: "#A9C77E", background: "rgba(11,15,20,0.55)", backdropFilter: "blur(4px)", padding: "3px 10px", borderRadius: 999, zIndex: 1 }}>{client.tags[0]}</div>
+                  <div style={{ position: "absolute", left: 16, bottom: 14, fontFamily: "var(--font-clash-grotesk), sans-serif", fontSize: "clamp(16px,1.8vw,22px)", fontWeight: 700, letterSpacing: "-0.03em", color: "#F5F2EC", lineHeight: 1, zIndex: 1 }}>{client.name}</div>
+                </div>
+                <div style={{ padding: "24px 26px", flex: 1, display: "flex", flexDirection: "column", gap: 10 }}>
+                  <div style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 10, color: "#9098A4", letterSpacing: "0.12em", textTransform: "uppercase" }}>{client.category}</div>
+                  <h3 style={{ fontSize: "clamp(15px,1.6vw,19px)", fontWeight: 600, color: "#F5F2EC", letterSpacing: "-0.01em", lineHeight: 1.25 }}>{client.headline}</h3>
+                  <span style={{ fontSize: 13, fontWeight: 500, color: "#7BA84F", display: "inline-flex", gap: 6, alignItems: "center", marginTop: "auto", paddingTop: 8 }}>View live site →</span>
+                </div>
               </div>
-              <div style={{ padding: "24px 26px", flex: 1, display: "flex", flexDirection: "column", gap: 10 }}>
-                <div style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 10, color: "#9098A4", letterSpacing: "0.12em", textTransform: "uppercase" }}>{client.category}</div>
-                <h3 style={{ fontSize: "clamp(15px,1.6vw,19px)", fontWeight: 600, color: "#F5F2EC", letterSpacing: "-0.01em", lineHeight: 1.25 }}>{client.headline}</h3>
-                <span style={{ fontSize: 13, fontWeight: 500, color: "#4D7724", display: "inline-flex", gap: 6, alignItems: "center", marginTop: "auto", paddingTop: 8 }}>View live site →</span>
-              </div>
-            </div>
-          );
+            );
 
-          const commonStyle: React.CSSProperties = {
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: `translate(-50%, -50%) translateX(${offset}%) scale(${scale})`,
-            zIndex: 30 - abs * 10,
-            opacity,
-            filter: isCenter ? "none" : `blur(${abs}px) brightness(${1 - abs * 0.18})`,
-            transition: reduced ? "none" : "transform 0.7s cubic-bezier(0.22,0.9,0.24,1), opacity 0.7s ease, filter 0.7s ease",
-          };
+            const commonStyle: React.CSSProperties = {
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: `translate(-50%, -50%) translateX(${offset}%) scale(${scale})`,
+              zIndex: 30 - abs * 10,
+              opacity,
+              filter: isCenter ? "none" : `blur(${abs}px) brightness(${1 - abs * 0.18})`,
+              transition: reduced || dragging ? "none" : "transform 0.7s cubic-bezier(0.22,0.9,0.24,1), opacity 0.7s ease, filter 0.7s ease",
+            };
 
-          if (isCenter) {
+            if (isCenter) {
+              return (
+                <a
+                  key={client.id}
+                  href={client.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="wcf-slot"
+                  onClickCapture={(e) => {
+                    if (suppressClick.current) { e.preventDefault(); e.stopPropagation(); }
+                  }}
+                  style={{ ...commonStyle, textDecoration: "none", color: "inherit" }}
+                >
+                  {cardInner}
+                </a>
+              );
+            }
+
             return (
-              <a
+              <button
                 key={client.id}
-                href={client.url}
-                target="_blank"
-                rel="noopener noreferrer"
+                type="button"
+                aria-label={`Show ${client.name}`}
+                onClick={() => setActive(i)}
+                onClickCapture={(e) => {
+                  if (suppressClick.current) { e.preventDefault(); e.stopPropagation(); }
+                }}
                 className="wcf-slot"
-                style={{ ...commonStyle, textDecoration: "none", color: "inherit" }}
+                style={{ ...commonStyle, border: "none", padding: 0, background: "none", cursor: "pointer" }}
               >
                 {cardInner}
-              </a>
+              </button>
             );
-          }
-
-          return (
-            <button
-              key={client.id}
-              type="button"
-              aria-label={`Show ${client.name}`}
-              onClick={() => setActive(i)}
-              className="wcf-slot"
-              style={{ ...commonStyle, border: "none", padding: 0, background: "none", cursor: "pointer" }}
-            >
-              {cardInner}
-            </button>
-          );
-        })}
+          })}
+        </div>
       </div>
 
       <div className="wcf-dots">
@@ -136,6 +223,7 @@ export default function WorkCoverflow({ clients }: { clients: WorkClient[] }) {
           -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
                   mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
         }
+        .wcf-track { position: absolute; inset: 0; will-change: transform; }
         .wcf-slot {
           width: clamp(260px, 30vw, 380px);
           display: block;
