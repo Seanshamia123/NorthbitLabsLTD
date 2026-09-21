@@ -54,14 +54,14 @@ export default function CookieConsent() {
   return (
     <>
       {/*
-        GA4 loads for everyone. It honors the Consent Mode default set in the
-        root layout: cookieless pings until `analytics_storage` is granted on
-        accept. `gtag` and `dataLayer` are already defined globally in <head>.
+        GA4 loads the gtag.js library for everyone. Bootstrap (dataLayer, the
+        consent default, gtag('js') and gtag('config', ...)) runs in the root
+        layout <head> so measurement initializes on first paint, before and
+        independent of React hydration. This tag only fetches the library, which
+        then processes the already-queued config. It honors the Consent Mode
+        default: cookieless pings until `analytics_storage` is granted on accept.
       */}
       <Script src="https://www.googletagmanager.com/gtag/js?id=G-16N31NC7BL" strategy="afterInteractive" />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`window.gtag('config', 'G-16N31NC7BL');`}
-      </Script>
 
       {/* Clarity is only injected after an explicit accept. */}
       {consent === "accepted" && (
