@@ -373,6 +373,15 @@ export const LOGO_CLIENTS = [
     brandColor: "#0F766E",
     wide: true,
   },
+  {
+    id: "countbooks",
+    name: "CountBooks",
+    category: "Accounting",
+    url: "https://count-books.com/",
+    logo: "/logos/countbooks.svg",
+    brandColor: "#346DBE",
+    wide: true,
+  },
 ];
 
 export const ACTIVE_BUILD = {
