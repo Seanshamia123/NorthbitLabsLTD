@@ -42,7 +42,7 @@ and why your dashboards may look empty even with real visitors.
 
 ## 3. Google Business Profile - your biggest local lever (1 hr)
 
-You're Kenya-based with a phone number (+254 795 684258). A verified GBP gets you into Google Maps and
+You're Kenya-based with a phone number (+254 782 403 981). A verified GBP gets you into Google Maps and
 the local pack, which is often the fastest real traffic for a local services firm.
 
 - [ ] Create/claim at https://business.google.com - category "Software company" / "Website designer".

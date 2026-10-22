@@ -28,7 +28,7 @@ Direct, honest, technically confident. "Operators" not "clients". No pitch-deck 
 ## Key Content
 - Founder: Sean Paul Shamia - Founder & CEO
 - Email: northbitlabs@gmail.com
-- Phone: +254 795 684 258
+- Phone: +254 782 403 981
 - Address: Number 8, Nosim Road, Kiserian, Kajiado North District, Kenya
 - Clients: Magena Pilates (magenapilates.com), Premier Beauty Clinic (premierbeautyclinic.vercel.app), S.Socials (ssocials.co)
 

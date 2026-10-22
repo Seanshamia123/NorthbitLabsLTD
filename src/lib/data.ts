@@ -529,7 +529,7 @@ export const NAV_LINKS = [
 
 export const CONTACT = {
   email: "northbitlabs@gmail.com",
-  phone: "+254 795 684 258",
+  phone: "+254 782 403 981",
   address: "Number 8, Nosim Road, Kiserian",
   district: "Kajiado North District, Kenya",
   postal: "P.O. Box 00511, Ongata Rongai, Kenya",

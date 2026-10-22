@@ -1,6 +1,6 @@
 import { CONTACT } from "@/lib/data";
 
-// Strip everything but digits → WhatsApp wants e.g. 254795684258
+// Strip everything but digits → WhatsApp wants e.g. 254782403981
 const WHATSAPP_NUMBER = CONTACT.phone.replace(/[^0-9]/g, "");
 
 // Pre-filled message the visitor sends you. Edit this line to change it.
