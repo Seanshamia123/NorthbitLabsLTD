@@ -20,7 +20,7 @@ export default function HomePage() {
       name: ACTIVE_BUILD.client,
       category: ACTIVE_BUILD.category,
       url: `/work#${ACTIVE_BUILD.id}`,
-      logo: ACTIVE_BUILD.logoColor,
+      logo: ACTIVE_BUILD.logo,
       brandColor: "#2E6FBF",
       wide: true,
     },

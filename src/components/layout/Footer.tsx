@@ -107,7 +107,7 @@ export default function Footer() {
               <CookiePreferencesLink label="COOKIE PREFERENCES" muted />
             </span>
           </div>
-          <span>REGISTERED IN KENYA · NBI</span>
+          <span>REGISTERED IN KENYA · AGPO CERTIFIED (YOUTH)</span>
         </div>
       </div>
 

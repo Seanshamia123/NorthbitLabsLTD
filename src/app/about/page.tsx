@@ -4,7 +4,7 @@ import FadeUp from "@/components/ui/FadeUp";
 import HeroReveal from "@/components/ui/HeroReveal";
 import MagneticBtn from "@/components/ui/MagneticBtn";
 import CtaPhotoSection from "@/components/ui/CtaPhotoSection";
-import { CONTACT, DIFFERENTIATORS } from "@/lib/data";
+import { AGPO, CONTACT, DIFFERENTIATORS } from "@/lib/data";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
@@ -84,6 +84,7 @@ export default function AboutPage() {
                     {[
                       { label: "Time returned", val: "Every build" },
                       { label: "References", val: "On request" },
+                      { label: "AGPO Certified", val: `${AGPO.category} · ${AGPO.certificateNo}` },
                     ].map((item) => (
                       <div key={item.label}>
                         <div style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 11, color: "#9098A4", letterSpacing: "0.12em", marginBottom: 4 }}>{item.label}</div>

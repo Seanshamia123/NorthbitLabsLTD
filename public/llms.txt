@@ -2,7 +2,7 @@
 
 > A technology firm based in Kiserian, Kenya that builds custom software, applies AI to streamline business operations, and provides technology consulting for SMEs across Kenya, East Africa, and clients in Europe and worldwide.
 
-Founded and led by Sean Paul Shamia (Founder & CEO). Northbit Labs works across three service lines: custom software development, AI-powered operations & automation, and technology consulting, with particular depth in fintech (CBK-compliant, AML-ready systems, Mpesa/Daraja integrations).
+Founded and led by Sean Paul Shamia (Founder & CEO). Northbit Labs works across three service lines: custom software development, AI-powered operations & automation, and technology consulting, with particular depth in fintech (CBK-compliant, AML-ready systems, Mpesa/Daraja integrations). Northbit Labs is AGPO certified in the Youth category (Kenya's Access to Government Procurement Opportunities programme, certificate NT/PPD/2026/DGY/3702, valid until 14 May 2028, verifiable at agpo.go.ke), so national and county government entities can procure its services through the AGPO procurement allocation.
 
 ## Key pages
 

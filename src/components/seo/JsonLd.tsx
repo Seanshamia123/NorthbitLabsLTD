@@ -1,4 +1,4 @@
-import { CONTACT, SOCIAL } from "@/lib/data";
+import { AGPO, CONTACT, SOCIAL } from "@/lib/data";
 
 const BASE_URL = "https://northbitlabs.tech";
 
@@ -27,7 +27,7 @@ export default function JsonLd() {
         },
         image: { "@id": `${BASE_URL}/#logo` },
         description:
-          "A technology firm that builds custom software designed around your business, applies AI to streamline your operations, and delivers measurable results. Based in Kenya.",
+          "A technology firm that builds custom software designed around your business, applies AI to streamline your operations, and delivers measurable results. Based in Kenya and AGPO certified for government procurement.",
         email: CONTACT.email,
         telephone: CONTACT.phone,
         sameAs: [SOCIAL.instagram, SOCIAL.x],
@@ -57,7 +57,24 @@ export default function JsonLd() {
           "Technology Consulting",
           "Fintech & Payments",
           "Mpesa Integration",
+          "Government Procurement (AGPO)",
         ],
+        hasCredential: {
+          "@type": "EducationalOccupationalCredential",
+          name: `AGPO Certificate of Registration (${AGPO.category})`,
+          description:
+            "Access to Government Procurement Opportunities registration under the Public Procurement and Asset Disposal Act 2015.",
+          credentialCategory: "Government procurement certification",
+          identifier: AGPO.certificateNo,
+          dateCreated: AGPO.issued,
+          expires: AGPO.validUntil,
+          url: AGPO.verifyUrl,
+          recognizedBy: {
+            "@type": "GovernmentOrganization",
+            name: "The National Treasury, Republic of Kenya",
+            url: AGPO.verifyUrl,
+          },
+        },
       },
       {
         "@type": "WebSite",

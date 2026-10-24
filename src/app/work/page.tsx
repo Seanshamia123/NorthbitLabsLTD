@@ -127,7 +127,7 @@ export default function WorkPage() {
               <h2 style={{ fontSize: "clamp(28px,3.5vw,52px)", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.05, color: "#F5F2EC", maxWidth: "22ch" }}>
                 {ACTIVE_BUILD.headline}
               </h2>
-              <img src={ACTIVE_BUILD.logo} alt={ACTIVE_BUILD.client} style={{ height: 36, width: "auto", opacity: 0.85, marginTop: 8 }} className="ab-logo" />
+              <img src={ACTIVE_BUILD.logo} alt={ACTIVE_BUILD.client} style={{ height: 36, width: "auto", opacity: 0.85, marginTop: 8, filter: "brightness(0) invert(1)" }} className="ab-logo" />
             </div>
             <p style={{ fontSize: 16, color: "#8A919C", lineHeight: 1.7, maxWidth: "62ch", paddingBottom: 48 }}>
               {ACTIVE_BUILD.intro}

@@ -53,6 +53,7 @@ export const metadata: Metadata = {
     "technology consulting Kenya",
     "fintech software CBK",
     "Mpesa integration",
+    "AGPO certified software company Kenya",
   ],
   authors: [{ name: "Northbit Labs" }],
   creator: "Northbit Labs",

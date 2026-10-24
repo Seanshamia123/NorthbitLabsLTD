@@ -382,14 +382,22 @@ export const LOGO_CLIENTS = [
     brandColor: "#346DBE",
     wide: true,
   },
+  {
+    id: "tecflax",
+    name: "Tecflax",
+    category: "Technology Partner",
+    url: "https://tecflax.com/",
+    logo: "/logos/tecflax.png",
+    brandColor: "#1B3F73",
+    wide: true,
+  },
 ];
 
 export const ACTIVE_BUILD = {
   id: "count-technologies",
   client: "Count Technologies Ltd.",
   category: "Fintech & Enterprise Systems",
-  logo: "/logos/count-technologies-mono.png",
-  logoColor: "/logos/count-technologies.png",
+  logo: "/logos/count-technologies.png",
   headline: "Five systems for one client.",
   intro:
     "Count Technologies Ltd. engaged Northbit to design and build five systems in parallel: accounting, forex booking, HR, a field Android app and an AML screening agent. One is already in production in the field; we are rebuilding it while the other four take shape.",
@@ -496,7 +504,7 @@ export const DIFFERENTIATORS = [
   {
     title: "Local, accountable, available",
     description:
-      "We are registered in Kenya and based locally. You can reach us, meet us in person and hold us accountable.",
+      "We are registered in Kenya, based locally and AGPO certified (Youth), so government entities can procure from us directly. You can reach us, meet us in person and hold us accountable.",
   },
 ];
 
@@ -535,6 +543,18 @@ export const CONTACT = {
   postal: "P.O. Box 00511, Ongata Rongai, Kenya",
   founder: "Sean Paul Shamia",
   founderTitle: "Founder & CEO",
+};
+
+// AGPO registration as printed on the National Treasury certificate. Feeds the
+// FAQ, the Organization JSON-LD credential and the visible About/footer
+// mentions so every surface states the same number and validity dates.
+export const AGPO = {
+  certificateNo: "NT/PPD/2026/DGY/3702",
+  category: "Youth",
+  businessRegNo: "BN-79S6P6AJ",
+  issued: "2026-05-14",
+  validUntil: "2028-05-14",
+  verifyUrl: "https://agpo.go.ke",
 };
 
 // Single source of truth for social profiles - consumed by both the footer
@@ -604,6 +624,11 @@ export const GENERAL_FAQS = [
     question: "Where is Northbit Labs based?",
     answer:
       "Northbit Labs is based in Kiserian, Kajiado North District, Kenya, and serves clients across Kenya, East Africa, Europe and worldwide.",
+  },
+  {
+    question: "Is Northbit Labs AGPO certified?",
+    answer:
+      `Yes. Northbit Labs is AGPO certified in the ${AGPO.category} category under Kenya's Access to Government Procurement Opportunities programme (certificate ${AGPO.certificateNo}, valid until 14 May 2028). National government ministries, county governments and state agencies can procure our custom software, AI automation and technology consulting services through the public procurement allocation reserved for AGPO-registered businesses. The certificate can be verified on the AGPO portal at agpo.go.ke.`,
   },
   {
     question: "Who founded Northbit Labs?",
