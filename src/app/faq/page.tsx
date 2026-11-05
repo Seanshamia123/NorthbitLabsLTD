@@ -8,22 +8,14 @@ import { GENERAL_FAQS, SERVICES_FAQS, INDUSTRIES_FAQS } from "@/lib/data";
 import { POSTS } from "@/lib/posts";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "FAQ - Northbit Labs",
+export const metadata = pageMetadata({
+  title: "Custom Software & AI FAQs | Northbit Labs",
   description:
     "Every question we're asked about Northbit Labs, in one place: company, services, pricing, industries and the projects we write about.",
-  alternates: { canonical: "/faq" },
-  openGraph: {
-    title: "FAQ - Northbit Labs",
-    description:
-      "Every question we're asked about Northbit Labs, in one place: company, services, pricing, industries and the projects we write about.",
-    url: "/faq",
-    type: "website",
-    locale: "en_KE",
-  },
-  twitter: { card: "summary_large_image", title: "FAQ - Northbit Labs" },
-};
+  path: "/faq",
+});
 
 const postFaqs = POSTS.filter((p) => p.faq && p.faq.length > 0) as (typeof POSTS[number] & {
   faq: { question: string; answer: string }[];

@@ -539,6 +539,9 @@ export const CONTACT = {
   email: "northbitlabs@gmail.com",
   phone: "+254 782 403 981",
   address: "Number 8, Nosim Road, Kiserian",
+  streetAddress: "Number 8, Nosim Road",
+  locality: "Kiserian",
+  region: "Kajiado",
   district: "Kajiado North District, Kenya",
   postal: "P.O. Box 00511, Ongata Rongai, Kenya",
   founder: "Sean Paul Shamia",
@@ -594,7 +597,21 @@ export const SERVICES_FAQS = [
     answer:
       "Both. Consultation engagements suit teams that need direction before committing to a build; Project and Retainer engagements suit businesses ready to build or scale a system now.",
   },
+  {
+    question: "Is Northbit Labs a SAMFCore reseller?",
+    answer:
+      "Yes. Northbit Labs is an authorised reseller of SAMFCore, the banking, payments, cards and crypto software platform of Swiss AMF AG in Zug, Switzerland. Contact us to discuss whether SAMFCore fits your business.",
+  },
 ];
+
+// Reseller relationship. Public facts only: commercial terms and anything else
+// received under the partner agreements must never be published on this site.
+export const SAMFCORE = {
+  name: "SAMFCore",
+  owner: "Swiss AMF AG",
+  url: "https://samfcore.com/",
+  logo: "/logos/samfcore.png",
+};
 
 export const INDUSTRIES_FAQS = [
   {

@@ -75,13 +75,6 @@ export async function POST(request: Request) {
   const ip =
     headersList.get("x-forwarded-for")?.split(",")[0].trim() ?? "unknown";
 
-  if (isRateLimited(ip)) {
-    return Response.json(
-      { error: "Too many requests. Please wait a moment." },
-      { status: 429 }
-    );
-  }
-
   let body: {
     name?: string;
     company?: string;
@@ -120,9 +113,17 @@ export async function POST(request: Request) {
     return Response.json({ error: "Invalid email address." }, { status: 400 });
   }
 
+  if (isRateLimited(ip)) {
+    return Response.json(
+      { error: "Too many requests. Please wait a moment." },
+      { status: 429 }
+    );
+  }
+
   try {
     const resend = getResend();
-    await resend.emails.send({
+    // The Resend SDK returns API failures rather than throwing them.
+    const { error } = await resend.emails.send({
       from: FROM,
       to: TO,
       replyTo: email,
@@ -157,8 +158,11 @@ export async function POST(request: Request) {
       `,
     });
 
+    if (error) throw new Error(`${error.name}: ${error.message}`);
+
     return Response.json({ ok: true });
   } catch (err) {
+    lastSubmission.delete(ip); // Let the visitor retry straight away.
     console.error("[free-consultation] resend error", err);
     return Response.json(
       { error: "Could not send your request. Please try again." },

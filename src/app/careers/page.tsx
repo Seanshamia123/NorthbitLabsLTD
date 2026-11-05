@@ -5,20 +5,14 @@ import MagneticBtn from "@/components/ui/MagneticBtn";
 import CtaPhotoSection from "@/components/ui/CtaPhotoSection";
 import { CONTACT } from "@/lib/data";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Careers - Northbit Labs",
-  description: "Join a small, senior team building real systems for real businesses in Kenya. No junior work, no inflated teams.",
-  alternates: { canonical: "/careers" },
-  openGraph: {
-    title: "Careers - Northbit Labs",
-    description: "Join a small, senior team building real systems for real businesses in Kenya. No junior work, no inflated teams.",
-    url: "/careers",
-    type: "website",
-    locale: "en_KE",
-  },
-  twitter: { card: "summary_large_image", title: "Careers - Northbit Labs" },
-};
+export const metadata = pageMetadata({
+  title: "Software Careers in Kenya | Northbit Labs",
+  description:
+    "Join a small, senior team building real systems for real businesses in Kenya. No junior work, no inflated teams.",
+  path: "/careers",
+});
 
 const talentProfiles = [
   {

@@ -7,20 +7,14 @@ import CaseImagePane from "@/components/ui/CaseImagePane";
 import CtaPhotoSection from "@/components/ui/CtaPhotoSection";
 import { CLIENTS, ACTIVE_BUILD } from "@/lib/data";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Work - Northbit Labs",
-  description: "Five active client partnerships, each one personally earned, plus five systems in active development for Count Technologies. Magena Pilates, Premier Beauty Clinic, S.Socials, Remitcore and Kasapay.",
-  alternates: { canonical: "/work" },
-  openGraph: {
-    title: "Work - Northbit Labs",
-    description: "Five active client partnerships, each one personally earned, plus five systems in active development for Count Technologies. Magena Pilates, Premier Beauty Clinic, S.Socials, Remitcore and Kasapay.",
-    url: "/work",
-    type: "website",
-    locale: "en_KE",
-  },
-  twitter: { card: "summary_large_image", title: "Work - Northbit Labs" },
-};
+export const metadata = pageMetadata({
+  title: "Software Case Studies & Client Work | Northbit Labs",
+  description:
+    "Case studies from Magena Pilates, Premier Beauty Clinic, S.Socials, Remitcore and Kasapay, plus five systems in development for Count Technologies.",
+  path: "/work",
+});
 
 export default function WorkPage() {
   return (

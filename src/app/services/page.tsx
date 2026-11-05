@@ -8,20 +8,14 @@ import ServicesCarousel from "@/components/ui/ServicesCarousel";
 import { SERVICES, ENGAGEMENT_MODELS, SERVICES_FAQS } from "@/lib/data";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Services - Northbit Labs",
-  description: "Custom software, AI-powered automation and technology consulting. Three pillars, 13 capabilities, one senior-practitioner team.",
-  alternates: { canonical: "/services" },
-  openGraph: {
-    title: "Services - Northbit Labs",
-    description: "Custom software, AI-powered automation and technology consulting. Three pillars, 13 capabilities, one senior-practitioner team.",
-    url: "/services",
-    type: "website",
-    locale: "en_KE",
-  },
-  twitter: { card: "summary_large_image", title: "Services - Northbit Labs" },
-};
+export const metadata = pageMetadata({
+  title: "Custom Software, AI & Consulting Services | Northbit Labs",
+  description:
+    "Custom software development, AI automation and technology consulting for businesses in Kenya and East Africa. Three pillars, 13 capabilities, one senior team.",
+  path: "/services",
+});
 
 export default function ServicesPage() {
   const pillars = SERVICES.filter((s) => s.pillar);

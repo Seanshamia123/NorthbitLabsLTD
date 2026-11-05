@@ -25,16 +25,13 @@ export default function ArticleJsonLd({
     headline: title,
     description,
     url: `${BASE_URL}/insights/${slug}`,
+    image: `${BASE_URL}/opengraph-image`,
     datePublished,
     dateModified: dateModified ?? datePublished,
     author: authorUrl
       ? { "@type": "Person", name: author, url: authorUrl }
       : { "@type": "Organization", name: author, url: BASE_URL },
-    publisher: {
-      "@type": "Organization",
-      name: "Northbit Labs",
-      logo: { "@type": "ImageObject", url: `${BASE_URL}/icon-512.png` },
-    },
+    publisher: { "@id": `${BASE_URL}/#organization` },
     mainEntityOfPage: { "@type": "WebPage", "@id": `${BASE_URL}/insights/${slug}` },
   };
 

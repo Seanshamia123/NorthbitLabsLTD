@@ -4,22 +4,16 @@ import FadeUp from "@/components/ui/FadeUp";
 import HeroReveal from "@/components/ui/HeroReveal";
 import { CONTACT } from "@/lib/data";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import { pageMetadata } from "@/lib/seo";
 
 const LAST_UPDATED = "2 September 2026";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Terms of Service - Northbit Labs",
-  description: "The terms that govern your use of northbitlabs.tech.",
-  alternates: { canonical: "/terms" },
-  openGraph: {
-    title: "Terms of Service - Northbit Labs",
-    description: "The terms that govern your use of northbitlabs.tech.",
-    url: "/terms",
-    type: "website",
-    locale: "en_KE",
-  },
-  twitter: { card: "summary_large_image", title: "Terms of Service - Northbit Labs" },
-};
+  description:
+    "The terms that govern your use of northbitlabs.tech.",
+  path: "/terms",
+});
 
 function H2({ children }: { children: React.ReactNode }) {
   return (

@@ -6,22 +6,14 @@ import MagneticBtn from "@/components/ui/MagneticBtn";
 import CtaPhotoSection from "@/components/ui/CtaPhotoSection";
 import { POSTS } from "@/lib/posts";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Insights - Northbit Labs",
+export const metadata = pageMetadata({
+  title: "Software & AI Insights for African SMEs | Northbit Labs",
   description:
-    "Notes on AI operations, custom software and fintech engineering in Kenya and East Africa, from the team building it.",
-  alternates: { canonical: "/insights" },
-  openGraph: {
-    title: "Insights - Northbit Labs",
-    description:
-      "Notes on AI operations, custom software and fintech engineering in Kenya and East Africa, from the team building it.",
-    url: "/insights",
-    type: "website",
-    locale: "en_KE",
-  },
-  twitter: { card: "summary_large_image", title: "Insights - Northbit Labs" },
-};
+    "Practical notes on AI automation, custom software, M-Pesa integration and fintech engineering in Kenya and East Africa, from the team building it.",
+  path: "/insights",
+});
 
 export default function InsightsPage() {
   const posts = [...POSTS].sort(

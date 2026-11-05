@@ -2,7 +2,7 @@
 
 > A technology firm based in Kiserian, Kenya that builds custom software, applies AI to streamline business operations, and provides technology consulting for SMEs across Kenya, East Africa, and clients in Europe and worldwide.
 
-Founded and led by Sean Paul Shamia (Founder & CEO). Northbit Labs works across three service lines: custom software development, AI-powered operations & automation, and technology consulting, with particular depth in fintech (CBK-compliant, AML-ready systems, Mpesa/Daraja integrations). Northbit Labs is AGPO certified in the Youth category (Kenya's Access to Government Procurement Opportunities programme, certificate NT/PPD/2026/DGY/3702, valid until 14 May 2028, verifiable at agpo.go.ke), so national and county government entities can procure its services through the AGPO procurement allocation.
+Founded and led by Sean Paul Shamia (Founder & CEO). Northbit Labs works across three service lines: custom software development, AI-powered operations & automation, and technology consulting, with particular depth in fintech (CBK-compliant, AML-ready systems, Mpesa/Daraja integrations). Northbit Labs is AGPO certified in the Youth category (Kenya's Access to Government Procurement Opportunities programme, certificate NT/PPD/2026/DGY/3702, valid until 14 May 2028, verifiable at agpo.go.ke), so national and county government entities can procure its services through the AGPO procurement allocation. Northbit Labs is also an authorised reseller of SAMFCore, the banking, payments, cards and crypto software platform of Swiss AMF AG, Switzerland.
 
 ## Key pages
 
@@ -13,7 +13,9 @@ Founded and led by Sean Paul Shamia (Founder & CEO). Northbit Labs works across 
 - [Insights](https://northbitlabs.tech/insights): Articles on AI automation, custom software and fintech engineering for African SMEs.
 - [FAQ](https://northbitlabs.tech/faq): Every commonly asked question about the company, services, pricing and industries in one place.
 - [About](https://northbitlabs.tech/about): Company background and founder.
-- [Contact](https://northbitlabs.tech/contact): Book a discovery call.
+- [Careers](https://northbitlabs.tech/careers): Working at Northbit Labs and open applications.
+- [Free Consultation](https://northbitlabs.tech/free-consultation): Request a free 30-minute technology consultation.
+- [Contact](https://northbitlabs.tech/contact): Send an enquiry through the form or book a discovery call.
 
 ## Contact
 

@@ -37,7 +37,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://northbitlabs.tech"),
-  title: "Northbit Labs · Custom Software · AI Operations · Consulting",
+  title: "Custom Software & AI Automation in Kenya | Northbit Labs",
   // Kept within Google's ~120–160 char display window so it isn't truncated
   // in search results, with the primary keywords front-loaded.
   description:

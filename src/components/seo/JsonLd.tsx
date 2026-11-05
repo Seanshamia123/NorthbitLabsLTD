@@ -1,4 +1,4 @@
-import { AGPO, CONTACT, SOCIAL } from "@/lib/data";
+import { AGPO, CONTACT, SAMFCORE, SERVICES, SOCIAL } from "@/lib/data";
 
 const BASE_URL = "https://northbitlabs.tech";
 
@@ -31,18 +31,54 @@ export default function JsonLd() {
         email: CONTACT.email,
         telephone: CONTACT.phone,
         sameAs: [SOCIAL.instagram, SOCIAL.x],
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "sales",
+          email: CONTACT.email,
+          telephone: CONTACT.phone,
+          url: `${BASE_URL}/contact`,
+          availableLanguage: "English",
+        },
         founder: {
           "@type": "Person",
+          "@id": `${BASE_URL}/about#founder`,
           name: CONTACT.founder,
           jobTitle: CONTACT.founderTitle,
+          url: `${BASE_URL}/about`,
           sameAs: [SOCIAL.linkedinFounder],
         },
         address: {
           "@type": "PostalAddress",
-          streetAddress: CONTACT.address,
-          addressLocality: CONTACT.district,
-          postalCode: CONTACT.postal,
+          streetAddress: CONTACT.streetAddress,
+          addressLocality: CONTACT.locality,
+          addressRegion: CONTACT.region,
           addressCountry: "KE",
+        },
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Northbit Labs services",
+          url: `${BASE_URL}/services`,
+          itemListElement: [
+            ...SERVICES.map((service) => ({
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: service.title,
+                url: `${BASE_URL}/services#${service.id}`,
+              },
+            })),
+            {
+              "@type": "Offer",
+              businessFunction: "http://purl.org/goodrelations/v1#Sell",
+              itemOffered: {
+                "@type": "SoftwareApplication",
+                name: SAMFCORE.name,
+                applicationCategory: "FinanceApplication",
+                url: SAMFCORE.url,
+                author: { "@type": "Organization", name: SAMFCORE.owner },
+              },
+            },
+          ],
         },
         areaServed: [
           { "@type": "Country", name: "Kenya" },

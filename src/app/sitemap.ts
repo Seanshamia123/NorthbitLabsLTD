@@ -4,8 +4,8 @@ import { POSTS } from "@/lib/posts";
 const BASE_URL = "https://northbitlabs.tech";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
-
+  // Static routes carry no lastModified: stamping them with the build date would
+  // claim every page changed on every deploy, and Google ignores unreliable dates.
   const routes: {
     path: string;
     changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
@@ -35,7 +35,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...routes.map(({ path, changeFrequency, priority }) => ({
       url: `${BASE_URL}${path}`,
-      lastModified,
       changeFrequency,
       priority,
     })),

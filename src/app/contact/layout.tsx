@@ -1,21 +1,12 @@
-import type { Metadata } from "next";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Contact - Northbit Labs",
+export const metadata = pageMetadata({
+  title: "Contact Northbit Labs | Book a Discovery Call in Kenya",
   description:
-    "Book a 30-minute discovery call or meet us in person in Kajiado North, Kenya. No pitch deck, no fluff: a clear technology direction for your business.",
-  alternates: { canonical: "/contact" },
-  openGraph: {
-    title: "Contact - Northbit Labs",
-    description:
-      "Book a 30-minute discovery call or meet us in person in Kenya. No pitch deck, no fluff.",
-    url: "/contact",
-    type: "website",
-    locale: "en_KE",
-  },
-  twitter: { card: "summary_large_image", title: "Contact - Northbit Labs" },
-};
+    "Send Northbit Labs an enquiry, book a free 30-minute discovery call or meet us in person in Kajiado North, Kenya. We respond within 24 hours.",
+  path: "/contact",
+});
 
 export default function ContactLayout({
   children,

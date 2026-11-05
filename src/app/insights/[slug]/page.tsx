@@ -11,6 +11,7 @@ import ArticleJsonLd from "@/components/seo/ArticleJsonLd";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import { POSTS, getPostBySlug } from "@/lib/posts";
 import { CONTACT } from "@/lib/data";
+import { pageMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return POSTS.map((p) => ({ slug: p.slug }));
@@ -25,20 +26,12 @@ export async function generateMetadata({
   const post = getPostBySlug(slug);
   if (!post) return {};
 
-  return {
+  return pageMetadata({
     title: `${post.title} - Northbit Labs`,
     description: post.excerpt,
-    alternates: { canonical: `/insights/${post.slug}` },
-    openGraph: {
-      title: post.title,
-      description: post.excerpt,
-      url: `/insights/${post.slug}`,
-      type: "article",
-      locale: "en_KE",
-      publishedTime: post.date,
-    },
-    twitter: { card: "summary_large_image", title: post.title },
-  };
+    path: `/insights/${post.slug}`,
+    publishedTime: post.date,
+  });
 }
 
 export default async function InsightPostPage({

@@ -6,20 +6,14 @@ import MagneticBtn from "@/components/ui/MagneticBtn";
 import CtaPhotoSection from "@/components/ui/CtaPhotoSection";
 import { AGPO, CONTACT, DIFFERENTIATORS } from "@/lib/data";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "About - Northbit Labs",
-  description: "Northbit Labs is a technology firm founded to solve a recurring problem: ambitious businesses held back by manual processes and software built for someone else.",
-  alternates: { canonical: "/about" },
-  openGraph: {
-    title: "About - Northbit Labs",
-    description: "Northbit Labs is a technology firm founded to solve a recurring problem: ambitious businesses held back by manual processes and software built for someone else.",
-    url: "/about",
-    type: "website",
-    locale: "en_KE",
-  },
-  twitter: { card: "summary_large_image", title: "About - Northbit Labs" },
-};
+export const metadata = pageMetadata({
+  title: "About Northbit Labs | Technology Firm in Kenya",
+  description:
+    "Northbit Labs is a technology firm in Kenya, founded to free ambitious businesses from manual processes and software built for someone else.",
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

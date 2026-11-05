@@ -4,22 +4,16 @@ import FadeUp from "@/components/ui/FadeUp";
 import HeroReveal from "@/components/ui/HeroReveal";
 import { CONTACT } from "@/lib/data";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import { pageMetadata } from "@/lib/seo";
 
 const LAST_UPDATED = "2 September 2026";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Privacy Policy - Northbit Labs",
-  description: "How Northbit Labs collects, uses and protects information from visitors to northbitlabs.tech.",
-  alternates: { canonical: "/privacy" },
-  openGraph: {
-    title: "Privacy Policy - Northbit Labs",
-    description: "How Northbit Labs collects, uses and protects information from visitors to northbitlabs.tech.",
-    url: "/privacy",
-    type: "website",
-    locale: "en_KE",
-  },
-  twitter: { card: "summary_large_image", title: "Privacy Policy - Northbit Labs" },
-};
+  description:
+    "How Northbit Labs collects, uses and protects information from visitors to northbitlabs.tech.",
+  path: "/privacy",
+});
 
 function H2({ children }: { children: React.ReactNode }) {
   return (

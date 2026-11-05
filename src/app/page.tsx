@@ -7,7 +7,8 @@ import IndustriesStack from "@/components/ui/IndustriesStack";
 import WorkCoverflow from "@/components/ui/WorkCoverflow";
 import HeroReveal from "@/components/ui/HeroReveal";
 import MagneticBtn from "@/components/ui/MagneticBtn";
-import { STATS, SERVICES, INDUSTRIES, CLIENTS, LOGO_CLIENTS, ACTIVE_BUILD, HOW_WE_WORK, DIFFERENTIATORS, CONTACT } from "@/lib/data";
+import ContactForm from "@/components/ui/ContactForm";
+import { STATS, SERVICES, INDUSTRIES, CLIENTS, LOGO_CLIENTS, ACTIVE_BUILD, HOW_WE_WORK, DIFFERENTIATORS, CONTACT, SAMFCORE } from "@/lib/data";
 
 export default function HomePage() {
   const pillars = SERVICES.filter((s) => s.pillar);
@@ -54,7 +55,7 @@ export default function HomePage() {
             </div>
             <FadeUp delay={0.52} style={{ marginBottom: 40 }}>
               <p style={{ fontSize: "clamp(15px,1.1vw,17px)", color: "#8A919C", maxWidth: "52ch", lineHeight: 1.65 }}>
-                We are a technology firm for operators and founders. We map the workflow your business already runs on, then build the software that makes it faster, cheaper and harder to break.
+                Northbit Labs is a custom software and AI automation firm in Kiserian, Kenya, working with operators and founders. We map the workflow your business already runs on, then build the software that makes it faster, cheaper and harder to break.
               </p>
             </FadeUp>
             <FadeUp delay={0.64}>
@@ -74,6 +75,29 @@ export default function HomePage() {
         <div className="wrap">
           <ClientsGrid clients={logoBand} />
         </div>
+      </section>
+
+      {/* RESELLER PARTNER */}
+      <section style={{ borderBottom: "1px solid #D9E1E8", background: "#F5F2EC" }}>
+        <div className="wrap">
+          <div style={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: "clamp(24px,5vw,72px)", alignItems: "center", padding: "clamp(28px,3.5vw,44px) 0" }} className="partner-row">
+            <a href={SAMFCORE.url} target="_blank" rel="noopener noreferrer" aria-label={`${SAMFCORE.name} website`} style={{ display: "block", lineHeight: 0 }}>
+              <Image src={SAMFCORE.logo} alt={`${SAMFCORE.name} logo`} width={640} height={232} sizes="176px" style={{ width: 176, height: "auto" }} />
+            </a>
+            <div>
+              <p style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 11, letterSpacing: "0.22em", textTransform: "uppercase", color: "#5C6470", marginBottom: 10 }}>
+                Authorised reseller
+              </p>
+              <p style={{ fontSize: 15, color: "#5C6470", lineHeight: 1.65, maxWidth: "68ch" }}>
+                Northbit Labs is an authorised reseller of {SAMFCORE.name}, the banking, payments, cards and crypto software platform of {SAMFCORE.owner}, Switzerland.
+              </p>
+              <p style={{ fontSize: 12, color: "#5C6470", marginTop: 8 }}>
+                {SAMFCORE.name} is a trademark of {SAMFCORE.owner}.
+              </p>
+            </div>
+          </div>
+        </div>
+        <style>{`@media (max-width: 640px) { .partner-row { grid-template-columns: 1fr !important; } }`}</style>
       </section>
 
       {/* STATS BAND */}
@@ -445,24 +469,27 @@ export default function HomePage() {
           }}
         />
         <div className="wrap" style={{ position: "relative", zIndex: 1 }}>
-          <Reveal>
-            <div style={{ maxWidth: 720 }}>
-              <h2 style={{ fontSize: "clamp(40px,5.5vw,80px)", fontWeight: 700, letterSpacing: "-0.035em", lineHeight: 0.97, color: "#F5F2EC", marginBottom: 28 }}>
-                Bring us the problem.<br />
-                <span style={{ color: "#3A5C1A" }}>We will bring the map.</span>
-              </h2>
-              <p style={{ fontSize: "clamp(15px,1.4vw,19px)", color: "#8A919C", maxWidth: "54ch", lineHeight: 1.65, marginBottom: 40 }}>
-                A 30-minute call or a physical meeting in Nairobi. No pitch deck, no fluff. We listen, ask sharper questions, and you leave with a clearer picture of what to build first.
-              </p>
-              <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-                <MagneticBtn>
-                  <Link href="/contact" className="btn btn-signal">Book a discovery call →</Link>
-                </MagneticBtn>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(40px,6vw,88px)", alignItems: "center" }} className="start-layout">
+            <Reveal>
+              <div>
+                <h2 style={{ fontSize: "clamp(40px,5vw,72px)", fontWeight: 700, letterSpacing: "-0.035em", lineHeight: 0.97, color: "#F5F2EC", marginBottom: 28 }}>
+                  Bring us the problem.<br />
+                  <span style={{ color: "#7BA84F" }}>We will bring the map.</span>
+                </h2>
+                <p style={{ fontSize: "clamp(15px,1.4vw,19px)", color: "#AAB2BC", maxWidth: "46ch", lineHeight: 1.65, marginBottom: 32 }}>
+                  Tell us what you are trying to build and we will reply within 24 hours. If we can help, we will set up a 30-minute call or a physical meeting in Nairobi. No pitch deck, no fluff.
+                </p>
                 <Link href="/work" className="btn btn-ghost btn-ghost--light">See how we have done it</Link>
               </div>
-            </div>
-          </Reveal>
+            </Reveal>
+            <Reveal delay={100}>
+              <div style={{ background: "#F5F2EC", borderRadius: 8, padding: "clamp(24px,3vw,40px)" }}>
+                <ContactForm />
+              </div>
+            </Reveal>
+          </div>
         </div>
+        <style>{`@media (max-width: 900px) { .start-layout { grid-template-columns: 1fr !important; } }`}</style>
       </section>
     </>
   );

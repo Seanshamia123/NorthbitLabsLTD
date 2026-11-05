@@ -8,20 +8,14 @@ import CtaPhotoSection from "@/components/ui/CtaPhotoSection";
 import { INDUSTRIES, INDUSTRIES_FAQS } from "@/lib/data";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Industries - Northbit Labs",
-  description: "Fintech, wellness, beauty, retail, brand building and more. Domains we know well enough to push back in.",
-  alternates: { canonical: "/industries" },
-  openGraph: {
-    title: "Industries - Northbit Labs",
-    description: "Fintech, wellness, beauty, retail, brand building and more. Domains we know well enough to push back in.",
-    url: "/industries",
-    type: "website",
-    locale: "en_KE",
-  },
-  twitter: { card: "summary_large_image", title: "Industries - Northbit Labs" },
-};
+export const metadata = pageMetadata({
+  title: "Industries We Build Software For in Kenya | Northbit Labs",
+  description:
+    "Software and AI systems for fintech, wellness, beauty, retail, logistics and healthcare businesses in Kenya and East Africa, backed by live client work.",
+  path: "/industries",
+});
 
 export default function IndustriesPage() {
   return (
