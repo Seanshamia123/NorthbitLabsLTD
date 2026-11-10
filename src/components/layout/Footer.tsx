@@ -67,6 +67,25 @@ export default function Footer() {
             <div style={{ fontFamily: "var(--font-satoshi), system-ui, sans-serif", fontSize: 10, letterSpacing: "0.22em", color: "#7C8590", textTransform: "uppercase" }}>
               SOFTWARE · ENGINEERED · NORTH
             </div>
+            {/* TechBehemoths company verification. Keep the href, the
+                data-techbehemoths-verification attribute and a dofollow rel
+                (no "nofollow") or their verification check will fail. */}
+            <a
+              href="https://techbehemoths.com/company/northbit-labs-litimed"
+              target="_blank"
+              rel="noopener"
+              data-techbehemoths-verification
+              style={{ display: "inline-block", marginTop: 24 }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://cdn.techbehemoths.com/public/static/validation/tb-verified-logo.svg"
+                alt="TechBehemoths Verification"
+                height={40}
+                loading="lazy"
+                style={{ height: 40, width: "auto", display: "block" }}
+              />
+            </a>
           </div>
 
           {/* Link cols */}
